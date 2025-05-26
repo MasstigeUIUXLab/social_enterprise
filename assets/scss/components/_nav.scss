@@ -1,6 +1,7 @@
 // nav
 .tab{
     margin-bottom: 30px;
+    overflow-x: auto;
     
     @include mdq-max(xl){
         margin-bottom: 20px;
@@ -110,6 +111,14 @@
             border-color: $color-1;
             color: #222;
             font-weight: 600;
+        }
+    }
+
+    &.v2 .nav-link{
+        &.active, &.on, &:active, &:not(:disabled):not(.disabled):active{
+            background-color:#222;
+            border-color:#222;
+            color:#fff;
         }
     }
 }

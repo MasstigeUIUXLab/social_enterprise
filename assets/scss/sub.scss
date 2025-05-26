@@ -790,6 +790,10 @@
                 width:100%;
             }
         }
+
+        .form-srch{
+            flex: 0 0 100%;
+        }
         
         .tab{
             width:100%;
@@ -809,6 +813,29 @@
         }
     }
 }
+
+.form-area{
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(24);
+
+   .form-control{
+        max-width:220px;
+        border-radius: 2em;
+
+        &.small{
+            max-width:135px;
+        }
+    }
+    
+    @include mdq-max(md){
+        gap: 10px;
+
+        .form-control{
+            max-width:calc(50% - 5px) !important;
+        }
+    }
+}  
 
 .srch-img-bx,
 .no-data-img-bx{
@@ -1504,7 +1531,7 @@
   
     @include mdq-max(lg){
       tr > *{
-        padding:12px 14px;
+        padding:10px 12px;
         font-size:14px;
       }
     }
@@ -1512,7 +1539,8 @@
     @include mdq-max(md){
       tr{
         & > *{
-            padding:10px 12px;
+            padding:6px 8px;
+            word-break: break-all;
         }
       }
     }
@@ -1545,6 +1573,11 @@
         border:1px solid #e4e4e4;
         border-radius:0;
         box-shadow:none;
+
+        .bg-body{
+            background:#F8F8F8 !important;
+            color:#222 !important;
+        }
     }
 
     &.border-top-0{
@@ -1553,18 +1586,24 @@
         }
     }
 
+     &.tb-scroll{
+        border-top: 0;
+     }
+
     @include mdq-max(md){
        &.tb-scroll{
             overflow-x:auto;
             margin-right:-20px;
+            margin-left: -20px;
             padding-right:20px;
-            border-top:0;
+            padding-left: 20px;
+            border:0 !important;
 
             .tb{
                 width:100%;
                 min-width:768px;
                 border-radius:0 !important;
-                border-top:1px solid #000;
+                // border-top:1px solid #000;
 
                 tr > * > span{
                     white-space:nowrap;
@@ -1661,45 +1700,52 @@
         }
     }
 
-    &.table-style2{
-        border-top:0;
-        border-radius:rem(20);
-        border:1px solid #e4e4e4;
-        border-collapse:separate;
+    @include mdq-min(lg){
+        &.table-style2{
+            border: 0;
+            border-radius: 12px;
+            box-shadow: 0 0 0 1px #e4e4e4;
 
-        &:not(.tb-collapse){
-            overflow:hidden;
+            &:not(.tb-collapse, .tb-scroll){
+                overflow:hidden;
+            }
+
+            .tb{
+                border:0;
+
+                thead th{
+
+                    &:first-child{
+                        border-radius:12px 0 0 0;
+                    }
+
+                    &:last-child{
+                        border-radius:0 12px 0 0;
+                    }
+                }
+
+                tr:last-child{
+                    border-bottom:0;
+                }
+
+                tbody{
+                    border-top:0;
+                }
+
+                .border-right{
+                    border-right:1px solid #e4e4e4;
+                }
+            }
         }
+    }
+    
 
-        .tb{
-            border:0;
+    @include mdq-max(md){
+        &.table-style2{
+            border-top-color: #e4e4e4;
 
-            thead th{
-
-                &:first-child{
-                    border-radius:12px 0 0 0;
-                }
-
-                &:last-child{
-                    border-radius:0 12px 0 0;
-                }
-            }
-
-            tr:last-child{
-                border-bottom:0;
-            }
-
-            tbody{
-                border-top:0;
-            }
-
-            .bg-body{
-                background:#F8F8F8 !important;
-                color:#222 !important;
-            }
-
-            .border-right{
-                border-right:1px solid #e4e4e4;
+            &:not(.tb-scroll){
+                border-top: 0;
             }
         }
     }
@@ -4621,6 +4667,14 @@
         margin-bottom:rem(40);
         font-size:rem(30);
 
+        &.gap24{
+            gap: 24px;
+        }
+
+        .tab{
+            margin-bottom: 0;
+        }
+
         .tit{
             font-size:inherit;
             font-weight:600;
@@ -5891,7 +5945,7 @@
         height:rem(40);
 
         
-        @for $i from 1 to 3{
+        @for $i from 1 to 4{
             &.icon-location-m#{$i}{
                 background-image:url(../images/sub/icon_location_m#{$i}.svg);
             }
@@ -5928,6 +5982,11 @@
         padding:rem(40);
 
         .list{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+
             .item{
                 position:relative;
                 padding-left:rem(48);
@@ -5944,17 +6003,25 @@
                 font-size:rem(30);
                 color:#000;
 
-                i, span{
+                span{
                     position:absolute;
                     top:0;
                     left:0;
                     width:40px;
                     height:40px;
                 }
+
+                & + .list-bullet{
+                    margin-top:rem(16);
+                    min-height: 0;
+                }
             }
 
             .list-bullet{
-                margin-top:rem(20);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 40px;
                 color:#666;
             }
             
@@ -5982,6 +6049,11 @@
             }
 
             .icon-bullet-chk-lg{
+                position:absolute;
+                top:0;
+                left:0;
+                width:40px;
+                height:40px;
                 background:url(../images/sub/icon_bullet_chk_lg.svg) no-repeat center / 28px auto;
             }
         }
@@ -6022,7 +6094,6 @@
 
             .list{
                 .item{
-                    padding-top:4px;
                     padding-left:32px;
 
                     &:not(:last-child){
@@ -6031,19 +6102,26 @@
                 }
     
                 .tit{
-                    font-size:17px;
+                    font-size:16px;
     
-                    i, span{
+                    span{
                        width:28px;
                         height:28px;
                     }
-                }
-    
-                .list-bullet{
-                    margin-top:10px;
+
+                    & + .list-bullet{
+                        margin-top:10px;
+                    }
                 }
 
+                .list-bullet{
+                    min-height: 0;
+                }
+    
+
                 .icon-bullet-chk-lg{
+                    width:21px;
+                    height:21px;
                     background-size:16px auto;
                 }
                 
@@ -7649,8 +7727,6 @@
 }
 
 .tb-collapse{
-    border-radius:20px 20px 0 0 !important;
-
     &.minimize{
         height:360px;
         overflow-y:scroll;
