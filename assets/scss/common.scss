@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+@import "functions";
+@import "variables";
+
+// Mixins
+@import "mixins";
+
+// Utilities
+@import "utilities";
+
+// Font-face
+@import "font-face";
+
+// Reset
+@import "reset";
+
+// Library
+@import "library";
+
+// Layout
+@import "layout";
+
+// Components
+@import "components";
+
+// Grid
+@import "grid";
+
+// Board Template
+// @import 'board';
+
+// Board Template Old Version
+@import "board.old";
+// @import "board";
+
+#wrap {
+    overflow: hidden;
+}
+
+body {
+    &.body-fixed {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &.layer-oepn {
+        overflow: hidden;
+    }
+}
+
+.container {
+    max-width: 1480px;
+}
+
+.text-primary {
+    color: $color-1 !important;
+}
+
+.text-secondary {
+    color: $gray-6 !important;
+}
+
+.flex-auto{
+    flex: 0 0 auto !important;
+}
+
+.flex-1{
+    flex: 1 !important;
+}
+
+[class^="icon-"] {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    vertical-align: top;
+    text-indent: -1000em;
+    outline: 0 !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.btn-text{
+    text-decoration: underline;
+}
+
+.link-underline{
+    position: relative;
+
+    &:after{
+        content:'';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #222;
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s;
+    }
+
+    &.on,
+    &:hover {
+        &:after {
+            transform-origin: 0% 50%;
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    &.text-blue:after{
+        background-color: #246BEB !important;
+    }
+}
+
+#skip{
+    z-index:9999;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    text-align:center;
+        
+    *{
+        list-style:none;
+        margin:0;
+        padding:0
+    }
+
+    a{
+        display:block;
+        width:100%;
+        height:0;
+        overflow:hidden;
+        white-space:nowrap;
+        
+        &:focus,
+        &:active{display:block;
+            width:100%;
+            height:36px;
+            color:#fff;
+            background:#000;
+            line-height:36px;
+            text-decoration:underline !important;font-size:14px
+        }
+    }
+}
+
+.pa0{
+    padding: 0 !important;
+}
+
+.row{
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+[class^=col] {
+    padding-right: 12px;
+    padding-left: 12px
+}
