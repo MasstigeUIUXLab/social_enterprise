@@ -218,6 +218,20 @@
 					font-weight: 600;
 					border-bottom: 1px solid #E3E3E3;
 				}
+
+				&.divide-2{
+					width: 50%;
+
+					.inner{
+						display: flex;
+    					gap: 48px;
+						width: 100%;
+					
+						.nav-list--depth3{
+							width: calc( 50% - 24px );
+						}
+					}
+				}
 			}
 
 			.nav-list--depth3{
@@ -225,9 +239,10 @@
 				margin-top: 14px;
 			}
 
-			.depth-3{
+			.depth-3 .link{
+				display: block;
 				position: relative;
-				padding: 6px 0;
+				padding: 6px 24px 6px 0;
 				font-size: 16px;
 				font-weight: 400;
 				color: #666;
@@ -244,6 +259,7 @@
 					height: 20px;
 					background: url(../images/common/icon_submenu_on.svg) no-repeat center / 100% auto;
 					opacity: 0;
+					transition: 0.15s;
 				}
 
 				&:hover, &.on{
@@ -454,6 +470,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 			margin-bottom: 12x;
 		}
 	}
+
 	.depth-3 {
 		> .link {
 			display: block;
@@ -508,8 +525,6 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		overflow: hidden !important;
 	}
 }
-
-
 
 [lang="en"], .translated-ltr{
 	.header .nav {
