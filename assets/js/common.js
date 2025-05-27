@@ -294,6 +294,38 @@ $(document).ready(function () {
 		$('#quick').toggleClass('on');
 	});
 
+  // 웹접근성
+  let focusAbleElement = 'a[href], input:not([disabled]), select:not([disabled]), button:not([disabled]), [tabindex="0"]';
+  console.log('.nav');
+  $('.header .nav').find(focusAbleElement).last().on("keydown", function(e) {
+    console.log('키다운');
+    if (e.keyCode == "9" && e.shiftKey) {
+      console.log($(this), '마지막요소 떠나기');
+    } else {
+      console.log($(this),'마지막요소 진입');
+      $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
+      $('.nav__bg, .submenu').hide();
+    }
+  });
+  
+  $('.header__wrap').find(focusAbleElement).first().on("keydown", function(e) {
+    if (e.keyCode == "9" && e.shiftKey) {
+    } else {
+      console.log($(this), '처음요소 진입')
+      $('#header').addClass('gnb-hover');
+    }
+  });
+  
+  $('.header .nav').find(focusAbleElement).first().on("keydown", function(e) {
+
+    if (e.keyCode == "9" && e.shiftKey) {
+      console.log($(this), '처음요소 떠나기')
+      $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
+      $('.nav__bg, .submenu').hide();
+    }
+  })
+
+
   // modal
   /* $(document).on('show.bs.modal', '.modal', function() {
     const zIndex = 1040 + 10 * $('.modal:visible').length;

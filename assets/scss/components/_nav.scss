@@ -1,14 +1,15 @@
 // nav
 .tab{
     margin-bottom: 30px;
-    overflow-x: auto;
     
     @include mdq-max(xl){
+        overflow-x: auto;
         margin-bottom: 20px;
         margin-left: -20px;
         margin-right: -20px;
 
         .nav{
+            overflow-x: auto;  
             padding: 0 20px;
         }
     }
@@ -17,8 +18,6 @@
 .nav{
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;    
     background: #fff;
         
     &::-webkit-scrollbar {
