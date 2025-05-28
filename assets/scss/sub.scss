@@ -817,19 +817,26 @@
 .form-area{
     display: flex;
     flex-wrap: wrap;
-    gap: rem(24);
+    gap: 8px;
+    flex: 1;
 
    .form-control{
         max-width:220px;
-        border-radius: 2em;
+        border-radius: 2em;    
+        font-weight: 400;
 
         &.small{
             max-width:135px;
         }
     }
+
+    .txt{
+        margin-bottom: 4px;
+    }
     
     @include mdq-max(md){
         gap: 10px;
+        flex: 0 0 100% !important;
 
         .form-control{
             max-width:calc(50% - 5px) !important;
@@ -4080,14 +4087,20 @@
     &.bx-pinkivory{
         border:1px solid #FFF3EB !important;
     }
+
+    &.border-0{
+        border: 0 !important;
+    }
 }
 
 .bg-gray{
     background:#F8F8F8 !important;
+    border-color: #f8f8f8 !important;
 }
 
 .bg-white{
     background:#fff !important;
+    // border-color: #e3e3e3 !important;
 }
 
 .img-wrp{
@@ -5182,9 +5195,38 @@
        }
    }
 
-    &-list > li + li{
-       margin-top:rem(100);
-   }
+    &-list {
+        &.sm{
+            .bx-cont-hd {
+                margin-bottom: 10px;
+                font-size: rem(18);
+
+                & + *{
+                    margin-top: 0;
+                }
+                
+                .num{
+                    flex: 0 0 24px;
+                    height: 24px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    line-height: 24px;
+
+                    & + *{
+                        padding-top: 0;
+                    }
+                }
+            }
+
+            & > li + li{
+                margin-top: 10px;
+            }
+        }
+
+        & > li + li{
+            margin-top:rem(100);
+        }
+    }
 
     &-hd{
        display:flex;
@@ -5230,8 +5272,16 @@
            background:#FFF1D9;
            color:#666;
 
-           & > *:not(.tit, :first-child){
+           & > *:not(.tit, :first-child, .bx-cont-list){
                margin-top:12px;
+           }
+
+           & > .bx-cont-list{
+                margin-top: 10px;
+           }
+
+           & > .list-bullet > li + li{
+             margin-top: 6px;
            }
        }
 
@@ -8516,6 +8566,10 @@
 
         .bx{
             padding:0;
+        }
+
+        .txt-area{
+            flex: 1;
         }
     }
 
