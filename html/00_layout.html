@@ -667,9 +667,19 @@
 	</div>
 	<!-- // loading image -->
 
+<!-- [D] 05-28 추가 -->
+<nav id="indexNav">
+	<a href="#firstSection" data-id="0">섹션1로 이동</a>
+	<a href="#secondSection" data-id="1">섹션2로 이동</a>
+	<a href="#thirdSection" data-id="2">섹션3로 이동</a>
+	<a href="#fourthSection" data-id="3">섹션4로 이동</a>
+	<a href="#fifthSection" data-id="4">푸터로 이동</a>
+</nav>
+<!-- // -->
+
 <!-- 페이지시작 -->
 <div id="indexContainer">
-	<section class="main-section ms1">
+	<section class="main-section ms1" data-anchor="firstSection">
 		<div class="section-inner">
 			<div class="swiper swiper-visual">
 				<ul class="swiper-wrapper">
@@ -707,7 +717,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="main-section ms2">
+	<section class="main-section ms2" data-anchor="secondSection">
 		<div class="section-inner">
 			<div class="container">
 				<div class="board-control">
@@ -901,7 +911,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="main-section ms3">
+	<section class="main-section ms3" data-anchor="thirdSection">
 		<div class="section-inner">
 			<div class="sect-menu">
 				<div class="container">
@@ -1016,7 +1026,7 @@
 			</div>
 		</div>
 	</section> 
-	<section class="main-section ms4">
+	<section class="main-section ms4" data-anchor="fourthSection">
 		<div class="section-inner">
 			<div class="container">
 				<div class="sect-hd">
@@ -1060,7 +1070,7 @@
 	</section>
 	
 	<!-- footer -->
-	<div class="main-section fp-auto-height">
+	<div class="main-section fp-auto-height" data-anchor="fifthSection">
 		<footer id="footer" class="footer">
 			<div class="footer__wrap">
 				<div class="container">
@@ -1182,7 +1192,7 @@
                     
                     // 첫 번째 탭('전체')에서 Shift + Tab을 누르면 이전 영역으로 이동
                     if (currentTab.textContent.trim() === '전체') {
-                        const prevSection = document.querySelector('.swiper-visual');
+                        const prevSection = document.querySelector('.category-list > li:first-child');
                         if (prevSection) {
                             prevSection.querySelector('a').focus();
                         }

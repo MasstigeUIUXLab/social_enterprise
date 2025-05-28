@@ -5,23 +5,63 @@ $(document).ready(function() {
 		sectionSelector: '.main-section',
 		easing: 'easeInOutCubic',
 		easingcss3: 'ease',
-		scrollingSpeed: 1000,
+		scrollingSpeed: 500,
 		navigation: false,
 		controlArrows: false,
 		anchors: ['firstSection', 'secondSection', 'thirdSection', 'fourthSection', 'fifthSection'],
 		responsiveWidth: 1401,
-		afterSlideLoad: function( anchorLink, index, slideAnchor, slideIndex) {
+		'afterLoad': function( anchorLink, index, slideAnchor, slideIndex) {
 			if(anchorLink == 'fifthSection' && slideIndex == 1) {
 				$.fn.fullpage.setAllowScrolling(false, 'up');
-			}
+			}	
+			focusTrapping();	
 		},
 	
-		onSlideLeave: function( anchorLink, index, slideIndex, direction) {
+		'onLeave': function( anchorLink, index, slideIndex, direction) {
 			if(anchorLink == 'fifthSection' && slideIndex == 1) {
 				$.fn.fullpage.setAllowScrolling(true, 'up');
 			}
+			focusTrapping();
 		} 
 	}); 
+
+	function focusTrapping(){
+		const focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
+		const activeSection = $('.main-section').filter('.active');
+		const focusableContent = $(activeSection).find(focusableElements);
+		const firstFocusableElement = focusableContent[0];
+		const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+		$(activeSection).on('keydown', function(e){
+			let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+			
+			if( !isTabPressed ){ return; }
+			
+			if( e.shiftKey ){
+				if( document.activeElement === firstFocusableElement ){
+					console.log('첫번째요소에서 역순');
+					// $.fn.fullpage.setAllowScrolling(true, 'up');
+
+					var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
+					element.click();
+					activeSection.prev().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').last().focus();
+				}
+				
+			}else{
+				if( document.activeElement === lastFocusableElement ){
+					if(activeSection.index() === $('.main-section').length - 1){
+						return false;
+					} else {
+						var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()+1))[0];
+						element.click();
+						activeSection.next().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').first().focus();
+					}
+				}
+			}
+
+			console.log(document.activeElement);
+		});
+	}
 	
 	var visualSwiper = new Swiper(".swiper-visual", {
 		speed: 1200,

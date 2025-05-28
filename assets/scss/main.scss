@@ -252,6 +252,11 @@
                             background-color: #F9C032;
                             pointer-events: none;
                         }
+
+                        &:focus-visible {
+                            outline: 1px solid;
+                            box-shadow: 0 0 0 2px;
+                        }
                     }
                 }
             }
@@ -580,7 +585,7 @@
                         }
                     }
 
-                    &:hover{
+                    &:hover, &:focus-visible{
                         .cover{
                             opacity: 1;
                         }
@@ -1161,3 +1166,36 @@
         transform: translateY(-50%);
     }
 }    
+
+#indexNav{
+    z-index:9999;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    text-align:center;
+        
+    *{
+        list-style:none;
+        margin:0;
+        padding:0
+    }
+
+    a{
+        display:block;
+        width:100%;
+        height:0;
+        overflow:hidden;
+        white-space:nowrap;
+        
+        &:focus,
+        &:active{display:block;
+            width:100%;
+            height:36px;
+            color:#fff;
+            background:#000;
+            line-height:36px;
+            text-decoration:underline !important;font-size:14px
+        }
+    }
+}
