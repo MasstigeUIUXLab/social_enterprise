@@ -2560,7 +2560,7 @@
 
     .txt-area{
         .tit{
-            margin-bottom:rem(40);
+            margin-bottom:rem(24);
             font-size:rem(32);
             font-weight:700;
             line-height:1.375;
@@ -8003,10 +8003,11 @@
         }
 
         .bx{
-            display:inline-block;
-            padding:20px 24px;
-            margin-bottom:1em;
-            font-size:20px;
+            display: inline-block;
+            padding: 14px 16px;
+            margin-bottom: 1em;
+            font-size: 20px;
+            border-radius: 8px;
         }
 
         .btn-area{
@@ -8513,6 +8514,7 @@
 
 .prweekly-sc1{
     gap:24px 0;
+
     .bx{
         display:flex;
         flex-direction:column;
@@ -9098,12 +9100,6 @@
         .item{
             flex:0 0 50%;
             max-width:50%;
-
-            & > *:before{
-                width:20px;
-                height:20px;
-                background-size:16px auto;
-            }
         }
 
         .inner{
@@ -9124,6 +9120,83 @@
         .num{
             margin-bottom:10px;
             font-size:12px;
+        }
+    }
+}
+
+.academy-sc2{
+    .list-type-box{
+        margin-right: -36px;
+        margin-left: -36px;
+
+        .item{
+            flex:1;
+            padding:0 36px;
+
+            & > *{
+                position:relative;
+
+                &:before{
+                    content:'';
+                    position:absolute;
+                    top:50%;
+                    right:calc( 100% );
+                    width:72px;
+                    height:72px;
+                    background:url(../images/sub/icon_process_arr.svg) no-repeat center / 24px auto;
+                    transform:translateY(-50%);
+                }
+            }
+
+            &:first-child{
+                & > *:before{
+                    display:none !important;
+                }
+            }
+        }
+
+        @include mdq-max(lg){
+            margin-right:-24px;
+            margin-left:-24px;
+
+            .item{
+                padding:0 24px;
+
+                & > *:before{
+                    width:48px;
+                    height:48px;
+                    background-size:20px auto;
+                }
+
+                .inner-group{
+                    gap:8px 0;
+                }
+            }
+            
+            .inner{
+                padding:24px;
+            }
+
+            .tit{
+                font-size:18px;
+            }
+        }
+        
+        @include mdq-max(md){
+            margin-right:-12px;
+            margin-left:-12px;
+
+            .item{
+                flex:0 0 50%;
+                max-width:50%;
+                padding:0 12px;
+
+                & > *:before{
+                    width:24px;
+                    height:24px;
+                    background-size:16px auto;
+                }
+            }
         }
     }
 }
@@ -9533,6 +9606,75 @@
                 & + .group{
                     margin-top:12px;
                 }
+            }
+        }
+    }
+}
+
+.forum-sc1{
+    align-items: center;
+    gap:24px 0;
+    
+    .txt-area{
+        display:flex;
+        flex-direction:column;
+        gap:rem(40);
+        padding-left: 16px;
+
+        .tit{
+            flex:1;
+            font-weight:600;
+            font-size:rem(30);
+            line-height:1.333;
+
+            span{
+                display:inline-block;
+                position:relative;
+                padding-bottom:0.5333em;
+
+                &:after{
+                    content:"";
+                    position:absolute;
+                    bottom:0;
+                    left:0;
+                    width:80%;
+                    height:4px;
+                    background:#F18435;
+                }
+            }
+        }
+
+        .txt{
+            font-weight:400;
+            font-size:rem(24);
+            text-align:left;
+        }
+
+        .btn-wrp{
+            margin:0;
+        }
+        
+        @include mdq-max(lg){
+            padding-left: 0;
+            gap: 24px;
+
+            .tit{
+                font-size: 22px;
+            }
+
+            .txt{
+                font-size: 18px;
+            }
+        }
+
+        @include mdq-max(md){
+
+            .tit{
+                font-size:20px;
+            }
+
+            .txt{
+                font-size:16px;
             }
         }
     }
