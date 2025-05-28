@@ -34,7 +34,7 @@
 		> .link {
 			position: relative;
 			height: $nav-height;
-			padding: 0 2.6vw;
+			padding: 0 28px;
 			display: flex;
 			align-items: center;
             justify-content: center;
@@ -43,10 +43,6 @@
 			font-size: em(18);
 			font-weight: 500;
 			line-height: 1.1667;
-			
-			@include mdq-min(xxl) {
-				min-width: 132px;
-			}
 			
 			&:after{
 				content:'';
@@ -81,16 +77,16 @@
 
 			&.on {
 				&::after {
-					width: calc(100% - 2.6vw * 2);
-					left: 2.6vw;
+					width: calc(100% - 28px * 2);
+					left: 28px;
 				}
 			}
 		}
 
 		&.hover {
 			> .link::after {
-				width: calc(100% - 2.6vw * 2);
-				left: 2.6vw;
+				width: calc(100% - 28px * 2);
+				left: 28px;
 			}
 
 			// .nav-list--depth2{
@@ -327,7 +323,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 			justify-content: center;
 		}
 		@include mdq-max(lg) {
-			right: 10px; 
+			right: 4px; 
 			height: $nav-height-lg;
 			font-size: 28px;   
 		}
@@ -357,10 +353,10 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		border-bottom: 1px solid #ddd;
 
 		.logo {
-			padding: 0 rem(20);
+			padding: 0 10px;
 
 			img {
-				height: 30px;
+				height: 24px;
 			
 				& + img{
 					margin-left: 8px;
@@ -369,11 +365,15 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		}
 
 		.lang-area{
-			display: none;
+			display: block;
 			position: absolute;
 			top: 50%;
 			right: 48px;
 			transform: translateY(-50%);
+
+			.btn-lang{
+				padding: 8px 10px;
+			}
 		}
 
 		.logo-bx {
@@ -384,27 +384,17 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		}
 
 		.nav-mobile__btn{
-			font-size: 32px;
+			font-size: 24px;
 			color: #222 !important;
+		
+			.xi-close{
+				font-size: 20px;
+			}
 		}
 		
 		@include mdq-max(lg) {
 			height: $nav-height-lg;
 			
-		}
-		
-		@include mdq-max(sm) {
-			.logo img{
-				height: 28px;
-			}
-			
-			.lang-area{
-				display: flex;
-			}
-			
-			.nav-mobile__btn{
-				font-size: 24px;
-			}
 		}
 	}
 	&__body {
@@ -467,7 +457,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		}
 
 		&:first-child > .link {
-			padding-top: 10px;
+			padding-top: 12px;
 		}
 		&:last-child {
 			margin-bottom: 12px;

@@ -69,7 +69,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
       height: $nav-height-lg;
 
       .logo img{
-        height: 36px;
+        height: 30px;
       }
     }
   }
@@ -80,7 +80,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
         }
 
         .logo img{
-          height: 30px;
+          height: 28px;
         }
       }
   }
@@ -286,11 +286,16 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
   }
 
   @include mdq-max(lg) {
-    right: 60px;
+    right: 54px;
     height: $nav-height-lg;
 
     .lang-area{
       margin: 0;
+    }
+
+    .btn-srch{
+      width: 18px;
+      height: 18px;
     }
   }
   
@@ -300,8 +305,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
     }
 
     .btn-srch{
-      width: 18px;
-      height: 18px;
+      margin: 0;
     }
   }
 
