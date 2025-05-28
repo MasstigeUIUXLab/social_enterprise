@@ -727,8 +727,8 @@
 						<h2 class="tit">센터 정보</h2>
 					</div>
 					<div class="sect-hd align-items-end mb-5">
-						<div class="form-area order-2 order-md-1">
-							<p class="txt font-weight-semibold">센터 선택</p>
+						<div class="form-area">
+							<span class="txt font-weight-semibold d-none d-lg-block">센터 선택</span>
 							<select name="select1" class="form-control">
 								<option value="" selected>서울통합센터</option>
 								<option value="">옵션2</option>
@@ -738,12 +738,13 @@
 								<option value="">옵션2</option>
 							</select>
 						</div>
-						<div class="btn-area ml-auto order-1 order-md-2">
+						<div class="btn-area ml-auto d-none d-lg-block">
 							<a href="#" class="btn btn-xl btn-yellow">성장지원센터 입주 공고 바로가기<i class="icon-arr-blk"></i></a>
 						</div>
 					</div>
 					<div class="sect-body">
-						<div class="tb-wrap tb-scroll table-style2">
+						<!-- [D] PC 노출 -->
+						<div class="tb-wrap table-style2 d-none d-lg-block">
 							<table class="tb">
 								<caption>
 									<span>조회할 센터의 명칭, 개소일, 주소, 면적, 전화번호, 대관, 시설 정보 테이블입니다.</span>
@@ -757,19 +758,29 @@
 								<tbody>
 									<tr>
 										<th scope="row">명칭</th>
-										<td class="text-left">서울1(성수) 성장지원센터</td>
+										<td class="text-left">
+											서울1(성수) 성장지원센터
+										</td>
 										<th scope="row">개소일</th>
-										<td class="text-left">2017.4.12</td>
+										<td class="text-left">
+											2017.4.12
+										</td>
 									</tr>
 									<tr>
 										<th scope="row">주소</th>
-										<td class="text-left">서울특별시 성동구 광나루로 286 아인빌딩 8~9층</td>
+										<td class="text-left">
+											서울특별시 성동구 광나루로 286 아인빌딩 8~9층
+										</td>
 										<th scope="row">면적</th>
-										<td class="text-left">1,350㎡ (409평)</td>
+										<td class="text-left">
+											1,350㎡ (409평)
+										</td>
 									</tr>
 									<tr>
 										<th scope="row">전화번호</th>
-										<td class="text-left">02-467-2510</td>
+										<td class="text-left">
+											02-467-2510
+										</td>
 										<th scope="row">대관</th>
 										<td class="text-left">
 											<a href="#" class="btn btn-xl btn-white">대관신청 바로가기<i class="icon-arr-blk"></i></a>
@@ -777,10 +788,73 @@
 									</tr>
 									<tr>
 										<th scope="row">시설</th>
-										<td colspan="3" class="text-left">소셜라운지 (60인석), 이벤트 홀 (100인석), 중회의실 (10인석), 화상회의실 (10인석), 소회의실 (6인석), 소셜큐브 (2인석, 24개), 공유스튜디오</td>
+										<td colspan="3" class="text-left">
+											소셜라운지 (60인석), 이벤트 홀 (100인석), 중회의실 (10인석), 화상회의실 (10인석), 소회의실 (6인석), 소셜큐브 (2인석, 24개), 공유스튜디오
+										</td>
 									</tr>
 								</tbody>
 							</table>
+						</div>
+						<!-- // -->
+						<!-- [D] MO 노출 -->
+						<div class="tb-wrap table-style2 d-lg-none">
+							<table class="tb">
+								<caption>
+									<span>조회할 센터의 명칭, 개소일, 주소, 면적, 전화번호, 대관, 시설 정보 테이블입니다.</span>
+								</caption>
+								<colgroup>
+									<col style="width: 24%">
+									<col style="width: calc( 100% - 24% )">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">명칭</th>
+										<td class="text-left">
+											서울1(성수) 성장지원센터
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">개소일</th>
+										<td class="text-left">
+											2017.4.12
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">주소</th>
+										<td class="text-left">
+											서울특별시 성동구 광나루로 286 아인빌딩 8~9층
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">면적</th>
+										<td class="text-left">
+											1,350㎡ (409평)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">전화번호</th>
+										<td class="text-left">
+											02-467-2510
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">대관</th>
+										<td class="text-left">
+											<a href="#" class="btn btn-xl btn-white">대관신청 바로가기<i class="icon-arr-blk"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">시설</th>
+										<td colspan="3" class="text-left">
+											소셜라운지 (60인석), 이벤트 홀 (100인석), 중회의실 (10인석), 화상회의실 (10인석), 소회의실 (6인석), 소셜큐브 (2인석, 24개), 공유스튜디오
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- // -->
+						<div class="btn-area text-right d-lg-none">
+							<a href="#" class="btn btn-xl btn-yellow">성장지원센터 입주 공고 바로가기<i class="icon-arr-blk"></i></a>
 						</div>
 					</div>
 				</div>

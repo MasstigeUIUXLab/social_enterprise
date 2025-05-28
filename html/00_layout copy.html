@@ -69,16 +69,10 @@
 <script src="../assets/js/common.js"></script>
 <!-- [D] * only main -->
 <link rel="stylesheet" href="../assets/css/main.css" />
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/main2.js"></script>
 <!-- [D] * only sub -->
 <!-- <link rel="stylesheet" href="../assets/css/sub.css" /> -->
 <title></title>
-<style>
-[role="tab"]:focus {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
-}
-</style>
 </head>
 <!-- 
 [D] 
@@ -672,9 +666,23 @@
 		<img src="../assets/images/icon/loading.svg" alt="loading" />
 	</div>
 	<!-- // loading image -->
-<a href="#secondSection" class="btn">
-	<span>섹션2로 이동</span>
-</a>
+<nav id="lnb" style="position:fixed;top:50%;left:50px;transform:translateY(-50%);z-index: 10;">
+	<a href="#firstSection">
+		<span>섹션1로 이동</span>
+	</a>
+	<a href="#secondSection">
+		<span>섹션2로 이동</span>
+	</a>
+	<a href="#thirdSection">
+		<span>섹션3로 이동</span>
+	</a>
+	<a href="#fourthSection">
+		<span>섹션4로 이동</span>
+	</a>
+	<a href="#fifthSection">
+		<span>푸터로 이동</span>
+	</a>
+</nav>
 <!-- 페이지시작 -->
 <div id="indexContainer">
 	<section class="main-section ms1" data-anchor="firstSection">
