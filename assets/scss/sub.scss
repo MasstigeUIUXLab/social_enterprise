@@ -5317,6 +5317,17 @@
         }
     }
 
+    .txt-bx{
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background-color: transparent !important;
+
+        p + p{
+            margin-top: 0;
+        }
+    }
+
     &.lg{
         margin-top:rem(100);
         padding:0;
