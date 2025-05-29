@@ -2901,7 +2901,7 @@
         & > .txt{
             font-weight:400;
             font-size:rem(30);
-            line-height:133.333%;
+            line-height:1.334;
         }
 
         * + .txt{
@@ -2974,8 +2974,14 @@
     }
 
     &.bx-top{
-        .txt-area > .txt{
-            font-weight: 600;
+        .txt-area {
+            & > .tit ~ .txt{
+                font-weight: 400;
+            }
+
+            & > .txt{
+                font-weight: 600;
+            }
         }
     }
 
