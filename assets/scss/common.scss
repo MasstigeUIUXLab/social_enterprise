@@ -90,6 +90,10 @@ body {
 .btn-text{
     text-decoration: underline;
     text-underline-offset: 0.2em;    
+
+    &.text-blue2{
+        color: $blue;
+    }
 }
 
 .link-underline{
@@ -166,6 +170,18 @@ body {
 [class^=col] {
     padding-right: 12px;
     padding-left: 12px
+}
+
+@include mdq-max(md){
+    .row{
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+
+    [class^=col] {
+        padding-right: 8px;
+        padding-left: 8px
+    }
 }
 
 .img-fluid{
