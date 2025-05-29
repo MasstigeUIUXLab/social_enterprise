@@ -62,7 +62,7 @@
   }
 
   @include hover {
-    background: #fefefe !important;
+    background: #fefefe;
   }
 
   &-white {
@@ -116,6 +116,11 @@
     background: #1D1D1D !important;
     border-color: #1D1D1D !important;
     color: #fff !important;
+   
+    @include hover {
+      background: #fff !important;
+      color: #222 !important;
+    }
   }
   
   &-yellow {

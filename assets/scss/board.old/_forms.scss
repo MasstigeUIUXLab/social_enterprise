@@ -100,15 +100,26 @@ select {
 		padding-right: 60px !important;
 	}
 
-    @include mdq-max(md) {
-		height: 48px;
-		font-size: 14px;
-		
-		&.form-icon{
-			padding-right: 48px !important;
-		}
-	}
+    @include mdq-max(lg) {
+        height: $form-control-height-lg;
+        // font-size: 14px;
+        padding: 0 10px;
 
+        &.form-icon{
+            padding-right: 40px !important;
+        }
+	}
+}
+
+
+.input-cover{
+    @extend %form-control;  
+    
+    &:focus-within{
+        outline: 1px solid #407aec;
+        -webkit-box-shadow: 0 0 0 2px #407aec;
+        box-shadow: 0 0 0 2px #407aec;
+    }
 }
 
 .form-btn{
@@ -135,9 +146,12 @@ select {
 }
 
 textarea{
-    @extend %form-control;
-    padding: em(20);
-    height: auto;
+    &.form-control{
+      @extend %form-control;
+      padding: em(20);
+      height: auto;
+      line-height: 1.334;
+    }
 }
 
 select{
