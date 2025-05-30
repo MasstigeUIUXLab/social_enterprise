@@ -81,7 +81,7 @@ select {
     box-shadow: none !important;
     font-size: 16px;
     line-height: 1;
-    font-weight: 600;
+    font-weight: 400;
     color: #222;
     text-align: left;
     appearance: none;
@@ -99,6 +99,17 @@ select {
 	&.form-icon{
 		padding-right: 60px !important;
 	}
+
+    &.style01{
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid #ececec;
+    }
+    
+    &.no-style{
+        padding: 0;
+        border: 0;
+    }
 
     @include mdq-max(lg) {
         height: $form-control-height-lg;

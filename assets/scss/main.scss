@@ -603,8 +603,10 @@
                         }
                         
                         @media(hover: hover) and (pointer: fine) {
-                            .cover{
-                                opacity: 1;
+                            &:hover{
+                                .cover{
+                                    opacity: 1;
+                                }
                             }
                         }
                     }
