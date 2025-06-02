@@ -166,37 +166,71 @@ textarea{
 }
 
 select{
-    @extend %form-control;
-    padding-right: 50px !important;
-    background: url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
+    &.form-control{
+        @extend %form-control;
+        padding-right: 50px !important;
+        background: url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
 
-    &.no-style{
-        background: none !important;
+        &.no-style{
+            background: none !important;
+        }
+
+        &:focus{
+            background-image: url(../images/common/icon_form_arr_on.svg);
+        }
+
+        option{
+            font-weight: inherit;
+        }
+
+        @include mdq-max(md) {
+            padding-right: 32px !important;
+            background-position: center right 10px;
+            background-size: 16px auto;
+        }
     }
-
-    &:focus{
-        background-image: url(../images/common/icon_form_arr_on.svg);
-    }
-
-    option{
-        font-weight: inherit;
-    }
-
-    @include mdq-max(md) {
-		padding-right: 48px !important;
-		background-position: center right 16px;
-		background-size: 16px auto;
-	}
 }
 
 .dropdown {
     &.form-control{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         padding-right: 64px;
         background: url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
-    }
 
-    &.form-control.show{
-        background-image: url(../images/common/icon_form_arr_on.svg);
+        .dropdown-toggle{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left: 16px;
+            padding-right: 64px;
+            width: 100%;
+            height: 100%;
+        }
+
+        &.show{
+            background-image: url(../images/common/icon_form_arr_on.svg);
+        } 
+
+        .dropdown-item{
+            padding:6px 4px;
+            font-size: 15px;
+        }
+        
+        @include mdq-max(md) {
+            padding-right: 32px;
+            background-position: center right 10px;
+            background-size: 16px auto;
+
+            .dropdown-toggle{
+                padding-right: 32px;
+            }
+
+            .dropdown-item{
+                font-size: 14px;
+            }
+        }
     }
 }
 

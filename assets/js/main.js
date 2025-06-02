@@ -190,10 +190,10 @@ $(document).ready(function() {
 		speed: 1200,
 		slidesPerView: 1.25, 
 		spaceBetween : 24, 
-		autoplay: {
-		  delay: 6000,
-		  disableOnInteraction: false,	
-		},
+		// autoplay: {
+		//   delay: 6000,
+		//   disableOnInteraction: false,	
+		// },
 		breakpoints: {
 			1400: {
 			  slidesPerView: 4,

@@ -45,6 +45,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
   
   &.gnb-hover {
     background-color: #fff;
+    z-index: 600;
 
     &:before {
       opacity: 1;
