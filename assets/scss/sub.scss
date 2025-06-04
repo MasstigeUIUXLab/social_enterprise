@@ -732,12 +732,16 @@
     &.scrollUp{
         .lnb{
             transform:translateY(0%);
+            visibility: visible;
+            opacity: 1;
         }
     }
 
     &.scrollDown{
         .lnb{
             transform:translateY(-100%);
+            visibility: hidden;
+            opacity: 0;
         }
     }
 }
