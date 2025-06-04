@@ -1364,6 +1364,12 @@
     }
 }
 
+.list-bullet, .bullet{
+    &.font-inherit{
+        font-size: inherit !important;
+    }
+}
+
 .btn-back{
     display:inline-flex;
     align-items:center;
@@ -4418,6 +4424,7 @@
     border-radius:rem(8);
     color:#222;
     font-weight:400;
+    line-height: 1.3334;
 
     &.sm{
         padding: 20px;
@@ -4437,12 +4444,12 @@
         margin-top:5px;
     }
 
-    .bullet{
+    .bullet:not(.txt){
         font-size:1rem;
-        
-        & + .bullet{
-            margin-top:0;
-        }
+    }
+
+    .bullet + .bullet{
+        margin-top:0;
     }
 
     .tit{
@@ -4451,6 +4458,10 @@
         font-size:rem(24);
         font-weight:600;
         color: #222;
+    }
+
+    & > * + .tit{
+        margin-top: 40px;
     }
 
     .sub-tit{
@@ -4487,12 +4498,23 @@
     .sub{
         font-size:rem(20);
     }
+
+    .txt-block{
+        & > li + li{
+            margin-top: rem(40);
+        }
+    }
     
     @include mdq-max(md){
         padding:20px;
 
         .tit{
             font-size:16px;
+            margin-bottom: 10px;
+        }
+
+        & > * + .tit{
+            margin-top: 20px;
         }
 
         .sub-tit{
@@ -4505,7 +4527,13 @@
 
         .txt{
             &:not(:first-child){
-                margin-top:12px;
+                margin-top:10px;
+            }
+        }
+
+        .txt-block{
+            & > li + li{
+                margin-top: 20px;
             }
         }
     }
@@ -5403,6 +5431,27 @@
     width:rem(18);
     height:rem(16);
     background-image:url(../images/sub/icon_download_blk.svg);
+}
+
+.icon-facebook{
+    flex:0 0 auto;
+    width:rem(24);
+    height:rem(24);
+    background-image:url(../images/sub/icon_facebook.svg);
+}
+
+.icon-ytb{
+    flex:0 0 auto;
+    width:rem(24);
+    height:rem(24);
+    background-image:url(../images/sub/icon_ytb.svg);
+}
+
+.icon-instagram{
+    flex:0 0 auto;
+    width:rem(24);
+    height:rem(24);
+    background-image:url(../images/sub/icon_instagram.svg);
 }
 
 .icon-view-gray{
@@ -10900,5 +10949,115 @@
     
     &.red:before{
          color:#E60411;
+    }
+}
+
+.coop-biz-bx{
+    display: flex;
+    gap: 24px;
+
+    & > *{
+        margin: 0;
+        
+        &:first-child{
+            flex-basis: 23.75%;
+            padding: rem(40) rem(30);
+            border-radius: rem(20);
+            border: 1px solid #E3E3E3;
+            box-shadow: 4px 4px rem(20) 0px rgba(0, 0, 0, 0.05);
+            background: #FFF;
+
+            .txt-area{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+        }
+
+        &:last-child{
+            flex: 1;
+            padding: rem(40) rem(60);
+            border-radius: rem(20);
+        }
+    }
+
+    .i-wrp{
+        display: flex;
+        align-items: flex-end;
+
+        margin-top: rem(46);
+
+        [class^=icon]{
+            width:rem(120);
+            height:rem(120);
+            
+            @for $i from 1 to 6{
+                &.icon-coop-biz#{$i}{
+                    background-image:url(../../assets/images/sub/icon_coop_biz#{$i}.png);
+                }
+            }
+        }
+    }
+
+    & + .btn-wrp{
+        margin-top: rem(40);
+
+        .btn{
+            justify-content: space-between;
+            min-width: 160px;
+            padding: 0.75em 1.5em;
+        }
+    }
+        
+    @include mdq-max(lg){
+        & > *{
+            &:first-child{
+                flex-basis: 28%;
+                padding: rem(30) rem(32);
+            }
+
+            &:last-child{
+                flex: 1;
+                padding: rem(30) rem(40);
+            }
+        }
+        
+        .i-wrp{
+            [class^=icon]{
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+    }
+
+    @include mdq-max(sm){
+        flex-direction: column;
+
+        & > *{
+            &:first-child{
+                flex-basis: 100%;
+                padding: 20px;
+            }
+
+            &:last-child{
+                padding: 20px;
+            }
+        }
+        
+        .i-wrp{
+            margin-top: 12px;
+
+            [class^=icon]{
+                width: 40px;
+                height: 40px;
+                margin-left: auto;
+            }
+        }
+
+        & + .btn-wrp{
+            margin-top: 24px;
+        }
     }
 }

@@ -90,6 +90,7 @@ body {
 .btn-text{
     text-decoration: underline;
     text-underline-offset: 0.2em;    
+    font-weight: 400;
 
     &.text-blue2{
         color: $blue;
