@@ -188,18 +188,20 @@ $(document).ready(function() {
 
 	var eventSwiper = new Swiper(".swiper-event", {
 		speed: 1200,
-		slidesPerView: 1.25, 
-		spaceBetween : 24, 
+		slidesPerView: 2.25, 
+		spaceBetween : 12, 
 		// autoplay: {
 		//   delay: 6000,
 		//   disableOnInteraction: false,	
 		// },
 		breakpoints: {
 			1400: {
-			  slidesPerView: 4,
+			  slidesPerView: 4, 
+				spaceBetween : 24, 
 			},
 			767: {
-			  slidesPerView: 3,
+			  slidesPerView: 3, 
+				spaceBetween : 16, 
 			},
 		}
 	})
