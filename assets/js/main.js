@@ -233,4 +233,29 @@ $(document).ready(function() {
 		},
 	})
 
+  $(".btn-swiper-play").on("click", function (e) {
+    var $t = $(this),
+      $tg = $(this).data("target");
+
+    $t.toggleClass("on");
+
+    switch ($tg) {
+      case "swiper-banner":
+        if ($(this).hasClass("on")) {
+            bannerSwiper.autoplay.stop();
+        } else {
+            bannerSwiper.autoplay.start();
+        };
+        break;
+      case "swiper-visual":
+        if ($(this).hasClass("on")) {
+            visualSwiper.autoplay.stop();
+        } else {
+            visualSwiper.autoplay.start();
+        }
+        break;
+      default:
+        break;
+    }
+  });
 });

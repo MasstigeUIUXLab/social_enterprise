@@ -681,6 +681,20 @@
 	<section class="main-section ms1" data-anchor="firstSection">
 		<div class="section-inner">
 			<div class="swiper swiper-visual">
+				<!-- [D] 06-05 재생/정지 버튼 추가, 위치 변경 -->
+				<div class="swiper-indicator">
+					<button type="button" class="btn-swiper-play" data-target="swiper-visual">
+						<span class="sr-only">pause</span>
+						<span class="sr-only">play</span>
+					</button>
+					<div class="swiper-pagination"></div>
+					<div class="autoplay-progress visual-progress">
+						<svg viewBox="0 0 100 10">
+							<line x1="0" y1="0" x2="100" y2="0">
+						</svg>
+					</div>
+				</div>
+				<!-- // -->
 				<ul class="swiper-wrapper">
 					<li class="swiper-slide" data-swiper-parallax-x="40%">
 						<a href="#" class="item">
@@ -705,14 +719,6 @@
 						</a>
 					</li>
 				</ul>
-				<div class="swiper-indicator">
-					<div class="swiper-pagination"></div>
-					<div class="autoplay-progress visual-progress">
-						<svg viewBox="0 0 100 10">
-							<line x1="0" y1="0" x2="100" y2="0">
-						</svg>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -881,24 +887,12 @@
 				</div>
 
 				<div class="swiper swiper-banner">
-					<ul class="swiper-wrapper">
-						<li class="swiper-slide">
-							<a href="#" class="link">
-								<img src="../assets/images/main/banner01.png" alt="">
-							</a>
-						</li>
-						<li class="swiper-slide">
-							<a href="#" class="link">
-								<img src="../assets/images/main/banner01.png" alt="">
-							</a>
-						</li>
-						<li class="swiper-slide">
-							<a href="#" class="link">
-								<img src="../assets/images/main/banner01.png" alt="">
-							</a>
-						</li>
-					</ul>
+					<!-- [D] 06-05 재생/정지 버튼 추가, 위치 변경 -->
 					<div class="swiper-indicator">
+						<button type="button" class="btn-swiper-play" data-target="swiper-banner">
+							<span class="sr-only">pause</span>
+							<span class="sr-only">play</span>
+						</button>
 						<div class="swiper-pagination"></div>
 						<div class="autoplay-progress banner-progress">
 							<svg viewBox="0 0 100 10">
@@ -906,6 +900,32 @@
 							</svg>
 						</div>
 					</div>
+					<!-- // -->
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+							<!-- [D] 06-05 웹접근성 관련 수정, MO전용 이미지 추가
+								* PC: 1440 x 195 px
+								* MO: 960 x 732 px 
+							-->
+							<a href="#" class="link">
+								<img src="../assets/images/main/banner01.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-none d-lg-block">
+								<img src="../assets/images/main/banner01_m.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-lg-none">
+							</a>
+							<!-- // -->
+						</li>
+						<li class="swiper-slide">
+							<a href="#" class="link">
+								<img src="../assets/images/main/banner01.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-none d-lg-block">
+								<img src="../assets/images/main/banner01_m.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-lg-none">
+							</a>
+						</li>
+						<li class="swiper-slide">
+							<a href="#" class="link">
+								<img src="../assets/images/main/banner01.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-none d-lg-block">
+								<img src="../assets/images/main/banner01_m.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-lg-none">
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

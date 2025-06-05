@@ -2999,7 +2999,7 @@
         }
     }
 
-    & + *{
+    & + *:not(.btn-wrp, .sect){
         margin-top:24px;
     }
 
@@ -10970,8 +10970,16 @@
             .txt-area{
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
                 height: 100%;
+                gap: 20px;
+
+                .tit{
+                    margin: 0;
+                }
+
+                .txt{
+                    margin: 0;
+                }
             }
         }
 
@@ -10983,9 +10991,9 @@
     }
 
     .i-wrp{
+        flex: 1;
         display: flex;
         align-items: flex-end;
-
         margin-top: rem(46);
 
         [class^=icon]{
@@ -11000,7 +11008,7 @@
         }
     }
 
-    & + .btn-wrp{
+    & + .btn-wrp, .btn-wrp{
         margin-top: rem(40);
 
         .btn{
@@ -11039,6 +11047,10 @@
             &:first-child{
                 flex-basis: 100%;
                 padding: 20px;
+
+                .txt-area{
+                    gap: 12px;
+                }
             }
 
             &:last-child{
@@ -11047,7 +11059,7 @@
         }
         
         .i-wrp{
-            margin-top: 12px;
+            margin-top: 0;
 
             [class^=icon]{
                 width: 40px;

@@ -160,6 +160,8 @@
 
 
         .swiper-indicator {
+            display: flex;
+            align-items: center;
             position: absolute;
             width: 100%;
             left: 50%;
@@ -183,6 +185,30 @@
 
                 .total{
                     color: rgba(255, 255, 255, 0.4);
+                }
+            }
+            
+            .btn-swiper-play {
+                order: 3;
+                margin-left: 8px;
+                width: 24px;
+                height: 24px;
+                background-image: url(../images/main/icon_swiper_pause.svg);
+
+                & > span:last-child {
+                    display: none;
+                }
+
+                &.on {
+                    background-image: url(../images/main/icon_swiper_play.svg);
+
+                    & > span:first-child {
+                        display: none;
+                    }
+
+                    & > span:last-child {
+                        display: block;
+                    }
                 }
             }
         }
@@ -411,6 +437,7 @@
                 }
 
                 .swiper-indicator{
+                    width: auto;
                     bottom: 2.0833vw;
                     left: 6.5%;
                     max-width: none;
@@ -851,7 +878,7 @@
             margin-top: 0;
             padding-bottom: 70px;
         }
-
+            
         &.ms1{
             .section-inner{
                 padding-bottom: 0;
@@ -1055,7 +1082,23 @@
            
             .swiper-banner{
                 margin-top: 60px;
+
+                .swiper-indicator {
+                    bottom: 8%;
+                    padding:0;
+
+                    .swiper-pagination{
+                        width: 120px;
+                    }
+                }
+                
+                .autoplay-progress{
+                    width: 72px;
+                    margin: 0 23px;
+                }
             }
+
+
         }
 
         &.ms3 { 
