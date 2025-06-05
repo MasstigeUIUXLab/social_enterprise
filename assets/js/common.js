@@ -294,30 +294,33 @@ $(document).ready(function () {
 
   // 웹접근성
   let focusAbleElement = 'a[href], input:not([disabled]), select:not([disabled]), button:not([disabled]), [tabindex="0"]';
-  $('.header .nav').find(focusAbleElement).last().on("keydown", function(e) {
-    if (e.keyCode == "9" && e.shiftKey) {
-    } else {
-      $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
-      $('.nav__bg, .submenu').hide();
-    }
-  });
   
-  $('.header__wrap').find(focusAbleElement).first().on("keydown", function(e) {
-    if (e.keyCode == "9" && e.shiftKey) {
-    } else {
-      $('#header').addClass('gnb-hover');
-    }
-  });
-  
-  $('.header .nav').find(focusAbleElement).first().on("keydown", function(e) {
-    if (e.keyCode == "9" && e.shiftKey) {
-      $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
-      $('.nav__bg, .submenu').hide();
-    } else {
-    }
-  })
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
-
+  if(!isMobile) {
+    $('.header .nav').find(focusAbleElement).last().on("keydown", function(e) {
+      if (e.keyCode == "9" && e.shiftKey) {
+      } else {
+        $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
+        $('.nav__bg, .submenu').hide();
+      }
+    });
+    
+    $('.header__wrap').find(focusAbleElement).first().on("keydown", function(e) {
+      if (e.keyCode == "9" && e.shiftKey) {
+      } else {
+        $('#header').addClass('gnb-hover');
+      }
+    });
+    
+    $('.header .nav').find(focusAbleElement).first().on("keydown", function(e) {
+      if (e.keyCode == "9" && e.shiftKey) {
+        $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
+        $('.nav__bg, .submenu').hide();
+      } else {
+      }
+    })
+    } 
   // modal
   /* $(document).on('show.bs.modal', '.modal', function() {
     const zIndex = 1040 + 10 * $('.modal:visible').length;

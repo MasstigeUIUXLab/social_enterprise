@@ -32,35 +32,39 @@ $(document).ready(function() {
 		const firstFocusableElement = focusableContent[0];
 		const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
-		$(activeSection).on('keydown', function(e){
-			let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-			
-			if( !isTabPressed ){ return; }
-			
-			if( e.shiftKey ){
-				if( document.activeElement === firstFocusableElement ){
-					console.log('첫번째요소에서 역순');
-					// $.fn.fullpage.setAllowScrolling(true, 'up');
-
-					var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
-					element.click();
-					activeSection.prev().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').last().focus();
-				}
+  		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+		
+		if(!isMobile) {
+			$(activeSection).on('keydown', function(e){
+				let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 				
-			}else{
-				if( document.activeElement === lastFocusableElement ){
-					if(activeSection.index() === $('.main-section').length - 1){
-						return false;
-					} else {
-						var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()+1))[0];
+				if( !isTabPressed ){ return; }
+				
+				if( e.shiftKey ){
+					if( document.activeElement === firstFocusableElement ){
+						console.log('첫번째요소에서 역순');
+						// $.fn.fullpage.setAllowScrolling(true, 'up');
+
+						var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
 						element.click();
-						activeSection.next().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').first().focus();
+						activeSection.prev().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').last().focus();
+					}
+					
+				}else{
+					if( document.activeElement === lastFocusableElement ){
+						if(activeSection.index() === $('.main-section').length - 1){
+							return false;
+						} else {
+							var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()+1))[0];
+							element.click();
+							activeSection.next().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').first().focus();
+						}
 					}
 				}
-			}
 
-			console.log(document.activeElement);
-		});
+				console.log(document.activeElement);
+			});
+		} 
 	}
 	
 	var visualSwiper = new Swiper(".swiper-visual", {
@@ -209,10 +213,6 @@ $(document).ready(function() {
 	var menuSwiper = new Swiper(".swiper-menu", {
 		slidesPerView: 'auto',
 		spaceBetween: 24,
-		autoplay: {
-		  delay: 5000,
-		  disableOnInteraction: false,	
-		},
 		navigation: {
 			nextEl: ".swiper-menu .swiper-button-next",
 			prevEl: ".swiper-menu .swiper-button-prev",
