@@ -17,7 +17,7 @@
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
-    	gap: 10px;
+    	gap: 20px;
 		padding-bottom: rem(20);
 
 		.logo{
@@ -30,6 +30,8 @@
 			display: flex;
 			align-items: center;
 			gap: rem(16);
+			margin-left: auto;
+			z-index: 10;
 
 			a{
 				display: inline-block;
@@ -37,6 +39,15 @@
 			}
 		}
 
+		.family{
+			flex: 0 0 auto;
+    		width: 100%;
+    		max-width: 305px;
+
+			.dropdown{
+				background-color: #fff;
+			}
+		}
 	}
 
 	&__bottom{
@@ -94,12 +105,27 @@
 	@include mdq-max(md) {
 		&__wrap{
 			padding: 50px 0;
+
+			.container{
+				padding-bottom: 72px;
+			}
 		}
 
-		&__top .sns{
-			position: absolute;
-			bottom: 5px;
-			right: 20px;
+		&__top {
+			.sns{
+				position: absolute;
+				bottom: 74px;
+				left: 20px;
+			}
+
+			.family{
+				position: absolute;
+				bottom: 0;
+				left: 20px;
+				// width: calc(100% - 40px);
+				width: 200px;
+				max-width: none;
+			}
 		}
 
 		&__bottom {
@@ -110,6 +136,7 @@
 					font-size: 13px;
 				}
 			}
+
 			.info{
 				gap: 8px;
 				margin-top: 24px;
@@ -126,6 +153,7 @@
 				bottom: unset;
 				width: 45px;
 				margin-top: 24px;
+				margin-left: auto;
 			}
 		}
 	}
