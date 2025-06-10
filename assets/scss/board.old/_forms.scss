@@ -53,21 +53,21 @@ select {
 		color:#717171 !important
 	}
 
-	@include mdq-max(lg) {
-		height: $input-height-lg;
-		border-radius: 4px;
-	}
-	
+	&.form-control{
+        @extend %form-control;
+    }
+
 	&.no-style{
 		height: auto;
-		padding: 10px;
+		padding: 0 10px;
 		border: 0;
 		background-color: transparent;
 	}
 
-	&.form-control{
-        @extend %form-control;
-    }
+	@include mdq-max(lg) {
+		height: $input-height-lg;
+		border-radius: 4px;
+	}
 }
 
 %form-control{
@@ -107,8 +107,11 @@ select {
     }
     
     &.no-style{
+        height: auto;
         padding: 0;
         border: 0;
+        outline: 0 !important;
+		background-color: transparent;
     }
 
     @include mdq-max(lg) {
@@ -158,10 +161,15 @@ select {
 
 textarea{
     &.form-control{
-      @extend %form-control;
-      padding: em(20);
-      height: auto;
-      line-height: 1.334;
+        @extend %form-control;
+        padding: em(20);
+        height: auto;
+        line-height: 1.334;
+            
+        @include mdq-max(lg) {
+            // font-size: 14px;
+            padding: 10px;
+        }
     }
 }
 

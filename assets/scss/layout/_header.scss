@@ -43,21 +43,23 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
     }
   }
   
-  &.gnb-hover {
-    background-color: #fff;
-    z-index: 600;
+  @include mdq-min(xxl) {
+    &.gnb-hover, &.sitemap-open {
+      background-color: #fff;
+      z-index: 600;
 
-    &:before {
-      opacity: 1;
-    }
+      &:before {
+        opacity: 1;
+      }
 
-    .header-depth2 {
-      display: block;
-    }
-    .header-depth2 ul.active li,
-    .header-depth2 ul.hover li {
-      transform: translateY(0);
-      transition: transform 0.4s 0.1s cubic-bezier(0.5, 0, 0.1, 1);
+      .header-depth2 {
+        display: block;
+      }
+      .header-depth2 ul.active li,
+      .header-depth2 ul.hover li {
+        transform: translateY(0);
+        transition: transform 0.4s 0.1s cubic-bezier(0.5, 0, 0.1, 1);
+      }
     }
   }
 
@@ -123,8 +125,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
   height: 100vh;
   background: #fff;
   padding: 0 20px;
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   transition: 0.35s ease-in;
 
   .container {
@@ -234,8 +235,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
 
   @include mdq-min(xl) {
     &.active {
-      opacity: 1;
-      visibility: visible;
+      display: block;
     }
 
     &-open {

@@ -5548,6 +5548,12 @@
         }
     }
 
+    &.bx-top{
+        & > .btn-area .btn{
+            border-color: transparent;
+        }
+    }
+
     &.bx-contents{
         .txt-bx{
             margin: 0 !important;
@@ -11243,6 +11249,12 @@
             margin-top:rem(24);
         }
 
+        &.flex-row{
+            .form-input-group{
+                 min-height: 48px;
+            }
+        }
+
         @include mdq-min(lg){
             &.flex-row{
                 display: flex;
@@ -11319,12 +11331,6 @@
 
         &:not(.flex-column) > .input-label:not(:last-child){
             margin-right:rem(12);
-        }
-        
-        @include mdq-min(lg){
-            .file-label__btn{
-                min-width: 147px;
-            }
         }
     }
 

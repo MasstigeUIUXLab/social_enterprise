@@ -302,6 +302,21 @@
                 margin: 0;
             }
 
+            .btn-more{
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .icon-arr-blk{
+                width: 20px;
+                height: 20px;
+                background-image: url(../images/main/icon_arr_blk.svg);
+            }
+
             @include mdq-max(md) {
                 .btn-wrp{
                     justify-content: center;
@@ -320,22 +335,7 @@
                     height: 16px;
                 }
             }
-
-            .btn-more{
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-                font-size: 18px;
-                font-weight: 600;
-            }
-
-            .icon-arr-blk{
-                width: 20px;
-                height: 20px;
-                background-image: url(../images/main/icon_arr_blk.svg);
-            }
-
+            
             .swiper-board{
                 margin: 0 auto 0 0;
                 width: 24.167rem;
@@ -480,12 +480,54 @@
                 position: relative;
                 margin-top: rem(40);
                 padding-bottom: 40px;
+
+                .swiper{
+                    position: unset;
+                    width: calc( 50% - 12px );
+                    margin-top: 0;
+
+                    .swiper-indicator{
+                        bottom: 0;
+                        right: 0;
+                        left: auto;
+                        padding: 0;
+                        width: auto;
+                        max-width: none;
+                        margin: 0;
+                        font-size: rem(14);
+                        transform: none;
+                        color: #666;
+                        font-weight: 400;
+
+                        .swiper-pagination{
+                            .total{
+                                font-weight: 600;
+                                color: #222;
+                            }
+                        }
+
+                        .btn-swiper-play{
+                            background-image: url(../images/main/icon_swiper_pause_blk.svg);
+
+                            &.on{
+                                background-image: url(../images/main/icon_swiper_play_blk.svg);
+                            }
+                        }
+                    }
+                
+                    .autoplay-progress{
+                        background-color: #E3E3E3;
+                    
+                        svg {
+                            stroke: #222;
+                        }
+                    }
+                }
             }
             
-            .swiper-banner{
-                position: unset;
-                width: calc( 50% - 12px );
-
+            [class*=swiper-banner]{  
+                margin-top: rem(40);
+                
                 .link{
                     display: block;
 
@@ -499,44 +541,23 @@
                 }
 
                 .swiper-indicator{
-                    bottom: 0;
-                    right: 0;
-                    left: auto;
-                    padding: 0;
                     width: auto;
+                    bottom: 2.0833vw;
+                    left: 6.5%;
                     max-width: none;
+                    padding: 0;
+                    margin: 0 1vw;
                     font-size: rem(14);
                     transform: none;
-                    color: #666;
-                    font-weight: 400;
 
                     .swiper-pagination{
                         width: rem(180);
-
-                        .total{
-                            font-weight: 600;
-                            color: #222;
-                        }
-
-                    }
-
-                    .btn-swiper-play{
-                        background-image: url(../images/main/icon_swiper_pause_blk.svg);
-
-                        &.on{
-                            background-image: url(../images/main/icon_swiper_play_blk.svg);
-                        }
                     }
                 }
 
                 .autoplay-progress{    
                     width: calc(100% - 94px);
                     margin: 0 30px;
-                    background-color: #E3E3E3;
-                 
-                    svg {
-                        stroke: #222;
-                    }
                 }
             }
         }
@@ -1169,10 +1190,30 @@
                 gap: 16px;
                 width: 100%;
                 margin-top: 60px;
+
+                .swiper{
+                    width: 100%;
+                }
             }
 
-            .swiper-banner {
+            [class*=swiper-banner]{
                 width: 100%;
+                margin-top: 60px;
+                               
+                
+                .swiper-indicator {
+                    bottom: 8%;
+                    margin: 0;
+
+                    .swiper-pagination{
+                        width: 100px;
+                    }
+                }
+
+                .autoplay-progress{
+                    width: calc(100% - 86px);
+                    margin: 0 24px;
+                }
             }
         }
 
