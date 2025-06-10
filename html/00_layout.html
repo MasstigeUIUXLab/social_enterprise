@@ -886,47 +886,67 @@
 					</div>
 				</div>
 
-				<div class="swiper swiper-banner">
-					<!-- [D] 06-05 재생/정지 버튼 추가, 위치 변경 -->
-					<div class="swiper-indicator">
-						<button type="button" class="btn-swiper-play" data-target="swiper-banner">
-							<span class="sr-only">pause</span>
-							<span class="sr-only">play</span>
-						</button>
-						<div class="swiper-pagination"></div>
-						<div class="autoplay-progress banner-progress">
-							<svg viewBox="0 0 100 10">
-								<line x1="0" y1="0" x2="100" y2="0">
-							</svg>
-						</div>
-					</div>
-					<!-- // -->
-					<ul class="swiper-wrapper">
-						<li class="swiper-slide">
-							<!-- [D] 06-05 웹접근성 관련 수정, MO전용 이미지 추가
-								* PC: 1440 x 195 px
-								* MO: 960 x 732 px 
-							-->
-							<a href="#" class="link">
-								<img src="../assets/images/main/banner01.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-none d-md-block">
-								<img src="../assets/images/main/banner01_m.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-md-none">
-							</a>
-							<!-- // -->
-						</li>
-						<li class="swiper-slide">
-							<a href="#" class="link">
-								<img src="../assets/images/main/banner01.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-none d-md-block">
-								<img src="../assets/images/main/banner01_m.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-md-none">
-							</a>
-						</li>
-						<li class="swiper-slide">
-							<a href="#" class="link">
-								<img src="../assets/images/main/banner01.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-none d-md-block">
-								<img src="../assets/images/main/banner01_m.png" alt="2025 사회적기업 인증 2차 신청안내 로그인 후 통합사업관리시스템을 통해 온라인 신청이 가능합니다. 접수기간 : 25.2.4 (화) ~ 25.3.31 (월) 18시" class="d-md-none">
-							</a>
-						</li>
-					</ul>
+				<!-- [D] 06-10 수정 / 더보기 버튼 추가 -->
+				<div class="btn-wrp">
+					<a href="#" title="게시판 바로가기" class="btn-more" id="btnMore">더 보기<i class="icon-arr-blk"></i></a>
 				</div>
+				<!-- // 06-10 수정 -->
+
+				<!-- [D] 06-10 수정 / 배너 영역 전체적으로 수정, 
+				 	* 배너 이미지 사이즈: 708 X 226 PX / 1416 X 452 PX
+				-->
+				<div class="banner-wrp">
+					<div class="swiper swiper-banner swiper-banner1">
+						<div class="swiper-indicator">
+							<button type="button" class="btn-swiper-play" data-target="swiper-banner">
+								<span class="sr-only">pause</span>
+								<span class="sr-only">play</span>
+							</button>
+							<div class="swiper-pagination"></div>
+							<div class="autoplay-progress banner-progress">
+								<svg viewBox="0 0 100 10">
+									<line x1="0" y1="0" x2="100" y2="0">
+								</svg>
+							</div>
+						</div>
+
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<a href="#" class="link" target="_new" title="새창 이동">
+									<img src="../assets/images/main/banner01.jpg" alt="2025 민간, 공공 판로지원을 위한 사회적경제기업 대상 상품기술서 접수 참여기업 모집 공고">
+								</a>
+								<!-- // -->
+							</li>
+							<li class="swiper-slide">
+								<a href="#" class="link" target="_new" title="새창 이동">
+									<img src="../assets/images/main/banner02.png" alt="통합돌봄과 사회적경제의 역할 토론회">
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="#" class="link" target="_new" title="새창 이동">
+									<img src="../assets/images/main/banner03.jpg" alt="2025 협동조합 상품 품평 및 MD상담회 참가기업 모집 재공고">
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="swiper swiper-banner swiper-banner2" thumbsSlider="">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<a href="#" class="link" target="_new" title="새창 이동">
+									<img src="../assets/images/main/banner04.jpg" alt="2025 세계 협동조합의 해 기념 쿱보따리 수기 공모전 개최 공고">
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="#" class="link" target="_new" title="새창 이동">
+									<img src="../assets/images/main/banner05.jpg" alt="AI.스마트 산업안전기술 경진대회 개최">
+								</a>
+							</li>
+							<li class="swiper-slide">
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- // 06-10 수정 -->
 			</div>
 		</div>
 	</section>
@@ -1242,11 +1262,13 @@
                     
                     // 마지막 탭인 경우 다음 영역으로 포커스 이동
                     if (currentTabIndex === tabs.length - 1) {
-                        const nextSection = document.querySelector('.swiper-banner');
+						//---- S: 06-10 수정 / 더보기 버튼 추가
+                        const nextSection = document.querySelector('#btnMore');
                         if (nextSection) {
-						nextSection.querySelector('a').focus();
+							nextSection.focus();
                         }
-                    } else {
+						//---- E: 06-10 수정 / 더보기 버튼 추가
+					} else {
                         if (currentTab.textContent.trim() === '전체') {
                             changeTabs(tabs[1]);
                         } else {

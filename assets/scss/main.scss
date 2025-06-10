@@ -244,8 +244,15 @@
                 background-color: #FAFAFA;
             }
 
+            .container{
+                position: relative;
+            }
+
             .board-control{
-                margin-bottom: rem(40);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: rem(24);
 
                 .category-list{
                     display: flex;
@@ -285,6 +292,48 @@
                         }
                     }
                 }
+            }
+
+            .btn-wrp{
+                position: absolute;
+                top: 0;
+                right: 20px;
+                height: 51px;
+                margin: 0;
+            }
+
+            @include mdq-max(md) {
+                .btn-wrp{
+                    justify-content: center;
+                    position: relative;
+                    right: auto;
+                    height: auto;
+                    margin-top: 30px;
+                }
+
+                .btn-more{
+                    font-size: 16px;
+                }
+                
+                .icon-arr-blk{
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .btn-more{
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .icon-arr-blk{
+                width: 20px;
+                height: 20px;
+                background-image: url(../images/main/icon_arr_blk.svg);
             }
 
             .swiper-board{
@@ -424,10 +473,19 @@
                     }
                 }
             }
+
+            .banner-wrp{
+                display: flex;
+                gap: 24px;
+                position: relative;
+                margin-top: rem(40);
+                padding-bottom: 40px;
+            }
             
             .swiper-banner{
-                margin-top: rem(40);
-                
+                position: unset;
+                width: calc( 50% - 12px );
+
                 .link{
                     display: block;
 
@@ -436,22 +494,49 @@
                     }
                 }
 
+                .swiper-slide{
+                    background: #FAFAFA;
+                }
+
                 .swiper-indicator{
+                    bottom: 0;
+                    right: 0;
+                    left: auto;
+                    padding: 0;
                     width: auto;
-                    bottom: 2.0833vw;
-                    left: 6.5%;
                     max-width: none;
                     font-size: rem(14);
                     transform: none;
+                    color: #666;
+                    font-weight: 400;
 
                     .swiper-pagination{
                         width: rem(180);
+
+                        .total{
+                            font-weight: 600;
+                            color: #222;
+                        }
+
+                    }
+
+                    .btn-swiper-play{
+                        background-image: url(../images/main/icon_swiper_pause_blk.svg);
+
+                        &.on{
+                            background-image: url(../images/main/icon_swiper_play_blk.svg);
+                        }
                     }
                 }
 
                 .autoplay-progress{    
-                    width: 100px;
-                    margin: 0 60px;
+                    width: calc(100% - 94px);
+                    margin: 0 30px;
+                    background-color: #E3E3E3;
+                 
+                    svg {
+                        stroke: #222;
+                    }
                 }
             }
         }
@@ -1079,26 +1164,16 @@
 @include mdq-max(md) {
     .main-section{
         &.ms2{
-           
-            .swiper-banner{
+            .banner-wrp{
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
                 margin-top: 60px;
-
-                .swiper-indicator {
-                    bottom: 8%;
-                    padding:0;
-
-                    .swiper-pagination{
-                        width: 120px;
-                    }
-                }
-                
-                .autoplay-progress{
-                    width: 72px;
-                    margin: 0 23px;
-                }
             }
 
-
+            .swiper-banner {
+                width: 100%;
+            }
         }
 
         &.ms3 { 

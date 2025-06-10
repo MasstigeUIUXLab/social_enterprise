@@ -165,8 +165,8 @@ $(document).ready(function() {
 		}
 	}
 
-	var bannerSwiper = new Swiper(".swiper-banner", {
-		speed: 1200,
+	var bannerSwiper1 = new Swiper(".swiper-banner1", {
+		speed: 300,
 		effect: 'fade',
 		loop: true,  
 		autoplay: {
@@ -174,7 +174,7 @@ $(document).ready(function() {
 		  disableOnInteraction: false,	
 		},
 		pagination: {
-			el: ".swiper-banner .swiper-pagination",
+			el: ".swiper-banner1 .swiper-pagination",
 			clickable: false,
 			type: "custom",
 			renderCustom: function(swiper, current, total) {
@@ -185,10 +185,23 @@ $(document).ready(function() {
 		},
 		on: {
 			autoplayTimeLeft(s, time, progress) {
-				document.querySelector('.banner-progress svg').style.setProperty("--progress", 1 - progress)
+				document.querySelector('.swiper-banner1 .banner-progress svg').style.setProperty("--progress", 1 - progress)
 			}
 		}
 	})
+
+	var bannerSwiper2 = new Swiper(".swiper-banner2", {
+		speed: 300,
+		effect: 'fade',
+		loop: true,  
+		autoplay: {
+		  delay: 6000,
+		  disableOnInteraction: false,	
+		},
+	})
+
+  bannerSwiper1.controller.control = bannerSwiper2;
+  bannerSwiper2.controller.control = bannerSwiper1;
 
 	var eventSwiper = new Swiper(".swiper-event", {
 		speed: 1200,
@@ -242,9 +255,11 @@ $(document).ready(function() {
     switch ($tg) {
       case "swiper-banner":
         if ($(this).hasClass("on")) {
-            bannerSwiper.autoplay.stop();
+            bannerSwiper1.autoplay.stop();
+            bannerSwiper2.autoplay.stop();
         } else {
-            bannerSwiper.autoplay.start();
+            bannerSwiper1.autoplay.start();
+            bannerSwiper2.autoplay.start();
         };
         break;
       case "swiper-visual":
