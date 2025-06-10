@@ -691,8 +691,16 @@
 					</ul>
 				</div>
 				<div class="dropdown">
-					<button type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" id="lnbDepth3">징계현황</button>
+					<button type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" id="lnbDepth3">부패/공익신고</button>
 					<ul class="dropdown-menu" aria-labelledby="lnbDepth3">
+						<li><a class="dropdown-item" href="#">link 1</a></li>
+						<li><a class="dropdown-item" href="#">link 2</a></li>
+						<li><a class="dropdown-item" href="#">link 3</a></li>
+					</ul>
+				</div>
+				<div class="dropdown">
+					<button type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" id="lnbDepth4">신고하기</button>
+					<ul class="dropdown-menu" aria-labelledby="lnbDepth4">
 						<li><a class="dropdown-item" href="#">link 1</a></li>
 						<li><a class="dropdown-item" href="#">link 2</a></li>
 						<li><a class="dropdown-item" href="#">link 3</a></li>
@@ -719,73 +727,135 @@
 				</button>
 			</div>
 			<div class="sub-header">
-				<h2 class="tit">징계현황</h2>
+				<h2 class="tit">신고하기</h2>
 			</div>
-			<div class="sub-contents">
+			<div class="sub-contents page-auth">
 				<div class="tab">
 					<ul class="nav nav-pills">
 						<li class="nav-item">
 							<a href="#" class="nav-link" data-toggle="tab" title="신고안내 페이지로 이동">신고안내</a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link" data-toggle="tab" title="신고하기 페이지로 이동">신고하기</a>
-						</li>
-						<li class="nav-item">
-							<a href="#" class="nav-link active" data-toggle="tab">징계현황</a>
+							<a href="#" class="nav-link active" data-toggle="tab" title="신고하기 페이지로 이동">신고하기</a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="bx bx-ivory bx-top" data-aos="fade-up">
-					<h3 class="tit">징계현황</h3>
-					<!-- [D] 06-10 수정 .txt-bx 삭제 -->
+				<div class="bx bx-ivory bx-top mb-0" data-aos="fade-up">
+					<h3 class="tit">부패ㆍ공익 신고 안내</h3>
 					<div class="txt">
-						<p>부패행위자 진계현황입니다.</p> 
-						<p>공직자 행동강령 위반등 부패행위와 국민의 공익 침해 행위에 대한 징계현황을 확인하실 수 있습니다.</p>
+						<p>부패ㆍ공익신고에 대한 세부 내용입니다.</p>
+						<p>공직자 행동강령 위반등 부패행위와 국민의 공익 침해 행위에 대한 안내를 확인하실 수 있습니다.</p>
 					</div>
-					<!-- // -->
+					<div class="btn-area">
+						<a href="https://www.clean.go.kr/menu.es?mid=a10102000000" target="_blank" title="새창" class="btn btn-xl">국민권익위원회 공익신고 상담 바로가기<i class="icon-arr-blk"></i></a>
+					</div>
 				</div>
 
 				<div class="sect" data-aos="fade-up">
-					<div class="tb-wrap table-style tb-scroll mw0">
-						<table class="tb">
-							<caption>
-								<span>징계현황 게시판의 부패행위 유형, 부패금액, 징계종류, 처분일자, 고발여부 테이블입니다.</span>
-							</caption>
-							<colgroup>
-								<col style="width: 20%">
-								<col style="width: 20%">
-								<col style="width: 20%">
-								<col style="width: 20%">
-								<col style="width: 20%">
-							</colgroup>
-							<thead>
-								<tr>
-									<th scope="col" class="bg-gray">부패행위 유형</th>
-									<th scope="col" class="bg-gray">부패금액</th>
-									<th scope="col" class="bg-gray">징계종류</th>
-									<th scope="col" class="bg-gray">처분일자</th>
-									<th scope="col" class="bg-gray">고발여부</th>
-								</tr>
-							</thead>
-							<tbody>
-								<!-- <tr>
-									<td>횡령</td>
-									<td>1억</td>
-									<td>감옥</td>
-									<td>2025.04.30</td>
-									<td>익명의 제보자</td>
-								</tr> -->
-								<tr>
-									<td colspan="5">
-										<div class="no-data-img-bx">
-											<img src="../assets/images/sub/img_no_data.svg" alt="">
-											<p>부패행위자 발생 실적 없음</p>
+					<div class="form-sect">
+						<div class="form-header">
+							<h3 class="tit">입력사항</h3>
+							<span><span class="font-weight-semibold">* 필수</span> 입력 입니다.</span>
+						</div>
+						<ul class="form-body">
+							<li class="col-12">
+								<div class="form-group flex-row">
+									<div class="form-tit-wrp">
+										<p class="form-tit asterisk">제목</p>
+									</div>
+									<div class="form-input-group">
+										<input type="text" name="" class="form-control style01"/>
+									</div>
+								</div>
+							</li>
+							<li class="col-12">
+								<div class="form-group flex-row">
+									<div class="form-tit-wrp">
+										<p class="form-tit asterisk">이름</p>
+									</div>
+									<div class="form-input-group">
+										<input type="text" name="" class="form-control style01"/>
+									</div>
+								</div>
+							</li>
+							<li class="col-12">
+								<div class="form-group flex-row">
+									<div class="form-tit-wrp">
+										<p class="form-tit asterisk">공개여부</p>
+									</div>
+									<div class="form-input-group">
+										<label label="chk2-1" class="input-label input-label--radio">
+											<input type="radio" name="chk2" id="chk2-1" checked>
+											<span class="input-label__txt">공개</span>
+										</label>
+										<label label="chk2-2" class="input-label input-label--radio">
+											<input type="radio" name="chk2" id="chk2-2">
+											<span class="input-label__txt">비공개</span>
+										</label>
+									</div>
+								</div>
+							</li>
+							<li class="col-12 col-lg-9">
+								<div class="form-group flex-row">
+									<div class="form-tit-wrp">
+										<p class="form-tit asterisk">이메일주소</p>
+									</div>
+									<div class="form-input-group">
+										<input type="text" name="" value="admin" class="form-control style01"/>
+										<span class="w-auto">@</span>
+										<input type="text" name="" value="naver.com" class="form-control style01"/>
+										<select name="" class="form-control w-100 w-md-24">
+											<option value="" selected>직접입력</option>
+											<option value="">선택</option>
+										</select>
+									</div>
+								</div>
+							</li>
+							<li class="col-12">
+								<div class="form-group flex-row">
+									<div class="form-tit-wrp">
+										<p class="form-tit">내용</p>
+									</div>
+									<div class="form-input-group">
+										<textarea name="" id="" placeholder="내용입력" rows="10" class="form-control"></textarea>
+									</div>
+								</div>
+							</li>
+							<li class="col-12">
+								<div class="form-group flex-row">
+									<div class="form-tit-wrp">
+										<p class="form-tit">첨부파일</p>
+									</div>
+									<div>
+										<div class="form-input-group">
+											<label class="file-label w-auto">
+												<input type="file" name="file1">
+												<span class="btn btn-black file-label__btn">파일 선택</span>
+											</label>
+											<p class="file-name flex-1">
+												선택된 파일 없음
+											</p>
 										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+										<div class="form-input-group mt-0">
+											<label class="file-label w-auto">
+												<input type="file" name="file1">
+												<span class="btn btn-black file-label__btn">파일 선택</span>
+											</label>
+											<p class="file-name flex-1">
+												선택된 파일 없음
+											</p>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="sect" data-aos="fade-up">
+					<div class="btn-wrp justify-content-end">
+						<button type="button" class="btn btn-lg btn btn-lg btn-orange">등록</button>
 					</div>
 				</div>
 				
@@ -793,9 +863,9 @@
 					<div class="txt-bx bx-white bx-line">
 						<strong class="tit">부패공익신고 진흥원</strong>
 						<ul class="list-bullet list-chk text-body">
-							<li>전화, 팩스 이용: <span class="text-secondary">전화 031)697-6920~1 / FAX 031)697-7889</span></li>
-							<li>우편, 직접방문: <span class="text-secondary">[우편번호13292] 경기도 성남시 수정구 수정로 157 7층</span></li>
-							<li>문의 및 담당자 연락처: <span class="text-secondary">감사담당자(singo@ikosea.or.kr)</span></li>
+							<li>전화, 팩스 이용: <span class="text-secondary">전화 031)697-7822 / FAX 031)697-7889</span></li>
+							<li>우편, 직접방문: <span class="text-secondary">[우편번호 461-721] 경기도 성남시 수정구 수정로 157 8층</span></li>
+							<li>문의 및 담당자 연락처: <span class="text-secondary">경영지원팀 이호철</span></li>
 						</ul>
 					</div>
 				</div>
@@ -808,7 +878,7 @@
 								<i class="icon-person"></i>
 								<dl>
 									<dt>정보관리</dt>
-									<dd>기획조정팀</dd>
+									<dd>청렴감사팀</dd>
 								</dl>
 							</div>
 							<div class="info">

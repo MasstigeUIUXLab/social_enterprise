@@ -2824,14 +2824,31 @@
             }
 
             &.normal{
+                .tb-wrap{
+                    border-radius: 0;
+                }
+
                 .tb {
+                    border-radius: 0;
+
                     tr > *{
+                        padding: 12px 16px;
+
                         &:not(:last-child){
                             border-right: 1px solid #e4e4e4;
                         }
                     }
 
+                    .dash{
+                        display: inline-block;
+                        width: 5px;
+                        height: 1px;
+                        background: #222;
+                        vertical-align: middle;
+                    }
+
                     thead th{
+                        border-radius: 0;
                         border-bottom: 1px solid #e4e4e4;
                     }
                 }
@@ -4872,15 +4889,52 @@
         font-weight:600;
     }
     
-    .establish-group + .establish-group{
-        margin-top:rem(100);
+    .establish-group {
+        & > .bx{
+            display: flex;
+            align-items: center;
+            padding: 40px 30px;
+            background: #fff !important;
+            border: 1px solid #E3E3E3;
+
+            .tit{
+                position:relative;
+                margin-right:auto;
+                margin-bottom: 0;
+                padding:0 0 0 1.2em;
+                font-size:rem(20);
+                font-weight:600;
+
+                & > *{
+                    font-size:inherit;
+                    font-weight:inherit;
+                }
+
+                &:before{
+                    content:'';
+                    position:absolute;
+                    top:0.4em;
+                    left:0;
+                    display:inline-block;
+                    width: 0.6em;
+                    height: 0.6em;
+                    border-radius:50%;
+                    background-color:#F18435;
+                }
+            }
+
+            &:nth-child(2) .tit:before{
+                background-color: #F9C032;
+            }
+        }
+
+        & + .establish-group{
+            margin-top:rem(100);
+        }
     }
 
     .bx-wrp{
         .bx{
-            padding:rem(28) rem(24);
-            margin:0;
-
             > p{
                 padding:20px;
                 border-radius:12px;
@@ -4894,7 +4948,6 @@
         }
 
         .tit{
-            margin-bottom:rem(24);
             font-size:rem(28);
             line-height:1.28571; 
             color:#222;
@@ -4909,17 +4962,18 @@
         }
     }
     
-
     .list-bx{
-        padding:rem(40);
-        background:#fff;
-        border-radius:20px;
+        flex: 1;
+        margin-left: rem(40);
+        padding: 0;
+        padding-left: rem(40);
+        border-radius: 0;
+        border-left: 1px solid #D9D9D9;
 
         .list-bullet{
-            max-width:1200px;
             display:grid;
             grid-template-columns:repeat(2, calc(50% - 12px));
-            gap:rem(24);
+            gap:rem(12);
 
             li{
                 margin:0;
@@ -4928,26 +4982,52 @@
     }
     
     @include mdq-max(lg){
-        .establish-group + .establish-group{
-            margin-top:rem(80);
+        .establish-group {
+            & > .bx{
+                padding: 30px 24px;
+            }
+
+            & + .establish-group{
+                margin-top:rem(80);
+            }
+        }
+        
+        .bx-wrp .tit{
+            font-size: 20px;
         }
     }
 
     @include mdq-max(md){
-        
-        .establish-group + .establish-group{
-            margin-top:rem(60);
+        .establish-group {
+            & > .bx{
+                flex-direction: column;
+                padding: 20px;
+
+                .tit{
+                    font-size:18px;
+                }
+            }
+
+            & + .establish-group{
+                margin-top:rem(60);
+            }
+        }
+
+        .bx-wrp .tit{
+            font-size: 18px;
         }
 
         .cont-tit{
-            margin-bottom:15px;
-            font-size:21px;
+            margin-bottom:16px;
+            font-size:20px;
         }
 
         .list-bx{
-            border-radius:12px;
-            padding:18px;
-
+            padding: 16px 0 0;
+            margin: 16px 0 0;
+            border-top: 1px solid #D9D9D9;
+            border-left: 0;
+            
             .list-bullet{
                 grid-template-columns:repeat(1, calc(100%));
             }

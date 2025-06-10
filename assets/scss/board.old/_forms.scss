@@ -177,7 +177,7 @@ select{
     &.form-control{
         @extend %form-control;
         padding-right: 50px !important;
-        background: url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
+        background: #fff url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
 
         &.no-style{
             background: none !important;
@@ -205,7 +205,7 @@ select{
         justify-content: flex-start;
         align-items: center;
         padding-right: 64px;
-        background: url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
+        background: #fff url(../images/common/icon_form_arr.svg) no-repeat center right 20px / 20px auto;
 
         .dropdown-toggle{
             position: absolute;
