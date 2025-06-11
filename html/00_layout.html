@@ -1186,6 +1186,7 @@
     const tabs = document.querySelectorAll('[role="tab"]');
     const tabList = document.querySelector('[role="tablist"]');
     const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+    const btnMore = document.getElementById('btnMore');
     let tabFocus = 0;
 
     // 각 탭 패널에 대한 Swiper 인스턴스 생성 및 관리
@@ -1200,7 +1201,7 @@
         });
         swipers[panel.id] = swiper;
 
-        // 다음 버튼 클릭 시 마지막 슬라이드에서 다음 탭으로 이동
+		// 다음 버튼 클릭 시 마지막 슬라이드에서 다음 탭으로 이동
         const nextButton = panel.querySelector('.swiper-button-next');
         nextButton.addEventListener('click', function() {
             if (nextButton.classList.contains('swiper-button-disabled')) {
@@ -1223,7 +1224,7 @@
             const activeSlide = panel.querySelector('.swiper-slide-active a');
             const currentIndex = Array.from(slides).indexOf(activeSlide);
 
-            // Tab 키 누를 때 마지막 슬라이드에서 다음 탭으로 이동
+            // Tab 키 누를 때 마지막 슬라이드에서 더보기 버튼으로 이동
             if (e.key === 'Tab') {
                 // Shift + Tab: 첫 번째 슬라이드에서 이전 탭으로 이동
                 if (e.shiftKey && currentIndex === 0) {
@@ -1244,31 +1245,53 @@
                         changeTabs(tabs[prevTabIndex]);
                     }
                 }
-                // 일반 Tab: 마지막 슬라이드에서 다음 탭으로 이동
+                // 일반 Tab: 마지막 슬라이드에서 더보기 버튼으로 이동
                 else if (!e.shiftKey && currentIndex === slides.length - 1) {
                     e.preventDefault();
-                    const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
-                    const currentTabIndex = Array.from(tabs).indexOf(currentTab);
-                    
-                    // 마지막 탭인 경우 다음 영역으로 포커스 이동
-                    if (currentTabIndex === tabs.length - 1) {
-						//---- S: 06-10 수정 / 더보기 버튼 추가
-                        const nextSection = document.querySelector('#btnMore');
-                        if (nextSection) {
-							nextSection.focus();
-                        }
-						//---- E: 06-10 수정 / 더보기 버튼 추가
-					} else {
-                        if (currentTab.textContent.trim() === '전체') {
-                            changeTabs(tabs[1]);
-                        } else {
-                            const nextTabIndex = (currentTabIndex + 1) % tabs.length;
-                            changeTabs(tabs[nextTabIndex]);
-                        }
+                    const btnMore = document.getElementById('btnMore');
+                    if (btnMore) {
+                        btnMore.focus();
                     }
                 }
             }
         });
+    });
+
+    // 더보기 버튼에서 Tab 키를 눌렀을 때 다음 탭으로 이동
+    btnMore.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab' && e.shiftKey) {
+            // Shift+Tab: 위 요소로 포커스 이동
+            e.preventDefault();
+            const btnMoreParent = btnMore.closest('.btn-wrp');
+            if (btnMoreParent && btnMoreParent.previousElementSibling) {
+                const prevFocusableElement = btnMoreParent.previousElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (prevFocusableElement) {
+                    prevFocusableElement.focus();
+                }
+            }
+        } else if (e.key === 'Tab' && !e.shiftKey) {
+            // Tab: 다음 탭으로 이동 또는 아래로 포커스 이동
+            e.preventDefault();
+            const tabs = document.querySelectorAll('[role="tab"]');
+            const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
+            const currentTabIndex = Array.from(tabs).indexOf(currentTab);
+            
+            // 마지막 탭인 경우
+            if (currentTabIndex === tabs.length - 1) {
+                // 더보기 버튼의 부모 요소의 다음 형제 요소로 포커스 이동
+                const btnMoreParent = btnMore.closest('.btn-wrp');
+                if (btnMoreParent && btnMoreParent.nextElementSibling) {
+                    const nextFocusableElement = btnMoreParent.nextElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (nextFocusableElement) {
+                        nextFocusableElement.focus();
+                    }
+                }
+            } else {
+                // 다음 탭으로 이동
+                const nextTabIndex = (currentTabIndex + 1) % tabs.length;
+                changeTabs(tabs[nextTabIndex]);
+            }
+        }
     });
 
     // 탭 변경 함수
@@ -1349,8 +1372,51 @@
         });
     });
 
-    // 페이지 로드 시 첫 번째 탭 활성화
-    // changeTabs(tabs[0]);
+    
+});
+
+// 모든 요소에 포커스 이벤트 리스너 추가
+document.addEventListener('focusin', function(event) {
+    console.log('현재 포커스 위치:', event.target);
+});
+
+// 키보드 접근성을 위한 이벤트 처리
+document.querySelectorAll('.swiper-board').forEach(panel => {
+    panel.addEventListener('keydown', function(e) {
+        const slides = panel.querySelectorAll('.swiper-slide a');
+        const activeSlide = panel.querySelector('.swiper-slide-active a');
+        const currentIndex = Array.from(slides).indexOf(activeSlide);
+
+        // Tab 키 누를 때 마지막 슬라이드에서 더보기 버튼으로 이동
+        if (e.key === 'Tab') {
+            // Shift + Tab: 첫 번째 슬라이드에서 이전 탭으로 이동
+            if (e.shiftKey && currentIndex === 0) {
+                e.preventDefault();
+                const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
+                const currentTabIndex = Array.from(tabs).indexOf(currentTab);
+                
+                if (currentTab.textContent.trim() === '전체') {
+                    const prevSection = document.querySelector('.category-list > li:first-child');
+                    if (prevSection) {
+                        prevSection.querySelector('a').focus();
+                    }
+                } else if (currentTab.textContent.trim() === '보도자료') {
+                    changeTabs(tabs[0]);
+                } else {
+                    const prevTabIndex = (currentTabIndex - 1 + tabs.length) % tabs.length;
+                    changeTabs(tabs[prevTabIndex]);
+                }
+            }
+            // 일반 Tab: 마지막 슬라이드에서 더보기 버튼으로 이동
+            else if (!e.shiftKey && currentIndex === slides.length - 1) {
+                e.preventDefault();
+                const btnMore = document.getElementById('btnMore');
+                if (btnMore) {
+                    btnMore.focus();
+                }
+            }
+        }
+    });
 });
 </script>
 </html>
