@@ -13,15 +13,17 @@ $(document).ready(function() {
 		'afterLoad': function( anchorLink, index, slideAnchor, slideIndex) {
 			if(anchorLink == 'fifthSection' && slideIndex == 1) {
 				$.fn.fullpage.setAllowScrolling(false, 'up');
-			}	
-			focusTrapping();	
+			}	else {
+				focusTrapping();	
+			}
 		},
 	
 		'onLeave': function( anchorLink, index, slideIndex, direction) {
 			if(anchorLink == 'fifthSection' && slideIndex == 1) {
 				$.fn.fullpage.setAllowScrolling(true, 'up');
+			} else {
+				focusTrapping();
 			}
-			focusTrapping();
 		} 
 	}); 
 
@@ -42,7 +44,6 @@ $(document).ready(function() {
 				
 				if( e.shiftKey ){
 					if( document.activeElement === firstFocusableElement ){
-						console.log('첫번째요소에서 역순');
 						// $.fn.fullpage.setAllowScrolling(true, 'up');
 
 						var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
@@ -61,8 +62,6 @@ $(document).ready(function() {
 						}
 					}
 				}
-
-				console.log(document.activeElement);
 			});
 		} 
 	}

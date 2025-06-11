@@ -154,26 +154,60 @@ function closePopup() {
 
 $(document).ready(function(){
   /*사이트 맵*/
-  function sitemapToggle(isOpen) {
-    $('.sitemap').toggleClass('active', isOpen);
-    $('body').toggleClass('sitemap-open', isOpen);
-  }
+  $('.header__wrap .nav').clone().appendTo('#menu');
+  $('.sitemap .inner').prepend('<button type="button" class="btn-sitemap-close"><i class="icon-sitemap-close"></i><span class="sr-only"></span></button>')
 
-  $('.sitemap-btn').on('click', function () {
-    if(!$(this).hasClass('active')){
-      $(this).addClass('active');
+  // quick
+  $(document).on('click', '.btn-sitemap-close', function(){
+    if(!$('body').hasClass('sitemap-open')){
       sitemapToggle(true);
     } else {
-      $(this).removeClass('active');
+      sitemapToggle(false);
+    }
+	});
+
+  function sitemapToggle(isOpen) {
+    if(isOpen){
+      $('.btn-sitemap').addClass('active');
+      $('body').addClass('sitemap-open');
+      $('#menu').find('a').first().focus();
+    } else {
+      $('.btn-sitemap').removeClass('active');
+      $('body').removeClass('sitemap-open');
+    }
+  }
+
+  $('.btn-sitemap').on('click', function () {
+    if(!$(this).hasClass('active')){
+      sitemapToggle(true);
+    } else {
       sitemapToggle(false);
     }
   });
 
+	function sitemapFocusMove() {
+		$('.btn-sitemap').focus();
+		sitemapToggle(false);
+	}
+
+	$('#menu').find('a').first().on("keydown", function(event) { 
+		if (event.shiftKey && (event.keyCode || event.which) === 9) {
+			event.preventDefault();
+			sitemapFocusMove();
+    }
+  });
+
+	$('#menu').find('a:visible').last().on("blur", function(event) {
+		
+	});
+
+
   $(document).on('keydown', function (e) {
-    if (e.key === 'Escape' && $('.sitemap').hasClass('active')) {
+    if (e.key === 'Escape' && $('body').hasClass('sitemap-open')) {
       sitemapToggle(false);
     }
   });
+  
   $('.tb-collapse').each(function(){
 		$(this).addClass('minimize').parent().append('<a href="#" class="btn-collapse">더 보기</a> ')
 	});
@@ -298,7 +332,8 @@ $(document).ready(function () {
   var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
   if(!isMobile) {
-    $('.header .nav').find(focusAbleElement).last().on("keydown", function(e) {
+    $('.header > .nav').find(focusAbleElement).last().on("keydown", function(e) {
+      console.log('last');
       if (e.keyCode == "9" && e.shiftKey) {
       } else {
         $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
@@ -313,7 +348,8 @@ $(document).ready(function () {
       }
     });
     
-    $('.header .nav').find(focusAbleElement).first().on("keydown", function(e) {
+    $('.header > .nav').find(focusAbleElement).first().on("keydown", function(e) {
+      console.log('first');
       if (e.keyCode == "9" && e.shiftKey) {
         $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
         $('.nav__bg, .submenu').hide();
