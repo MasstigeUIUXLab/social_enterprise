@@ -172,7 +172,7 @@ $(document).ready(function(){
       $('body').addClass('sitemap-open');
       $('#menu').find('a').first().focus();
     } else {
-      $('.btn-sitemap').removeClass('active');
+      $('.btn-sitemap').removeClass('active').focus();
       $('body').removeClass('sitemap-open');
     }
   }
@@ -190,17 +190,16 @@ $(document).ready(function(){
 		sitemapToggle(false);
 	}
 
-	$('#menu').find('a').first().on("keydown", function(event) { 
+	$('.btn-sitemap-close').on("keydown", function(event) { 
 		if (event.shiftKey && (event.keyCode || event.which) === 9) {
 			event.preventDefault();
 			sitemapFocusMove();
     }
   });
 
-	$('#menu').find('a:visible').last().on("blur", function(event) {
-		
+	$('#menu').find('a').last().on("blur", function(event) {
+    $('.btn-sitemap-close').focus();
 	});
-
 
   $(document).on('keydown', function (e) {
     if (e.key === 'Escape' && $('body').hasClass('sitemap-open')) {
@@ -332,8 +331,7 @@ $(document).ready(function () {
   var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
   if(!isMobile) {
-    $('.header > .nav').find(focusAbleElement).last().on("keydown", function(e) {
-      console.log('last');
+    $('.header__wrap > .nav').find(focusAbleElement).last().on("keydown", function(e) {
       if (e.keyCode == "9" && e.shiftKey) {
       } else {
         $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
@@ -348,8 +346,7 @@ $(document).ready(function () {
       }
     });
     
-    $('.header > .nav').find(focusAbleElement).first().on("keydown", function(e) {
-      console.log('first');
+    $('.header__wrap > .nav').find(focusAbleElement).first().on("keydown", function(e) {
       if (e.keyCode == "9" && e.shiftKey) {
         $('#header').removeClass('gnb-hover').find('.hover').removeClass('hover');
         $('.nav__bg, .submenu').hide();
