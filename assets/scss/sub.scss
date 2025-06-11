@@ -1479,15 +1479,31 @@
         }
     }
 
-    &-file-wrp{
+    &-file-wrp, &-content-wrp{
         margin-top:rem(100);
 
         .tit{
-            display:block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             padding-bottom:rem(16);
             font-weight:600;
             font-size:rem(20);
             line-height:1.4;
+
+            .badge{
+                padding: 0.5em 0.85em;
+                background-color: #fff;
+                border: 1px solid #222;
+                font-size: inherit;
+                font-weight: 500;
+
+                &.bg-blue{
+                    background-color: #1C7BBD !important;
+                    border-color: #1C7BBD;
+                    color: #fff;
+                }
+            }
         }
 
         .list-file{
@@ -1533,6 +1549,15 @@
             background-size:auto;
             background-repeat:no-repeat;
             background-position:center;
+        }
+
+        .read-bx{
+            padding: 20px 30px;
+            border-radius: 10px;
+            background: #F8F8F8;
+            border: 0;
+            min-height: 144px;
+            color: #222;
         }
     }
 
@@ -1606,7 +1631,8 @@
 
         .cate{
             min-width:60px;
-            margin-bottom:12px;
+            padding: 6px 10px;
+            margin-bottom:10px;
             font-size:12px;
         }
 
@@ -1615,7 +1641,7 @@
         }
 
         .sub{
-            margin-top:15px;
+            margin-top:20px;
         }
       }
 
@@ -1629,8 +1655,8 @@
         }
       }
 
-      &-file-wrp{
-        padding-top:60px;
+      &-file-wrp, &-content-wrp{
+        margin-top:60px;
         
         .list-file{
             padding: 10px;
@@ -1654,6 +1680,22 @@
                 }
             }
         }
+
+        .tit {
+            .badge{
+                padding: 6px 12px;
+            }
+        }
+
+        .read-bx{
+            min-height: 120px;
+            padding: 20px;
+        }
+      }
+
+      &-content-wrp{
+        padding-top: 0;
+        margin-top: 60px;
       }
 
       &-link{
@@ -1684,6 +1726,28 @@
         }
       }
 
+    }
+}
+
+.page-auth {
+    .view-file-wrp .list-file{
+        padding: 20px 30px;
+        background-color: #fff;
+        border: 1px solid #E3E3E3;
+    }
+
+    .view-link{
+        margin-top: 40px;
+    }
+    
+    @include mdq-max(md){
+        .view-file-wrp .list-file{
+            padding: 16px;
+        }
+
+        .view-link{
+            margin-top: 20px;
+        }
     }
 }
 
