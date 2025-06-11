@@ -889,10 +889,9 @@
 
 				<!-- [D] 06-10 수정 / 더보기 버튼 추가 -->
 				<div class="btn-wrp">
-					<a href="#" title="게시판 바로가기" class="btn-more" id="btnMore">더 보기<i class="icon-arr-blk"></i></a>
+					<a href="#" title="게시판 바로가기" class="btn-more" id="btnMore" style="display: none;">더 보기<i class="icon-arr-blk"></i></a>
 				</div>
 				<!-- // 06-10 수정 -->
-
 
 				<div class="swiper swiper-banner">
                     <!-- [D] 06-05 재생/정지 버튼 추가, 위치 변경 -->
@@ -1181,6 +1180,7 @@
 </div>
 </body>
 <script>
+	
 	document.addEventListener('DOMContentLoaded', function() {
     // 탭 관련 요소들 선택
     const tabs = document.querySelectorAll('[role="tab"]');
@@ -1223,13 +1223,13 @@
             const slides = panel.querySelectorAll('.swiper-slide a');
             const activeSlide = panel.querySelector('.swiper-slide-active a');
             const currentIndex = Array.from(slides).indexOf(activeSlide);
+            const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
 
             // Tab 키 누를 때 마지막 슬라이드에서 더보기 버튼으로 이동
             if (e.key === 'Tab') {
                 // Shift + Tab: 첫 번째 슬라이드에서 이전 탭으로 이동
                 if (e.shiftKey && currentIndex === 0) {
                     e.preventDefault();
-                    const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
                     const currentTabIndex = Array.from(tabs).indexOf(currentTab);
                     
                     // 첫 번째 탭('전체')에서 Shift + Tab을 누르면 이전 영역으로 이동
@@ -1248,9 +1248,16 @@
                 // 일반 Tab: 마지막 슬라이드에서 더보기 버튼으로 이동
                 else if (!e.shiftKey && currentIndex === slides.length - 1) {
                     e.preventDefault();
-                    const btnMore = document.getElementById('btnMore');
-                    if (btnMore) {
-                        btnMore.focus();
+                    const currentTabIndex = Array.from(tabs).indexOf(currentTab);
+                    
+                    // 첫 번째 탭('전체')인 경우 다음 탭으로 이동
+                    if (currentTab.textContent.trim() === '전체') {
+                        changeTabs(tabs[1]); // 두 번째 탭으로 이동
+                    } else {
+                        const btnMore = document.getElementById('btnMore');
+                        if (btnMore) {
+                            btnMore.focus();
+                        }
                     }
                 }
             }
@@ -1329,6 +1336,20 @@
         if (firstSlide) {
             firstSlide.querySelector('a').focus();
         }
+        // 첫 번째 탭('전체')이 활성화될 때 btnMore 버튼 숨기기
+        const btnMore = document.getElementById('btnMore');
+        if (btnMore) {
+            // 화면 진입 시 btnMore 버튼 숨기기
+            if (target.textContent.trim() === '전체') {
+                btnMore.style.display = 'none';
+                console.log('첫 번째 탭: btnMore 버튼이 숨겨졌습니다.');
+            } else {
+                btnMore.style.display = '';
+                console.log('두 번째 탭 이후: btnMore 버튼이 표시되었습니다.');
+            }
+        } else {
+            console.log('btnMore 요소를 찾을 수 없습니다.');
+        }
     }
 
     // 키보드 방향키로 탭 이동
@@ -1372,6 +1393,22 @@
         });
     });
 
+    // 화면 진입 시 btnMore 버튼 숨기기
+    $(document).ready(function() {
+        // 초기 탭 설정
+        const firstTab = document.querySelector('[role="tab"]');
+        if (firstTab) {
+            // 화면 진입 시 btnMore 버튼 숨기기
+            const btnMore = document.getElementById('btnMore');
+            if (btnMore) {
+                btnMore.style.display = 'none';
+                console.log('화면 진입: btnMore 버튼이 숨겨졌습니다.');
+            }
+            
+            changeTabs(firstTab);
+        }
+    });
+
     
 });
 
@@ -1386,13 +1423,13 @@ document.querySelectorAll('.swiper-board').forEach(panel => {
         const slides = panel.querySelectorAll('.swiper-slide a');
         const activeSlide = panel.querySelector('.swiper-slide-active a');
         const currentIndex = Array.from(slides).indexOf(activeSlide);
+        const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
 
         // Tab 키 누를 때 마지막 슬라이드에서 더보기 버튼으로 이동
         if (e.key === 'Tab') {
             // Shift + Tab: 첫 번째 슬라이드에서 이전 탭으로 이동
             if (e.shiftKey && currentIndex === 0) {
                 e.preventDefault();
-                const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
                 const currentTabIndex = Array.from(tabs).indexOf(currentTab);
                 
                 if (currentTab.textContent.trim() === '전체') {
@@ -1410,9 +1447,15 @@ document.querySelectorAll('.swiper-board').forEach(panel => {
             // 일반 Tab: 마지막 슬라이드에서 더보기 버튼으로 이동
             else if (!e.shiftKey && currentIndex === slides.length - 1) {
                 e.preventDefault();
-                const btnMore = document.getElementById('btnMore');
-                if (btnMore) {
-                    btnMore.focus();
+                const currentTabIndex = Array.from(tabs).indexOf(currentTab);
+                
+                if (currentTab.textContent.trim() === '전체') {
+                    changeTabs(tabs[1]); // 두 번째 탭으로 이동
+                } else {
+                    const btnMore = document.getElementById('btnMore');
+                    if (btnMore) {
+                        btnMore.focus();
+                    }
                 }
             }
         }
