@@ -1180,7 +1180,6 @@
 </div>
 </body>
 <script>
-	
 	document.addEventListener('DOMContentLoaded', function() {
     // 탭 관련 요소들 선택
     const tabs = document.querySelectorAll('[role="tab"]');
@@ -1391,22 +1390,6 @@
             tabFocus = Array.from(tabs).indexOf(tab);
             changeTabs(tab);
         });
-    });
-
-    // 화면 진입 시 btnMore 버튼 숨기기
-    $(document).ready(function() {
-        // 초기 탭 설정
-        const firstTab = document.querySelector('[role="tab"]');
-        if (firstTab) {
-            // 화면 진입 시 btnMore 버튼 숨기기
-            const btnMore = document.getElementById('btnMore');
-            if (btnMore) {
-                btnMore.style.display = 'none';
-                console.log('화면 진입: btnMore 버튼이 숨겨졌습니다.');
-            }
-            
-            changeTabs(firstTab);
-        }
     });
 
     
