@@ -20,19 +20,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 8px 12px;
     margin-top: rem(60);
-
-    &.flex{
-      flex-wrap: wrap;
-      
-      &:not(.full){
-        & > *{
-          flex: 1;
-          justify-content: space-between;
-        }
-      }
-    }
 
     .btn{
       min-width: 109px;
@@ -41,10 +31,6 @@
     @include mdq-max(md) {
       margin-top: 40px;
       gap: 4px 8px;
-
-      & > *{
-        flex: 1;
-      }
 
       &.full{
         & > *{
