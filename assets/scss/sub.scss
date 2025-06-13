@@ -7209,6 +7209,7 @@
         align-items:center;
         justify-content:center;
         position:relative;
+        z-index: 1;
         height:rem(320);
         padding-bottom:rem(100);
 
@@ -7247,15 +7248,17 @@
         margin-left:-12px;
 
         a{
-            display:inline-block;
+           display: flex;
+            align-items: center;
+            justify-content: center;
             width:100%;
             height:64px;
-            line-height:64px;
             padding:0 10px;
             border-radius:50px;
             font-size:rem(24);
             font-weight:400;
             text-align:center;
+            word-break: break-all;
             
             &.b-dash{
                 border:1px dashed #666;
@@ -7285,11 +7288,30 @@
     .organi-wrp2{
         position:absolute;
         top:0;
-        left:12px;
-        width:100%;
-        height:rem(220);
+        left: 15px;
+        width: 100%;
+        z-index: 10;
         align-items:center;
         justify-content:space-around;
+
+        & > li{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: calc(100% / 6);
+            width: 16.6666666667%;
+            height: 13.75rem;
+
+            &:nth-child(2){
+                left: calc(100% / 6 * 4);
+            }
+        }
+
+        p{
+            width: 100%;
+        }
 
         p + p{
             margin-top:12px;
@@ -7360,6 +7382,28 @@
         }
     }
     
+    @include mdq-max(lg){
+        .organi-wrp2, 
+        .organi-wrp3{
+            margin-right: -6px;
+            margin-left: -6px;
+
+            a{
+                height:48px;
+                font-size:18px;
+            }
+
+            & > li{
+                padding-right: 6px;
+                padding-left: 6px;
+            }
+        }
+
+        .organi-wrp2{
+            left: 6px;
+        }
+    }
+    
     @include mdq-max(md){
         &:before{
             content:"";
@@ -7392,7 +7436,6 @@
         .organi-wrp3{
             a{
                 height:44px;
-                line-height:44px;
                 font-size:14px;
             }
 
@@ -7406,7 +7449,20 @@
         .organi-wrp2{
             flex-direction:column;
             position:relative;
+            left: 0;
+            width: calc(100% + 12px);
             height:auto;
+            transform: none;
+
+            & > li{
+                position: relative;
+                left: unset;
+                height: auto;
+
+                &:nth-child(2){
+                    left: unset;
+                }
+            }
 
             li + li{
                 margin-top:8px;
