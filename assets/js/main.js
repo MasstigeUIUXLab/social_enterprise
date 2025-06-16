@@ -73,7 +73,10 @@ $(document).ready(function() {
 		  delay: 6000,
 		  disableOnInteraction: false,	
 		},
-		parallax: true,
+		navigation: {
+			nextEl: ".swiper-visual .swiper-button-next",
+			prevEl: ".swiper-visual .swiper-button-prev",
+		}, 	
 		pagination: {
 			el: ".swiper-visual .swiper-pagination",
 			clickable: false,
@@ -95,37 +98,6 @@ $(document).ready(function() {
 		$(this).parent('.item').addClass('active').siblings().removeClass('active');
 	});
 
-	// let cloneSlide = $('.swiper-board .swiper-wrapper').html();
-	// let arraySlide = [];
-	// let boardSwiper; 
-   
-	// $('.swiper-board .swiper-slide').each(function(i, e) {
-	// 	arraySlide.push(e);
-	// });
-
-	// $('.category-list a').on('click', function(e) {
-	// 	e.preventDefault();
-	// 	boardSwiper.destroy();
-
-	// 	const type = $(this).text();
-		
-	// 	$(this).addClass('on').parent().siblings().find('.on').removeClass('on');
-	// 	$('.swiper-board .swiper-wrapper').empty();
-		
-	// 	if (type === '전체') {
-	// 		$('.swiper-board .swiper-wrapper').append(cloneSlide);
-	// 	} else {
-	// 		$(arraySlide).each(function(i, e) {
-	// 			const exist = $(e).attr('data-type').indexOf(type);
-			
-	// 			if (exist >= 0) {
-	// 				$('.swiper-board .swiper-wrapper').append(e);
-	// 			}
-	// 		});
-	// 	}
-	// 	boardSwiperInit();
-	// });
-	
 	var	boardSwiper = new Swiper(".swiper-board", {
 		// autoplay: {
 		// 	delay: 5000,
@@ -164,14 +136,26 @@ $(document).ready(function() {
 		}
 	}
 
-	var bannerSwiper0 = new Swiper(".swiper-banner", {
+	var bannerSwiper = new Swiper(".swiper-banner", {
 		speed: 300,
-		effect: 'fade',
-		loop: true,  
+		loop: true,
+		loopFillGroupWithBlank: true,
+		slidesPerView: 2,
+		spaceBetween: 24,
 		autoplay: {
 		  delay: 4000,
 		  disableOnInteraction: false,	
 		},
+		a11y: { 
+			enabled: true,
+			prevSlideMessage: '이전 슬라이드',
+			nextSlideMessage: '다음 슬라이드',   
+			slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+		},
+		navigation: {
+			nextEl: ".swiper-banner .swiper-button-next",
+			prevEl: ".swiper-banner .swiper-button-prev",
+		}, 	
 		pagination: {
 			el: ".swiper-banner .swiper-pagination",
 			clickable: false,
@@ -188,40 +172,6 @@ $(document).ready(function() {
 			}
 		}
 	})
-
-	var bannerSwiper1 = new Swiper(".swiper-banner1", {
-		speed: 300,
-		effect: 'fade',
-		loop: true,  
-		autoplay: {
-		  delay: 4000,
-		  disableOnInteraction: false,	
-		},
-		pagination: {
-			el: ".swiper-banner1 .swiper-pagination",
-			clickable: false,
-			type: "custom",
-			renderCustom: function(swiper, current, total) {
-				return (
-					'<span class="current">' + 0 + (current) + '</span>' + '<span class="total">' + 0 + (total) + '</span>'
-				);
-			}
-		},
-		on: {
-			autoplayTimeLeft(s, time, progress) {
-				document.querySelector('.swiper-banner1 .banner-progress svg').style.setProperty("--progress", 1 - progress)
-			}
-		}
-	})
-
-	var bannerSwiper2 = new Swiper(".swiper-banner2", {
-		speed: 300,
-		effect: 'fade',
-		loop: true,  
-	})
-
-  bannerSwiper1.controller.control = bannerSwiper2;
-  bannerSwiper2.controller.control = bannerSwiper1;
 
 	var eventSwiper = new Swiper(".swiper-event", {
 		speed: 1200,
@@ -275,13 +225,9 @@ $(document).ready(function() {
     switch ($tg) {
       case "swiper-banner":
         if ($(this).hasClass("on")) {
-            bannerSwiper0.autoplay.stop();
-            bannerSwiper1.autoplay.stop();
-            bannerSwiper2.autoplay.stop();
+            bannerSwiper.autoplay.stop();
         } else {
-            bannerSwiper0.autoplay.start();
-            bannerSwiper1.autoplay.start();
-            bannerSwiper2.autoplay.start();
+            bannerSwiper.autoplay.start();
         };
         break;
       case "swiper-visual":

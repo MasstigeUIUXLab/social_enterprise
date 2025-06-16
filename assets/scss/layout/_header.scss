@@ -437,7 +437,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
   }
 
   .btn-sitemap{
-    display: none !important;
+    display: none;
     width: rem(26);
     height: rem(26);
     background: url(../../assets/images/common/icon_sitemap.svg) no-repeat center / 100% auto;
