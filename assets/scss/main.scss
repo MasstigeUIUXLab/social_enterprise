@@ -65,7 +65,7 @@
 
                 .swiper-slide-active{
                     .img-area img{
-                        transform: scale(1.18);
+                        transform: translate(-50%, -50%) scale(1.18);
                     }
 
                     .txt-area > * > span{
@@ -98,14 +98,15 @@
                 height: 100%;
                 overflow: hidden;
 
-                img{
+                img, iframe, video{
                     position: absolute;
-                    top: 0;
-                    left: 0;
+                    top: 50%;
+                    left: 50%;
+                    margin: 0;
                     width: 100%;
                     height: 100%;
+                    transform: translate(-50%, -50%);
                     object-fit: cover;
-                    transition: transform 6s ease;
                 }
             }
             
@@ -223,7 +224,12 @@
                 margin-left: 8px;
                 width: 24px;
                 height: 24px;
-                background-image: url(../images/main/icon_swiper_pause.svg);
+                background: url(../images/main/icon_swiper_pause.svg) no-repeat center / 100% auto;
+                                
+                @include mdq-max(sm) {
+                    width: 16px;
+                    height: 16px;
+                }
 
                 & > span:last-child {
                     display: none;
@@ -240,6 +246,10 @@
                         display: block;
                     }
                 }
+            }
+        
+            @include mdq-max(sm) {
+                font-size: 12px;
             }
         }
 
@@ -352,8 +362,9 @@
                     justify-content: center;
                     position: relative;
                     right: auto;
-                    height: auto;
-                    margin-top: 30px;
+                    height: auto;       
+                    margin-top: 24px;
+                    margin-bottom: 10px;
                 }
 
                 .btn-more{
@@ -531,6 +542,11 @@
                         transform: none;
                         color: #666;
                         font-weight: 400;
+                        
+                        @include mdq-max(sm) {
+                            font-size: 10px;
+                            
+                        }
 
                         .swiper-pagination{
                             .current{
@@ -1086,7 +1102,7 @@
         &.ms1{
             .section-inner{
                 padding-bottom: 0;
-                height: 100vh;
+                height: 56vw;
             }
 
             .txt-area{
@@ -1109,7 +1125,7 @@
             }
 
             .board-control .category-list{
-                gap: 12px;
+                gap: 8px;
                 overflow-x: auto;
                 margin-right: -20px;
                 margin-left: -20px;
@@ -1308,6 +1324,11 @@
 @include mdq-max(md) {
     .main-section{
         &.ms2{
+            .board-control .category-list a {
+                padding: 8px 13px;
+                font-size: 12px;
+            }
+
             .banner-wrp{
                 flex-direction: column;
                 gap: 16px;
@@ -1475,31 +1496,55 @@
     .main-section{
         &.ms1{
             .txt-area{
-                font-size: 36px;
+                bottom: 8vw;
+                font-size: 26px;
             
                 .sub{
-                    font-size: 19px;
+                    font-size: 14px;
                 }
             }
 
             .swiper-indicator{
-                bottom: 220px;
-                font-size: 14px;
+                // bottom: 32vw;
+                // font-size: 12px;
+                bottom: 8vw;
+                width: auto;
+                right: 0;
+                left: unset;
+                font-size: 10px;
+                transform: none;
 
                 .swiper-pagination {
-                    width: 120px;
+                    width: 48px;
                 }
 
                 .autoplay-progress {
-                    width: 60px;
+                    width: 14px;
+                    margin: 0px 36px;
+                }
+                
+                .swiper-navigation{
+                    .swiper-button-prev,
+                    .swiper-button-next{
+                        width: 20px;
+                        height: 20px;
+                        background-size: 4px auto;
+                    }
                 }
             }
         }
 
         &.ms2{
+            .section-inner{
+                padding-top: 40px;
+            }
+            .board-control{
+                margin-bottom: 16px;
+            }
+
             .swiper-board {
                 width: 64vw;
-                height: 278px;
+                height: 216px;
 
                 .swiper-navigation{
                     left: calc(64vw + 16px);
@@ -1512,10 +1557,22 @@
                     }
                 }
                 
+                .swiper-slide{
+                    .link{
+                        gap: 12px;
+                        padding: 20px;
+                    }
+
+                    .cate{
+                        font-size: 10px;
+                    }
+                }
+                
                 .swiper-slide-active{
                     .link{
+                        gap: 16px;
                         height: 100%;
-                        padding: 24px;
+                        padding: 20px;
                     }
                     
                     .txt-area {
@@ -1524,7 +1581,7 @@
                         }
 
                         .tit{
-                            font-size: 21px;
+                            font-size: 18px;
                         }
                     }
                 }
@@ -1545,6 +1602,29 @@
 
             }
 
+            [class*=swiper-banner]{
+                .swiper-indicator{
+                    font-size: 10px;
+
+                    .swiper-pagination{
+                        width: 48px;
+                    }
+                }
+
+                .autoplay-progress{    
+                    width: 12px;
+                    margin: 0px 18px;
+                }
+
+                .swiper-navigation{
+                    margin-left: 4px;
+
+                    .swiper-button-next, .swiper-button-prev{ 
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
         }
 
         &.ms4 .support-list{

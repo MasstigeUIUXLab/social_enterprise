@@ -69,6 +69,7 @@ $(document).ready(function() {
 	var visualSwiper = new Swiper(".swiper-visual", {
 		speed: 1200,
 		loop: true,
+		effect: 'slide',
 		autoplay: {
 		  delay: 6000,
 		  disableOnInteraction: false,	
@@ -90,6 +91,31 @@ $(document).ready(function() {
 		on: {
 			autoplayTimeLeft(s, time, progress) {
 				document.querySelector('.visual-progress svg').style.setProperty("--progress", 1 - progress)
+			},
+			slideChangeTransitionEnd: function(){
+				var t = $('.swiper-visual');
+				var prop = t.find('.swiper-slide').length === 1 ? false : true;
+
+				if(prop){
+					 t.find('video')[0].pause();
+					 t.find('video')[0].load();
+				}
+			},
+			slideChangeTransitionStart: function() {
+				const activeSlide = this.slides[this.activeIndex];
+				const video = activeSlide.querySelector('video');
+
+				if (video) {
+					this.autoplay.stop();
+					video.addEventListener("ended", function(){
+						setTimeout(() => {
+							visualSwiper.slideNext();
+							// visualSwiper.autoplay.start();
+						}, "1000");
+					});
+				} else {
+					this.autoplay.start();
+				}
 			}
 		}
 	});
@@ -140,11 +166,17 @@ $(document).ready(function() {
 		speed: 300,
 		loop: true,
 		loopFillGroupWithBlank: true,
-		slidesPerView: 2,
-		spaceBetween: 24,
+		slidesPerView: 1,
+		spaceBetween: 16,
 		autoplay: {
 		  delay: 4000,
 		  disableOnInteraction: false,	
+		},
+		breakpoints: {
+			769: {
+				spaceBetween: 24,
+				slidesPerView: 2,
+			},
 		},
 		a11y: { 
 			enabled: true,
