@@ -102,27 +102,53 @@ $(document).ready(function() {
 				}
 			},
 			slideChangeTransitionStart: function() {
-				const activeSlide = this.slides[this.activeIndex];
-				const video = activeSlide.querySelector('video');
-
+				let activeSlide = this.slides[this.activeIndex];
+				let video = activeSlide.querySelector('video');
+				
 				if (video) {
 					this.autoplay.stop();
 					video.addEventListener("ended", function(){
-						setTimeout(() => {
-							visualSwiper.slideNext();
-							// visualSwiper.autoplay.start();
-						}, "1000");
+						visualSwiper.autoplay.start();
 					});
-				} else {
-					this.autoplay.start();
 				}
+			},
+			slideChange: function () {
+				let activeSlide = this.slides[this.activeIndex];
+				let video = activeSlide.querySelector('video');
+
+				let delay = 6000;
+				if (video) {
+					delay = 0;
+				} else {
+					delay = 6000;
+				}
+				this.params.autoplay.delay = delay; // 새로운 딜레이 적용
+				this.autoplay.start(); // autoplay 재시작
 			}
 		}
 	});
 
-	$(document).on('mouseenter focus', '.support-list .link', function(e){
-		$(this).parent('.item').addClass('active').siblings().removeClass('active');
+	var isMobile = window.matchMedia('(max-width: 1024px)').matches;
+
+	$(window).resize(function(){
+		isMobile = (window.matchMedia('(max-width: 1024px)').matches);
+	})
+
+	$('.support-list .link').on('click', function(e){
+		if(isMobile){
+			$(this).parent('.item').addClass('active').siblings().removeClass('active');
+		} else {
+			return false;
+		}
 	});
+
+	$(document).on('mouseenter focus', '.support-list .link', function(e){
+		if(!isMobile){
+			$(this).parent('.item').addClass('active').siblings().removeClass('active');
+		} else {
+			return false;
+		}
+	})
 
 	var	boardSwiper = new Swiper(".swiper-board", {
 		// autoplay: {

@@ -392,7 +392,7 @@
                     border-radius: rem(20);
                     background-color: #fff;
                     overflow: hidden;
-                    pointer-events: none;
+                    // pointer-events: none;
                     transition: .35s;
                 }
 
@@ -947,6 +947,7 @@
 
                             .link-btn{
                                 opacity: 1;
+                                visibility: visible;
                             }
                         }
                     }
@@ -1036,6 +1037,7 @@
                         font-weight: 500;
                         line-height: 1;
                         opacity: 0;
+                        visibility: hidden;
 
                         .icon-link-arr{
                             width: rem(19);
@@ -1258,16 +1260,16 @@
             max-height: 400px;
             
             .item{
-                &:first-child .img-area {
-                    background-position: right -50px center;
+                 &:first-child .img-area {
+                        background-position: right -180px center;
                 }
 
-                &:nth-child(2) .img-area {
-                    background-position: right -40px center;
+                &:nth-child(2) .img-area{
+                            background-position: right -200px center;
                 }
 
-                &:nth-child(3) .img-area {
-                    background-position: right -20px center;
+                &:nth-child(3) .img-area{
+                    background-position: right -180px center;
                 }
 
                 &.active{
@@ -1275,7 +1277,7 @@
                         padding: 50px 30px;
 
                         .tit{
-                            font-size: 28px;
+                            font-size: 20px;
                         }
                     }
                 }
@@ -1286,6 +1288,8 @@
 
                 .tit{
                     font-size: 16px;
+                    white-space: wrap;
+                    transition: none;
                 }
 
                 .sub{
@@ -1430,6 +1434,9 @@
                     order: 1;
                     width: 100%;
 
+                    .img-area{
+                        background-size: cover;
+                    }
                     
                     &:first-child .img-area {
                         background-position: right -40px center;
@@ -1440,17 +1447,17 @@
                     }
 
                     &:nth-child(3) .img-area {
-                        background-position: right -21px center;
+                        background-position: right -74px center;
                     }
 
                     .link{
-                        height: 400px;
+                        height: 25rem;
                     }
 
                     .txt-area{
                         padding: 50px 40px;
                         max-width: 100%;
-                        width: 50%;
+                        width: 48%;
 
                         .sub{
                             margin-bottom: 20px;
@@ -1462,10 +1469,26 @@
                         }
                     }
                 }
+                
+                &:first-child .img-area {
+                    background-position: right -40px center;
+                }
+
+                &:nth-child(2) .img-area {
+                    background-position: right -60px center;
+                }
+
+                &:nth-child(3) .img-area {
+                    background-position: right -21px center;
+                }
             }
 
             .link{
                 height: 12rem;
+            }
+
+            .img-area{
+                background-size: 180%;
             }
 
             .txt-area {
@@ -1631,7 +1654,7 @@
             .item{
                 &.active{
                     .link{
-                        height: 16rem;
+                        height: 240px;
                     }
 
                     .txt-area{
