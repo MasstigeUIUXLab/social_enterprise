@@ -176,7 +176,6 @@ $(document).ready(function() {
 		breakpoints: {
 			769: {
 				spaceBetween: 24,
-				slidesPerView: 2,
 			},
 		},
 		a11y: { 

@@ -546,8 +546,8 @@
                 padding-bottom: 40px;
 
                 .swiper{
-                    position: unset;
-                    width: 100%;;
+                    position: unset;    
+                    width: calc(50% - 12px);
                     margin-top: 0;
 
                     .swiper-indicator{
@@ -1403,7 +1403,7 @@
 
             [class*=swiper-banner]{
                 width: 100%;
-                margin-top: 60px;
+                margin-top: 24px;
                                
                 
                 .swiper-indicator {
