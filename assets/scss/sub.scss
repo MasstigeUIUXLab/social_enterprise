@@ -53,6 +53,10 @@
     grid-template-columns:repeat(auto-fill, minmax(25%, auto));
     gap:1.25vw;  
     padding-bottom:4px;
+        
+    @include mdq-min(xxl){
+        gap: 24px;
+    }
 
     .item{
         &:first-child{
@@ -61,6 +65,7 @@
 
         &:nth-child(1n + 3) .link{
             height:21.12245vh;
+            max-height: 200px;
         }
 
         &.active,  .link:focus, .link:focus-visible{
@@ -248,6 +253,10 @@
                 .txt-area>*{
                     transform:translateX(10px);
                 }
+            }
+
+            &:nth-child(1n + 3) .link{
+                min-height: 0;
             }
         }
         .img-area{
@@ -5074,10 +5083,10 @@
         flex-basis:50%;
         max-width:50%;
         display:flex;
-        gap:12px;
+        gap:16px;
 
         .img-area{
-            flex:0 0 29%;
+            flex:0 0 25.424%;
         }
 
         .txt-area{
@@ -5126,7 +5135,16 @@
             }
 
             .txt-area{
-                padding:24px;
+                padding:16px 20px;
+
+                b{
+                    font-size: 18px;
+                }
+
+                p{
+                    padding: 8px;
+                    font-size: 14px;
+                }
             }
         }
     }

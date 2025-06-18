@@ -407,16 +407,18 @@ $(document).ready(function () {
 		return false;
 	});
 
-  /* HEADER GNB Drop */
-  $('.header').navDrop({
-        type: 'each', // 기본값 udnefiend, 선언하지 않거나 없는 값을 선언할 경우 콘솔창에 경고문구 출력
-        background: true, // 기본값 true, 배경 엘리먼트가 없을 경우 콘솔창에 경고문구 출력
-        backgroundClass: '.nav__bg', // 기본값 .nav__bg
-        backgroundAutoColor: false, // 기본값 false, depth2의 배경색을 자동으로 적용
-        effect: 'fade', // 기본값 fade, 옵션값은 fade, slide
-        delay: 200, // 출력시 delay
-        callback: function () {}, // 콜백 함수
-  });
+  if($('.header').length){
+    /* HEADER GNB Drop */
+    $('.header').navDrop({
+          type: 'each', // 기본값 udnefiend, 선언하지 않거나 없는 값을 선언할 경우 콘솔창에 경고문구 출력
+          background: true, // 기본값 true, 배경 엘리먼트가 없을 경우 콘솔창에 경고문구 출력
+          backgroundClass: '.nav__bg', // 기본값 .nav__bg
+          backgroundAutoColor: false, // 기본값 false, depth2의 배경색을 자동으로 적용
+          effect: 'fade', // 기본값 fade, 옵션값은 fade, slide
+          delay: 200, // 출력시 delay
+          callback: function () {}, // 콜백 함수
+    });
+  }
 
      /**
  * qna

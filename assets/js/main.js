@@ -133,8 +133,6 @@ $(document).ready(function() {
 	$('.support-list .link').on('click', function(e){
 		if(isMobile){
 			$(this).parent('.item').addClass('active').siblings().removeClass('active');
-		} else {
-			return false;
 		}
 	});
 
@@ -151,38 +149,19 @@ $(document).ready(function() {
 		// 	delay: 5000,
 		// 	disableOnInteraction: false,
 		// },
-		slideToClickedSlide : true,
+		// slideToClickedSlide : true,
 		slidesPerView: 1,
 		spaceBetween: 16,
-		navigation: {
-			nextEl: ".swiper-board .swiper-button-next",
-			prevEl: ".swiper-board .swiper-button-prev",
-		}, 	
 		breakpoints: {
 			769: {
 				spaceBetween: 24,
 			},
 		},
-		on: {
-			init: function(){
-			},
-			slideChange: function(instance){
-				swiperPaginationLoop(instance);
-			},
-			update: function() {
-				this.slideTo(0);
-			}
-		},
-	});
-	
-	function swiperPaginationLoop(instance){
-		var currentIndex = instance.realIndex; 
-		var loopedSlides = instance.slides.length / 2; 
-	  
-		if (currentIndex >= loopedSlides) {
-		  currentIndex -= loopedSlides; 
+		navigation: {
+			nextEl: ".swiper-board .swiper-button-next",
+			prevEl: ".swiper-board .swiper-button-prev",
 		}
-	}
+	});
 
 	var bannerSwiper = new Swiper(".swiper-banner", {
 		speed: 300,
