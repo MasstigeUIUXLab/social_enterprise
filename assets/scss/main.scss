@@ -787,6 +787,12 @@
             .sect-event{
                 flex: 1;
 
+                .swiper-event{
+                    margin-left: -20px;
+                    margin-right: -20px;
+                    padding: 0 20px;
+                }
+
                 .item{
                     display: block;
                     position: relative;
@@ -1247,8 +1253,21 @@
             //     }
             // }
             
-            .txt-area .d-none {
-                display: block !important;
+            max-height: 420px;
+            gap: 16px;
+
+            .item.active{
+                .txt-area {
+                    .tit{
+                        font-size: 32px;
+                    }
+                }
+            }
+
+            .txt-area {
+                .d-none {
+                    display: block !important;
+                }
             }
         }
     }
@@ -1284,8 +1303,6 @@
         }
 
         &.ms4 .support-list{
-            max-height: 400px;
-            
             .item{
                  &:first-child .img-area {
                         background-position: right -180px center;
@@ -1301,7 +1318,7 @@
 
                 &.active{
                     .txt-area{
-                        padding: 50px 30px;
+                        padding: 50px 3.25rem;
 
                         .tit{
                             font-size: 20px;
@@ -1346,6 +1363,19 @@
             .banner-wrp{
                 .swiper:not(.swiper-banner1, .swiper-banner2){
                     width: 100%;
+                }
+            }
+        }
+
+        &.ms4 .support-list{
+            max-height: 320px;
+
+            .item.active {
+                &:nth-child(3) .img-area {
+                    background-position: right -32px center;
+                }
+                .txt-area {
+                    padding: 50px 6%;
                 }
             }
         }
@@ -1394,7 +1424,11 @@
 
         &.ms3 { 
             .section-inner>* {
-                padding: 30px 0;
+                padding: 70px 0;
+            
+                &.sect-menu{
+                    padding: 50px 0;
+                }
             }
 
             .swiper-menu {
@@ -1506,7 +1540,7 @@
                     }
 
                     &:nth-child(3) .img-area {
-                        background-position: right -74px center;
+                        background-position: right -64px center;
                     }
 
                     .link{
@@ -1708,6 +1742,12 @@
                 }
             }
         }
+        
+        &.ms3{
+            .section-inner > *{
+                padding: 50px 0 60px;
+            }
+        }
 
         &.ms4 .support-list{
             .item{
@@ -1758,7 +1798,7 @@
         }
 
         .sect-hd{
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             text-align: left;
 
             .tit{
