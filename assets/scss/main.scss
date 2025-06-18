@@ -383,7 +383,7 @@
             
             .swiper-board{
                 margin: 0 auto 0 0;
-                width: 24.167rem;
+                // width: 24.167rem;
                 height: rem(404);
                 overflow: visible;
 
@@ -862,17 +862,24 @@
                     
                     @include mdq-max(md) {
                         .cover{
+                            padding: 14px;
+                            word-break: break-all;
+
                             & > *{
                                 max-width: 170px;
                                 margin: 0 auto;
                             }
 
                             .tit{
-                                font-size: 18px;
+                                font-size: 16px;
                             }
     
                             .txt{
                                 font-size: 14px;
+                            }
+
+                            .sub{
+                                font-size: 12px;
                             }
                         }
                     }
@@ -1239,7 +1246,7 @@
             }
 
             .swiper-menu {
-                padding: 24px 60px;
+                padding: 0 60px;
 
                 .swiper-slide{
                     width: auto !important;
@@ -1371,7 +1378,39 @@
 
         &.ms3 { 
             .section-inner>* {
-                padding: 50px 0;
+                padding: 30px 0;
+            }
+
+            .swiper-menu {
+                padding: 0 12vw;
+                
+                .link {
+                    gap: 6px;
+                    width: 86px;
+                    padding: 10px 12px;
+
+                    span{
+                        font-size: 12px;
+                    }
+
+                    i {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+
+                .swiper-navigation [class^=swiper-button]{
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .swiper-button-prev{
+                    left: 0;
+                }
+
+                .swiper-button-next{
+                    right: 0;
+                }
             }
         }
 
