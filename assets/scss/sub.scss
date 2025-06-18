@@ -2126,9 +2126,9 @@
 
         .cate{
             min-width:60px;
-            padding: 6px 10px;
-            margin-bottom:10px;
-            font-size:12px;
+            margin-bottom:20px;
+            padding: 4px 8px;
+            font-size: 12px;
         }
 
         .tit{
@@ -2136,7 +2136,7 @@
         }
 
         .sub{
-            margin-top:20px;
+            margin-top:16px;
         }
       }
 
@@ -2178,7 +2178,8 @@
 
         .tit {
             .badge{
-                padding: 6px 12px;
+                padding: 4px 8px;
+                font-size: 12px;
             }
         }
 
@@ -2200,10 +2201,12 @@
             flex-basis: 100%;
             max-width: 100%;
             padding: 10px 0;
+            font-size: 14px;
 
             .tit{
-                width: 60px;
+                width: 50px;
                 padding: 6px 0 !important;
+                font-size: 12px;
 
                 &:after{
                     display: none;
@@ -2237,7 +2240,7 @@
     
     @include mdq-max(md){
         .view-file-wrp .list-file{
-            padding: 16px;
+            padding: 10px;
         }
 
         .view-link{
