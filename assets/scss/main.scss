@@ -108,6 +108,10 @@
                     transform: translate(-50%, -50%);
                     object-fit: cover;
                 }
+
+                img{
+                    transition: transform 4s ease;
+                }
             }
             
             .txt-area{

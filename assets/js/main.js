@@ -92,23 +92,19 @@ $(document).ready(function() {
 			autoplayTimeLeft(s, time, progress) {
 				document.querySelector('.visual-progress svg').style.setProperty("--progress", 1 - progress)
 			},
-			slideChangeTransitionEnd: function(){
-				var t = $('.swiper-visual');
-				var prop = t.find('.swiper-slide').length === 1 ? false : true;
-
-				if(prop){
-					 t.find('video')[0].pause();
-					 t.find('video')[0].load();
-				}
-			},
 			slideChangeTransitionStart: function() {
 				let activeSlide = this.slides[this.activeIndex];
 				let video = activeSlide.querySelector('video');
 				
 				if (video) {
 					this.autoplay.stop();
+					video.pause();
+					video.load();
+					
 					video.addEventListener("ended", function(){
-						visualSwiper.autoplay.start();
+						if(!$('.swiper-visual').find('.btn-swiper-play').hasClass('on')){
+							visualSwiper.autoplay.start();
+						} 
 					});
 				}
 			},
@@ -122,8 +118,8 @@ $(document).ready(function() {
 				} else {
 					delay = 6000;
 				}
-				this.params.autoplay.delay = delay; // 새로운 딜레이 적용
-				this.autoplay.start(); // autoplay 재시작
+				this.params.autoplay.delay = delay; 
+				this.autoplay.start();
 			}
 		}
 	});
