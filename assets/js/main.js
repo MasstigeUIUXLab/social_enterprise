@@ -100,7 +100,7 @@ $(document).ready(function() {
 					this.autoplay.stop();
 					video.pause();
 					video.load();
-					
+
 					video.addEventListener("ended", function(){
 						if(!$('.swiper-visual').find('.btn-swiper-play').hasClass('on')){
 							visualSwiper.autoplay.start();
@@ -249,14 +249,14 @@ $(document).ready(function() {
 	
 	var menuSwiper = new Swiper(".swiper-menu", {
 		slidesPerView: 'auto',
-		spaceBetween: 24,
+		spaceBetween:12,
 		navigation: {
 			nextEl: ".swiper-menu .swiper-button-next",
 			prevEl: ".swiper-menu .swiper-button-prev",
 		}, 	
 		breakpoints: {
 			768: {
-				slidesPerView: 'auto',
+				spaceBetween: 24,
 				spaceBetween: 38,
 			},
 			1200: {

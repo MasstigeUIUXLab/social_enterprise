@@ -51,14 +51,13 @@
 .gate-list{
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(25%, auto));
-    gap:24px;  
+    gap:1.25vw;  
     padding-bottom:4px;
 
     .item{
         &:first-child{
             grid-column:auto / span 2; 
         }
-
 
         &:nth-child(1n + 3) .link{
             height:21.12245vh;
@@ -103,6 +102,7 @@
         display:block;
         position:relative;
         height:31.63265vh;
+        max-height: 300px;
         border-radius:rem(20);
         overflow:hidden;
     }
@@ -230,7 +230,7 @@
     }
 }
 
-@include mdq-max(xl){
+@include mdq-max(xxl){
     .gate-header{
         .logo{
             height:100px;
@@ -244,7 +244,7 @@
 
     .gate-list{
         .item{
-            &.active,   &:focus-visible{
+            &.active, &:focus-visible{
                 .txt-area>*{
                     transform:translateX(10px);
                 }
@@ -312,7 +312,7 @@
 
     .gate-list{
         grid-template-columns:auto;    
-        gap:16px;
+        gap:8px;
 
         .item{
             &.active, &:focus-visible{
@@ -359,6 +359,8 @@
         
         .icon-gate-arr{
             margin-top:3vh;
+            width: 20px;
+            height: 8px;
         }
     }
 

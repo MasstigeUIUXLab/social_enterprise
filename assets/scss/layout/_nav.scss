@@ -542,7 +542,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		}
 
 		.submenu{
-			padding: 12px 12px;
+			padding: 0;
 			min-height: 0px;
 			width: auto;
 			left: 50%;
@@ -551,30 +551,38 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 			transform: translateX(-50%);
 		
 			&-inner {
+				padding: 0;
+
 				.nav-list--depth2 {
 					flex-direction: column;
 					align-items: flex-start;
 					gap: 0;
-					margin-right: -12px;
-					margin-left: -12px;
+					// margin-right: -12px;
+					// margin-left: -12px;
+					margin: 0;
 					text-align: center;
 
-					& > .depth-2:last-child .link{
-						border-bottom: 0;
-					}
+					// & > .depth-2:last-child .link{
+					// 	border-bottom: 0;
+					// }
 				}
 
 				.depth-2{
 					width: 100%;
-					padding: 0 12px;
+					padding: 0;
 					margin: 0;
 					text-align: center;
 
 					& > .link{    
-						padding: 8px;
-						margin: 0;
-						font-size: 18px;
+						padding: 12px;
+						margin: 0;    
+						font-size: 16px;
 						font-weight: 500;
+						border-bottom: 0;
+
+						&:hover{
+							background: #f8f8f8;
+						}
 					}
 				}	
 			}
