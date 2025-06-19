@@ -781,7 +781,7 @@
 						<li><a href="#" role="tab" aria-selected="false" aria-controls="panel-recruit" id="tab-recruit" tabindex="-1">채용공고</a></li>
 					</ul>
 				</div>
-				<div class="swiper swiper-board" role="tabpanel" aria-labelledby="tab-all" id="panel-all">
+				<div class="swiper swiper-board" role="tabpanel" data-href="04_소식자료_보도자료.html" aria-labelledby="tab-all" id="panel-all">
 					<ul class="swiper-wrapper">						
 						<li class="swiper-slide" data-type="보도자료" aria-label="보도자료">
 							<div class="link">
@@ -887,7 +887,7 @@
 						<div class="swiper-button-next"></div>
 					</div>
 				</div>
-				<div class="swiper swiper-board" role="tabpanel" aria-labelledby="tab-news" id="panel-news" hidden>
+				<div class="swiper swiper-board" role="tabpanel" data-href="04_소식자료_보도자료.html" aria-labelledby="tab-news" id="panel-news" hidden>
 					<ul class="swiper-wrapper">						
 						<li class="swiper-slide" data-type="보도자료" aria-label="보도자료">
 							<div class="link">
@@ -909,7 +909,7 @@
 						<div class="swiper-button-next"></div>
 					</div>
 				</div>
-				<div class="swiper swiper-board" role="tabpanel" aria-labelledby="tab-notice" id="panel-notice" hidden>
+				<div class="swiper swiper-board" role="tabpanel" data-href="04_소식자료_공지사항.html" aria-labelledby="tab-notice" id="panel-notice" hidden>
 					<ul class="swiper-wrapper">						
 						<li class="swiper-slide" data-type="공지사항" aria-label="공지사항">
 							<div class="link">
@@ -932,7 +932,7 @@
 						<div class="swiper-button-next"></div>
 					</div>
 				</div>
-				<div class="swiper swiper-board" role="tabpanel" aria-labelledby="tab-business" id="panel-business" hidden>
+				<div class="swiper swiper-board" role="tabpanel" data-href="#" aria-labelledby="tab-business" id="panel-business" hidden>
 					<ul class="swiper-wrapper">						
 						<li class="swiper-slide" data-type="사업공고" aria-label="사업공고">
 							<div class="link">
@@ -1011,7 +1011,7 @@
 						<div class="swiper-button-next"></div>
 					</div>
 				</div>
-				<div class="swiper swiper-board" role="tabpanel" aria-labelledby="tab-recruit" id="panel-recruit" hidden>
+				<div class="swiper swiper-board" role="tabpanel" data-href="#" aria-labelledby="tab-recruit" id="panel-recruit" hidden>
 					<ul class="swiper-wrapper">						
 						<li class="swiper-slide" data-type="채용공고" aria-label="채용공고">
 							<div class="link">
@@ -1524,9 +1524,11 @@
             // 화면 진입 시 btnMore 버튼 숨기기
             if (target.textContent.trim() === '전체') {
                 btnMore.style.display = 'none';
+				btnMore.removeAttribute('href');
                 console.log('첫 번째 탭: btnMore 버튼이 숨겨졌습니다.');
             } else {
                 btnMore.style.display = '';
+        		btnMore.setAttribute('href', targetPanel.getAttribute('data-href'));
                 console.log('두 번째 탭 이후: btnMore 버튼이 표시되었습니다.');
             }
         } else {
