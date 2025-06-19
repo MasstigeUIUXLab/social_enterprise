@@ -1420,11 +1420,23 @@
             // Shift+Tab: 위 요소로 포커스 이동
             e.preventDefault();
             const btnMoreParent = btnMore.closest('.btn-wrp');
-            if (btnMoreParent && btnMoreParent.previousElementSibling) {
-                const prevFocusableElement = btnMoreParent.previousElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            // if (btnMoreParent && btnMoreParent.previousElementSibling) {
+            //     const prevFocusableElement = btnMoreParent.previousElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            //     if (prevFocusableElement) {
+            //         prevFocusableElement.focus();
+            //     }
+            // }
+			const prevElements = Array.from(document.querySelectorAll('.swiper-board'));
+			const targetElement = prevElements.find(el => {
+				return el.getAttribute('hidden') == null;
+			});
+
+            if (btnMoreParent && targetElement) {
+                const prevFocusableElement = targetElement.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+
                 if (prevFocusableElement) {
-                    prevFocusableElement.focus();
-                }
+                    prevFocusableElement[prevFocusableElement.length - 1].focus();
+				}
             }
         } else if (e.key === 'Tab' && !e.shiftKey) {
             // Tab: 다음 탭으로 이동 또는 아래로 포커스 이동
