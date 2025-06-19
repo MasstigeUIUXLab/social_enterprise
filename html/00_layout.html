@@ -771,6 +771,7 @@
 						<li><a href="#" role="tab" aria-selected="false" aria-controls="panel-recruit" id="tab-recruit" tabindex="-1">채용공고</a></li>
 					</ul>
 				</div>
+				<!-- [D] 06-19 수정 / swiper-board에  data-href 추가(이하 동일) -->
 				<div class="swiper swiper-board" role="tabpanel" data-href="04_소식자료_보도자료.html" aria-labelledby="tab-all" id="panel-all">
 					<ul class="swiper-wrapper">						
 						<li class="swiper-slide" data-type="보도자료" aria-label="보도자료">
@@ -1420,24 +1421,22 @@
             // Shift+Tab: 위 요소로 포커스 이동
             e.preventDefault();
             const btnMoreParent = btnMore.closest('.btn-wrp');
-            // if (btnMoreParent && btnMoreParent.previousElementSibling) {
-            //     const prevFocusableElement = btnMoreParent.previousElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-            //     if (prevFocusableElement) {
-            //         prevFocusableElement.focus();
-            //     }
-            // }
+
+			//--- S: 06-19 수정
 			const prevElements = Array.from(document.querySelectorAll('.swiper-board'));
 			const targetElement = prevElements.find(el => {
 				return el.getAttribute('hidden') == null;
 			});
 
             if (btnMoreParent && targetElement) {
-                const prevFocusableElement = targetElement.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                // const prevFocusableElement = targetElement.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const prevFocusableElement = targetElement.querySelectorAll('a, button, input, select, textarea');
 
                 if (prevFocusableElement) {
                     prevFocusableElement[prevFocusableElement.length - 1].focus();
 				}
             }
+			//--- E: 06-19 수정
         } else if (e.key === 'Tab' && !e.shiftKey) {
             // Tab: 다음 탭으로 이동 또는 아래로 포커스 이동
             e.preventDefault();
@@ -1450,7 +1449,10 @@
                 // 더보기 버튼의 부모 요소의 다음 형제 요소로 포커스 이동
                 const btnMoreParent = btnMore.closest('.btn-wrp');
                 if (btnMoreParent && btnMoreParent.nextElementSibling) {
-                    const nextFocusableElement = btnMoreParent.nextElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+					//--- S: 06-19 수정
+                    // const nextFocusableElement = btnMoreParent.nextElementSibling.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    const nextFocusableElement = btnMoreParent.nextElementSibling.querySelector('a, button, input, select, textarea)');
+					//--- E: 06-19 수정
                     if (nextFocusableElement) {
                         nextFocusableElement.focus();
                     }
@@ -1504,11 +1506,15 @@
             // 화면 진입 시 btnMore 버튼 숨기기
             if (target.textContent.trim() === '전체') {
                 btnMore.style.display = 'none';
+				//--- S: 06-19 수정
 				btnMore.removeAttribute('href');
+				//--- E: 06-19 수정
                 console.log('첫 번째 탭: btnMore 버튼이 숨겨졌습니다.');
             } else {
                 btnMore.style.display = '';
+				//--- S: 06-19 수정
         		btnMore.setAttribute('href', targetPanel.getAttribute('data-href'));
+				//--- E: 06-19 수정
                 console.log('두 번째 탭 이후: btnMore 버튼이 표시되었습니다.');
             }
         } else {
