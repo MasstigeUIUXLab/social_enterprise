@@ -547,7 +547,7 @@
 
                 .swiper{
                     position: unset;    
-                    width: calc(50% - 12px);
+                    width: 100%;
                     margin-top: 0;
 
                     .swiper-indicator{
@@ -980,7 +980,6 @@
 
                             .link-btn{
                                 opacity: 1;
-                                visibility: visible;
                             }
                         }
                     }
@@ -1070,7 +1069,6 @@
                         font-weight: 500;
                         line-height: 1;
                         opacity: 0;
-                        visibility: hidden;
 
                         .icon-link-arr{
                             width: rem(19);
@@ -1080,8 +1078,6 @@
                         }
                     }
                 }
-
-                    
             }
         }
     }

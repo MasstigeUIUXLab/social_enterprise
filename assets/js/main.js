@@ -5,6 +5,7 @@ $(document).ready(function() {
 		sectionSelector: '.main-section',
 		easing: 'easeInOutCubic',
 		easingcss3: 'ease',
+		KeyboardScrolling: true,
 		scrollingSpeed: 500,
 		navigation: false,
 		controlArrows: false,
@@ -78,6 +79,12 @@ $(document).ready(function() {
 			nextEl: ".swiper-visual .swiper-button-next",
 			prevEl: ".swiper-visual .swiper-button-prev",
 		}, 	
+		a11y: { 
+			enabled: true,
+			prevSlideMessage: '이전 슬라이드',
+			nextSlideMessage: '다음 슬라이드',   
+			slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+		},
 		pagination: {
 			el: ".swiper-visual .swiper-pagination",
 			clickable: false,
@@ -160,23 +167,6 @@ $(document).ready(function() {
 		navigation: {
 			nextEl: ".swiper-board .swiper-button-next",
 			prevEl: ".swiper-board .swiper-button-prev",
-		}
-	});
-
-	var bannerSwiper = new Swiper(".swiper-banner", {
-		speed: 300,
-		loop: true,
-		loopFillGroupWithBlank: true,
-		slidesPerView: 1,
-		spaceBetween: 16,
-		autoplay: {
-		  delay: 4000,
-		  disableOnInteraction: false,	
-		},
-		breakpoints: {
-			769: {
-				spaceBetween: 24,
-			},
 		},
 		a11y: { 
 			enabled: true,
@@ -184,26 +174,96 @@ $(document).ready(function() {
 			nextSlideMessage: '다음 슬라이드',   
 			slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
 		},
-		navigation: {
-			nextEl: ".swiper-banner .swiper-button-next",
-			prevEl: ".swiper-banner .swiper-button-prev",
-		}, 	
-		pagination: {
-			el: ".swiper-banner .swiper-pagination",
-			clickable: false,
-			type: "custom",
-			renderCustom: function(swiper, current, total) {
-				return (
-					'<span class="current">' + 0 + (current) + '</span>' + '<span class="total">' + 0 + (total) + '</span>'
-				);
+	});
+
+	
+	if($('.swiper-banner').closest('.banner-wrp').length){
+		var bannerSwiper = new Swiper(".swiper-banner", {
+			speed: 300,
+			loop: true,
+			loopFillGroupWithBlank: true,
+			slidesPerView: 1,
+			spaceBetween: 16,
+			autoplay: {
+			delay: 4000,
+			disableOnInteraction: false,	
+			},
+			breakpoints: {
+				769: {
+					slidesPerView: 2,
+					spaceBetween: 24,
+				},
+			},
+			a11y: { 
+				enabled: true,
+				prevSlideMessage: '이전 슬라이드',
+				nextSlideMessage: '다음 슬라이드',   
+				slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+			},
+			navigation: {
+				nextEl: ".swiper-banner .swiper-button-next",
+				prevEl: ".swiper-banner .swiper-button-prev",
+			}, 	
+			pagination: {
+				el: ".swiper-banner .swiper-pagination",
+				clickable: false,
+				type: "custom",
+				renderCustom: function(swiper, current, total) {
+					return (
+						'<span class="current">' + 0 + (current) + '</span>' + '<span class="total">' + 0 + (total) + '</span>'
+					);
+				}
+			},
+			on: {
+				autoplayTimeLeft(s, time, progress) {
+					document.querySelector('.swiper-banner .banner-progress svg').style.setProperty("--progress", 1 - progress)
+				}
 			}
-		},
-		on: {
-			autoplayTimeLeft(s, time, progress) {
-				document.querySelector('.swiper-banner .banner-progress svg').style.setProperty("--progress", 1 - progress)
+		})
+	} else {
+		var bannerSwiper = new Swiper(".swiper-banner", {
+			speed: 300,
+			loop: true,
+			loopFillGroupWithBlank: true,
+			slidesPerView: 1,
+			spaceBetween: 16,
+			autoplay: {
+			delay: 4000,
+			disableOnInteraction: false,	
+			},
+			breakpoints: {
+				769: {
+					slidesPerView: 1,
+					spaceBetween: 24,
+				},
+			},
+			a11y: { 
+				enabled: true,
+				prevSlideMessage: '이전 슬라이드',
+				nextSlideMessage: '다음 슬라이드',   
+				slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+			},
+			navigation: {
+				nextEl: ".swiper-banner .swiper-button-next",
+				prevEl: ".swiper-banner .swiper-button-prev",
+			}, 	
+			pagination: {
+				el: ".swiper-banner .swiper-pagination",
+				clickable: false,
+				type: "custom",
+				renderCustom: function(swiper, current, total) {
+					return (
+						'<span class="current">' + 0 + (current) + '</span>' + '<span class="total">' + 0 + (total) + '</span>'
+					);
+				}
+			},
+			on: {
+				autoplayTimeLeft(s, time, progress) {
+					document.querySelector('.swiper-banner .banner-progress svg').style.setProperty("--progress", 1 - progress)
+				}
 			}
-		}
-	})
+		})
+	}
 
 	var eventSwiper = new Swiper(".swiper-event", {
 		speed: 1200,
