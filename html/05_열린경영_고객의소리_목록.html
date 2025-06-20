@@ -746,70 +746,109 @@
 					</div>
 				</div>
 				<div class="sect" data-aos="fade-up" data-aos-delay="100">
-					<div class="board-wrap board-cs normal">
+					<div class="board-wrap board-cs"><!-- [D] 06-20 수정 / .normal 제거  -->
 						<div class="tb-control">
 							<p>총 <strong class="text-body">1</strong>건의 게시물이 있습니다.</p>
 						</div>
 
+						<!-- [D] 06-20 수정 / 표 전체적으로 변경 -->
 						<!-- 표 -->
-						<div class="tb-wrap table-style2">
+						<div class="tb-wrap">
 							<table class="tb v2">
-								<caption><span>고객의 소리 게시판의 번호, 제목, 첨부파일, 등록일, 등록자, 조회수 테이블입니다.</span></caption>
+								<caption><span>고객의 소리 게시판의 번호, 구분, 제목/첨부파일, 부서, 등록자, 등록일, 조회수, 답변여부 테이블입니다.</span></caption>
 								<colgroup>
-									<col width="11%">
-									<col width="45%">
-									<col width="11%">
-									<col width="11%">
-									<col width="11%">
+									<col width="8%">
+									<col width="10%">
+									<col width="42%">
+									<col width="29%">
 									<col width="11%">
 								</colgroup>
-								<thead>
+								<thead class="sr-only">
 									<tr>
 										<th scope="col">번호</th>
-										<th scope="col">제목</th>
-										<th scope="col">첨부파일</th>
-										<th scope="col">등록일</th>
-										<th scope="col">등록자</th>
-										<th scope="col">조회수</th>
+										<th scope="col">구분</th>
+										<th scope="col">제목/첨부파일</th>
+										<th scope="col">부서/등록자/등록일/조회수</th>
+										<th scope="col">답변여부</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<!-- [D] 04-15 추가 Mobile에서 보일 요소의 <td>태그에 inline 클래스 ++, 한줄 전부 차지해야할 경우 block 클래스 ++ -->
-										<td class="inline"><span>1</span></td>
+										<td class="inline"><span>156</span></td>
+										<td class="inline"><span class="badge cate border-gray">칭찬,격려</span></td>
 										<td class="inline block">
 											<a href="#" class="link">
-												<p class="txt">테스트입니다.</p>
+												<p class="txt">2025 한국마사회와 함께하는 로컬활성화 창업성장지원사업 참여기업 공고</p>
+												<!-- [D] 첨부파일 있을 경우 -->
+												<i class="icon-file"></i>
+												<span class="sr-only">첨부파일</span>
 											</a>
 										</td>
-										<td class="inline">
-											<!-- [D] 첨부파일 있을 경우 -->
-											<i class="icon-file"></i>
-											<span class="sr-only">첨부파일</span>
+										<td class="inline block">
+											<div class="inner justify-content-xl-end">
+												<div class="sub">
+													<span>경영지원팀</span>
+													<span>홍길동</span>
+												</div>
+												<span>2025-03-31</span>
+												<span class="num-view">13312</span>
+											</div>
 										</td>
-										<td class="inline"><span>2025-01-11</span></td>
-										<td class="inline"><span>홍길동</span></td>
-										<td class="inline"><span>0</span></td>
+										<td class="inline"><span class="badge cate bg-green">처리중</span></td>
 									</tr>
 									<tr>
-										<td class="inline"><span>2</span></td>
+										<!-- [D] 04-15 추가 Mobile에서 보일 요소의 <td>태그에 inline 클래스 ++, 한줄 전부 차지해야할 경우 block 클래스 ++ -->
+										<td class="inline"><span>156</span></td>
+										<td class="inline"><span class="badge cate border-gray">칭찬,격려</span></td>
 										<td class="inline block">
 											<a href="#" class="link">
-												<p class="txt">테스트입니다.</p>
+												<p class="txt">2025 한국마사회와 함께하는 로컬활성화 창업성장지원사업 참여기업 공고</p>
+												<!-- [D] 첨부파일 있을 경우 -->
+												<i class="icon-file"></i>
+												<span class="sr-only">첨부파일</span>
 											</a>
 										</td>
-										<td class="inline">
-											<!-- [D] 첨부파일 있을 경우 -->
-											<i class="icon-file"></i>
-											<span class="sr-only">첨부파일</span>
+										<td class="inline block">
+											<div class="inner justify-content-xl-end">
+												<div class="sub">
+													<span>경영지원팀</span>
+													<span>홍길동</span>
+												</div>
+												<span>2025-03-31</span>
+												<span class="num-view">13312</span>
+											</div>
 										</td>
-										<td class="inline"><span>2025-01-11</span></td>
-										<td class="inline"><span>홍길동</span></td>
-										<td class="inline"><span>0</span></td>
+										<td class="inline"><span class="badge cate bg-blue">답변완료</span></td>
+									</tr>
+									<tr>
+										<!-- [D] 04-15 추가 Mobile에서 보일 요소의 <td>태그에 inline 클래스 ++, 한줄 전부 차지해야할 경우 block 클래스 ++ -->
+										<td class="inline"><span>156</span></td>
+										<td class="inline"><span class="badge cate border-gray">칭찬,격려</span></td>
+										<td class="inline block">
+											<a href="#" class="link">
+												<p class="txt">2025 한국마사회와 함께하는 로컬활성화 창업성장지원사업 참여기업 공고</p>
+												<!-- [D] 첨부파일 있을 경우 -->
+												<i class="icon-file"></i>
+												<span class="sr-only">첨부파일</span>
+											</a>
+										</td>
+										<td class="inline block">
+											<div class="inner justify-content-xl-end">
+												<div class="sub">
+													<span>경영지원팀</span>
+													<span>홍길동</span>
+												</div>
+												<span>2025-03-31</span>
+												<span class="num-view">13312</span>
+											</div>
+										</td>
+										<td class="inline"><span class="badge cate bg-gray">답변대기</span></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
+						<!-- // -->
 						<!-- // -->
 						
 						<!-- 페이징 -->

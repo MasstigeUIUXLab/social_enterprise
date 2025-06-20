@@ -68,7 +68,9 @@
             max-height: 200px;
         }
 
-        &.active,  .link:focus, .link:focus-visible{
+        &.active, .link:focus-visible{
+            outline-offset: 0px !important;
+
             .img-area{
                 img{
                     filter:grayscale(0);
@@ -961,6 +963,16 @@
                     width:32px;
                     height:2px;
                 }
+            }
+        }
+    }
+    
+    @include mdq-max(sm){
+        margin-top:40px;
+
+        .sect{
+            &:not(:first-child){
+                margin-top:24px;
             }
         }
     }
@@ -1997,18 +2009,6 @@
                 border: 1px solid #222;
                 font-size: inherit;
                 font-weight: 500;
-
-                &.bg-blue{
-                    background-color: #1C7BBD !important;
-                    border-color: #1C7BBD;
-                    color: #fff;
-                }
-                
-                &.bg-green{
-                    background-color: #45B453 !important;
-                    border-color: #45B453;
-                    color: #fff;
-                }
             }
         }
 
@@ -3315,8 +3315,8 @@
     }
 
     .cate{
-        min-width:rem(84);
-        padding:0.5em 1.125em;
+        min-width:rem(80);
+        padding: 8px 11px;
         border-radius:50px;
         border:1px solid #222;
         background-color:#FFF;
@@ -3349,7 +3349,39 @@
             word-break: break-all;
         }
 
-        @include mdq-min(lg){
+        .inline > .inner{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px 1.4285em;
+            font-size: 14px;
+
+            .sub{
+                display:flex;
+                align-items:center;
+                flex-wrap:wrap;
+
+                & > *:not(:last-child){
+                    position:relative;
+                    margin-right:8px;
+                    padding-right:8px;
+
+                    &:before{
+                        content:'';
+                        position:absolute;
+                        transform:translateY(-50%);
+                        top:50%;
+                        right:0;
+                        width:1px;
+                        height:8px;
+                        background:#E4E4E4;
+                    }
+                }
+            }
+        }
+
+        @include mdq-min(xl){
             &:not(.normal){
                 .tb-wrap{
                     margin-right:0;
@@ -3432,7 +3464,7 @@
             }
         }
         
-        @include mdq-max(lg){
+        @include mdq-max(xl){
             &.normal{
                 thead{
                     position: absolute;
@@ -3469,19 +3501,34 @@
                         position:static;
                         // height:50px;
                         height:auto;
-                        font-size:13px;
+                        font-size:14px;
+                        padding-left: 0;
+                        padding-right: 0;
 
                         &.inline{
                             display:inline;
-                            padding:5px 0;
+                            margin:5px 0;
+                            padding: 0;
+                            font-size: 12px;
                             margin-right:10px;
+
+                            & > .inner{
+                                font-size: 12px;
+                                justify-content: flex-start;
+                            }
                         }
 
                         &.block{
                             display:block;
                             margin-right:0;
-                            padding:10px 0 16px;
+                            margin: 10px 0;
+                            padding:0;
+                            font-size: 14px;
                             text-align:left;
+
+                            & > .link{
+                                padding-bottom: 6px;
+                            }
 
                             .icon-file{
                                 position:absolute;
@@ -3497,6 +3544,14 @@
                     display:none;
                 }
             }
+        }
+    }
+    
+    @include mdq-max(xl){
+        .cate{
+            min-width: 60px;
+            padding: 6px 11px;
+            font-size: 14px;
         }
     }
 
@@ -4854,11 +4909,11 @@
         background:$blue url(../images/sub/icon_chkbx.svg) no-repeat center / 16px;
       }
   
-      &:focus-visible + label{
-        outline:1px solid #FD8337;
-        -webkit-box-shadow:0 0 0 2px #FD8337;
-        box-shadow:0 0 0 2px #FD8337;
-      }
+    //   &:focus-visible + label{
+    //     outline:1px solid #FD8337;
+    //     -webkit-box-shadow:0 0 0 2px #FD8337;
+    //     box-shadow:0 0 0 2px #FD8337;
+    //   }
     }
 }
   

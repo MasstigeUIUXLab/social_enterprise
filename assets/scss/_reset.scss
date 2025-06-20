@@ -85,9 +85,16 @@ a {
   background-color: transparent;
 }
 
-*:not(.btn):focus-visible{
-  outline: 1px solid ;
-  box-shadow: 0 0 0 2px ;
+// *:not(.btn):focus-visible{
+//   outline: 1px solid ;
+//   box-shadow: 0 0 0 2px ;
+// }
+
+*:focus-visible{
+    outline-offset: -2px !important;
+    outline: 2px dashed #ff0000 !important;
+    box-shadow: none;
+    transition: none !important
 }
 
 /**

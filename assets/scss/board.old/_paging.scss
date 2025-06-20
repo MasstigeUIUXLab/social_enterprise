@@ -91,13 +91,19 @@
 
 		a {
 			border-radius: 4px;
-			font-size: 15px;
-			width: 21px;
+			font-size: 12px;
+			width: 24px;
 			height: 24px;
 			line-height: 24px;
 
 			&.active{
 				font-weight: 500;
+			}
+
+			&[class*=prev],
+			&[class*=next]{
+				width: 24px;
+				background-size: 12px;
 			}
 		}
 	}
