@@ -5,7 +5,6 @@ $(document).ready(function() {
 		sectionSelector: '.main-section',
 		easing: 'easeInOutCubic',
 		easingcss3: 'ease',
-		KeyboardScrolling: true,
 		scrollingSpeed: 500,
 		navigation: false,
 		controlArrows: false,
@@ -28,6 +27,7 @@ $(document).ready(function() {
 
 				if (e.shiftKey ){
 					if( document.activeElement === firstFocusableElement ){
+						console.log('first');
 						navBtn = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
 						navBtn.click();
 						focusableContent = activeSection.prev().find(focusableElements);
@@ -35,10 +35,11 @@ $(document).ready(function() {
 						lastFocusableElement = focusableContent[focusableContent.length - 1];
 						setTimeout(() => {
 							lastFocusableElement.focus();
-						}, 100);
+						}, 300);
 					}
 				} else {
 					if (document.activeElement === lastFocusableElement ){
+						console.log('last');
 						if(activeSection.index() === $('.main-section').length - 1){
 							return false;
 						} else {
@@ -47,7 +48,9 @@ $(document).ready(function() {
 							focusableContent = activeSection.next().find(focusableElements);
 							firstFocusableElement = focusableContent[0];
 							lastFocusableElement = focusableContent[focusableContent.length - 1];
-							firstFocusableElement.focus();
+							setTimeout(() => {
+								firstFocusableElement.focus();
+							}, 300);
 						}
 					}
 				}
