@@ -41,7 +41,7 @@ $(document).ready(function() {
 					if (document.activeElement === lastFocusableElement ){
 						console.log('last');
 						if(activeSection.index() === $('.main-section').length - 1){
-							return false;
+							return;
 						} else {
 							navBtn = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()+1))[0];
 							navBtn.click();
@@ -57,14 +57,6 @@ $(document).ready(function() {
 			});
 		}
 	}); 
-
-	function focusTrapping(){
-  		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
-		
-		if(!isMobile) {
-			
-		} 
-	}
 	
 	var visualSwiper = new Swiper(".swiper-visual", {
 		speed: 1200,
