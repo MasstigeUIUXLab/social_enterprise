@@ -1512,12 +1512,9 @@
             max-height: 100%;
 
             .item{
-                order: 2;
-                width: calc(50% - 6px);
                 transition: none;
 
                 &.active{
-                    order: 1;
                     width: 100%;
 
                     .img-area{
@@ -1746,12 +1743,14 @@
             .item{
                 &.active{
                     .link{
-                        height: 240px;
+                        height: 50vw;
+                        min-height: 180px;
+                        border-radius: 8px;
                     }
 
                     .txt-area{
                         padding: 30px 16px;
-                        width: 48%;
+                        width: 42vw;
                         min-width: 140px;
 
                         .sub{
@@ -1760,12 +1759,30 @@
                         }
 
                         .tit{
+                            min-height: 4em;
                             font-size: 16px;
                         }
                         
                         .d-none{
                             display: none !important;
                         }
+
+                        .link-btn{
+                            margin-top: 24px;
+                            font-size: 12px;
+                            line-height: 1;
+
+                            .icon-link-arr{
+                                width: 11px;
+                                height: 9px;
+                                background-size: 100% auto;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+
+                    &:nth-child(3) .img-area {
+                        background-position: right -45px center;
                     }
                 }
             }

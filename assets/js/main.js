@@ -122,20 +122,26 @@ $(document).ready(function() {
 		}
 	});
 
-	var isMobile = window.matchMedia('(max-width: 1024px)').matches;
+	supportLinkActive();
 
 	$(window).resize(function(){
-		isMobile = (window.matchMedia('(max-width: 1024px)').matches);
+		supportLinkActive();
 	})
 
-	$('.support-list .link').on('click', function(e){
-		if(isMobile){
-			$(this).parent('.item').addClass('active').siblings().removeClass('active');
+	function supportLinkActive() {
+		if(window.matchMedia('(max-width: 768px)').matches){
+			console.log('ddd');
+			$('.support-list .item').each(function(){
+				console.log($(this));
+				$(this).addClass('active');
+			})
+		} else {
+			$('.support-list > .item:first-child').addClass('active').siblings().removeClass('active');
 		}
-	});
+	}
 
 	$(document).on('mouseenter focus', '.support-list .link', function(e){
-		if(!isMobile){
+		if(!window.matchMedia('(max-width: 1024px)').matches){
 			$(this).parent('.item').addClass('active').siblings().removeClass('active');
 		} else {
 			return false;
