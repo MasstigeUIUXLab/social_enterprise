@@ -11,59 +11,55 @@ $(document).ready(function() {
 		controlArrows: false,
 		anchors: ['firstSection', 'secondSection', 'thirdSection', 'fourthSection', 'fifthSection'],
 		responsiveWidth: 1401,
-		'afterLoad': function( anchorLink, index, slideAnchor, slideIndex) {
-			if(anchorLink == 'fifthSection' && slideIndex == 1) {
-				$.fn.fullpage.setAllowScrolling(false, 'up');
-			}	else {
-				focusTrapping();	
-			}
-		},
-	
-		'onLeave': function( anchorLink, index, slideIndex, direction) {
-			if(anchorLink == 'fifthSection' && slideIndex == 1) {
-				$.fn.fullpage.setAllowScrolling(true, 'up');
-			} else {
-				focusTrapping();
-			}
-		} 
-	}); 
+		'afterLoad': function() {
+			const focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
+			const activeSection = $('.main-section').filter('.active');
+			let focusableContent = $(activeSection).find(focusableElements);
+			let firstFocusableElement = focusableContent[0];
+			let lastFocusableElement = focusableContent[focusableContent.length - 1];
+			var navBtn;
 
-	function focusTrapping(){
-		const focusableElements = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
-		const activeSection = $('.main-section').filter('.active');
-		const focusableContent = $(activeSection).find(focusableElements);
-		const firstFocusableElement = focusableContent[0];
-		const lastFocusableElement = focusableContent[focusableContent.length - 1];
-
-  		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
-		
-		if(!isMobile) {
 			$(activeSection).on('keydown', function(e){
 				let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 				
-				if( !isTabPressed ){ return; }
-				
-				if( e.shiftKey ){
-					if( document.activeElement === firstFocusableElement ){
-						// $.fn.fullpage.setAllowScrolling(true, 'up');
+				if (!isTabPressed ){
+					return;
+				}
 
-						var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
-						element.click();
-						activeSection.prev().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').last().focus();
+				if (e.shiftKey ){
+					if( document.activeElement === firstFocusableElement ){
+						navBtn = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()-1))[0];
+						navBtn.click();
+						focusableContent = activeSection.prev().find(focusableElements);
+						firstFocusableElement = focusableContent[0];
+						lastFocusableElement = focusableContent[focusableContent.length - 1];
+						setTimeout(() => {
+							lastFocusableElement.focus();
+						}, 100);
 					}
-					
-				}else{
-					if( document.activeElement === lastFocusableElement ){
+				} else {
+					if (document.activeElement === lastFocusableElement ){
 						if(activeSection.index() === $('.main-section').length - 1){
 							return false;
 						} else {
-							var element = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()+1))[0];
-							element.click();
-							activeSection.next().find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').first().focus();
+							navBtn = Array.from(document.querySelectorAll('#indexNav > a')).filter(el => el.dataset.id === String(activeSection.index()+1))[0];
+							navBtn.click();
+							focusableContent = activeSection.next().find(focusableElements);
+							firstFocusableElement = focusableContent[0];
+							lastFocusableElement = focusableContent[focusableContent.length - 1];
+							firstFocusableElement.focus();
 						}
 					}
 				}
 			});
+		}
+	}); 
+
+	function focusTrapping(){
+  		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+		
+		if(!isMobile) {
+			
 		} 
 	}
 	
