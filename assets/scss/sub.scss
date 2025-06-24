@@ -3381,7 +3381,7 @@
             }
         }
 
-        @include mdq-min(xl){
+        @include mdq-min(lg){
             &:not(.normal){
                 .tb-wrap{
                     margin-right:0;
@@ -3463,8 +3463,21 @@
                 }
             }
         }
+
+        @include mdq-max(lg){
+            .tb{
+                tr > *{
+                    padding: 10px 6px;
+
+                    &.inline > .inner{
+                        font-size: 13px;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
         
-        @include mdq-max(xl){
+        @include mdq-max(md){
             &.normal{
                 thead{
                     position: absolute;
@@ -3478,6 +3491,7 @@
                     border: 0;
                 }
             }
+
             .tb-wrap{
                 border-top: 1px solid #000;
             }
@@ -3512,7 +3526,7 @@
                             font-size: 12px;
                             margin-right:10px;
 
-                            & > .inner{
+                            &.inline > .inner{
                                 font-size: 12px;
                                 justify-content: flex-start;
                             }
@@ -3547,7 +3561,7 @@
         }
     }
     
-    @include mdq-max(xl){
+    @include mdq-max(lg){
         .cate{
             min-width: 60px;
             padding: 6px 11px;
@@ -10132,7 +10146,7 @@
             flex:1;
             position:relative;
             border-radius: 8px;
-            // border: 1px solid #EAEAEA;  
+            border: 1px solid #EAEAEA;  
             overflow:hidden;
             
             &:before{
