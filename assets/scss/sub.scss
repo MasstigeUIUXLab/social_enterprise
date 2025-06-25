@@ -475,6 +475,7 @@
     z-index:1;
     top:0;
     right: 0;
+    width: 100%;
     padding: 0 20px;
 
     .sns-area{
@@ -2021,7 +2022,8 @@
 
             a{
                 display:flex;
-                align-items:center;
+                // align-items:center;
+                align-items: flex-start;
                 justify-content:space-between;
                 gap:rem(16);
 
@@ -2043,8 +2045,32 @@
                 line-height:1.5;
             }
 
-            li + li{
+            & > li + li{
                 margin-top:rem(12);
+            }
+
+            &.v2{
+                & > li{
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 4px rem(16);
+
+                    a{
+                        &:after{
+                            display: none;
+                        }  
+
+                        &:not(.btn){
+                            flex: 1;
+                            align-self: center;
+                        }
+                    }
+
+                    .btn{
+                        flex: 0 0 auto;
+                        background: #fff;
+                    }
+                }
             }
         }
 
@@ -2089,6 +2115,7 @@
                 width: 80px;
                 padding-left: 20px;
                 font-weight: 600;
+                text-align: right;
 
                 &:after{
                     content:'';
@@ -2119,6 +2146,7 @@
                 .tit{
                     padding-left: 4px;
                     padding-right: 20px;
+                    text-align: left;
 
                     &:after{
                         right: 0;
@@ -2167,14 +2195,15 @@
         margin-top:60px;
         
         .list-file{
-            padding: 10px;
+            padding: 16px;
             border-radius:8px;
 
             p{
-                font-size:14px;
-                overflow:hidden;
-                text-overflow:ellipsis;
-                white-space:nowrap;
+                word-break: break-all;
+                font-size:12px;
+                // overflow:hidden;
+                // text-overflow:ellipsis;
+                // white-space:nowrap;
             }
 
             a{
@@ -2186,6 +2215,10 @@
                     background-size:11px auto;
                     border-radius:8px;
                 }
+            }
+
+            & > li+li{
+                margin-top: 8px;
             }
         }
 
@@ -2221,6 +2254,7 @@
                 width: 50px;
                 padding: 6px 0 !important;
                 font-size: 12px;
+                text-align: left;
 
                 &:after{
                     display: none;
