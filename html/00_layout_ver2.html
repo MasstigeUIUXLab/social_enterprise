@@ -103,7 +103,7 @@
 				</a>
 				<!-- S : navigation -->
 				<div class="nav__bg"></div>
-				<nav class="nav gnb-drop--all">
+				<nav class="nav gnb-drop--all" id="gnb"><!-- [D] 06-26 수정 웹접근성 관련 -->
 					<ul class="nav-list nav-list--depth1">
 						<li class="nav-list__item depth-1">
 							<a href="#" class="link" title="진흥원 소개 페이지로 이동">진흥원 소개</a><!-- [D] 활성화 link에 .on -->
@@ -388,34 +388,40 @@
 					</ul>
 				</nav>
 				<!-- E : navigation -->
-				
+
+				<!-- [D] 06-26 수정(웹접근성 관련) -->
 				<div class="util">
 					<div class="lang-area">
-						<a href="#" class="btn-lang">ENG</a>
+						<a href="#" class="btn-lang" title="영문 사이트로 이동">ENG</a>
 					</div>
-					<a href="javascript:void(0);" alt="검색" class="btn-srch">
+					<a href="javascript:void(0);" title="검색" class="btn-srch">
 						<span class="sr-only">검색</span>
 					</a>
-					<button type="button" class="btn-sitemap">
+					<button type="button" title="사이트맵 열기" class="btn-sitemap">
 						<span class="sr-only">사이트맵 열기</span>
 					</button>
 				</div>
-				<!-- S : 사이트맵-->
+				<!-- // [D] 06-26 수정(웹접근성 관련) -->
+
+				<!-- S : 사이트맵 -->
 				<div class="sitemap">
 					<div class="container">
 						<div class="inner">
-							<a href="../main/main.html" class="logo">
+							<a href="../main/main.html" title="메인으로" class="logo">
 								<img src="../assets/images/common/logo.svg" alt="한국사회적기업진흥원" />
 							</a>
 							<div id="menu"></div>
 						</div>
 					</div>
 				</div>
-				<!-- E : 사이트맵-->
+				<!-- E : 사이트맵 -->
 
-				<button class="nav-mobile__btn" type="button">
+				<!-- [D] 06-26 수정(웹접근성 관련) -->
+				<button class="nav-mobile__btn" type="button" title="메뉴 열기">
 					<i class="xi-bars"></i>
+					<span class="sr-only">메뉴 열기</span>
 				</button>
+				<!-- // [D] 06-26 수정(웹접근성 관련) -->
 			</div>
 		</div>
 	</header>
@@ -429,12 +435,15 @@
 				<a href="#" class="logo" title="메인으로">
 					<img src="../assets/images/common/logo.svg" alt="한국사회적기업진흥원">
 				</a>
-				<button class="nav-mobile__btn" type="button">
+				<!-- [D] 06-26 수정(웹접근성 관련) -->
+				<button class="nav-mobile__btn" type="button" title="메뉴 닫기">
 					<i class="xi-close"></i>
+					<span class="sr-only">메뉴 닫기</span>
 				</button>
 				<div class="lang-area">
-					<a href="#" class="btn-lang">ENG</a>
+					<a href="#" class="btn-lang" title="영문 사이트로 이동">ENG</a>
 				</div>
+				<!-- // [D] 06-26 수정(웹접근성 관련) -->
 			</div>
 		</div>
 		<div class="nav-mobile__body">

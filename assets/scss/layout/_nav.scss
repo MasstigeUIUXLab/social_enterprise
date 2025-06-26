@@ -314,7 +314,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		#{$nav-mobile-direction}: 0;
 		top: 0;
 		position: absolute;    
-		right: 20px;
+		right: 20px; 
 		text-align: center;
 		height: $nav-height;
 		width: 40px;
@@ -328,7 +328,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 			justify-content: center;
 		}
 		@include mdq-max(lg) {
-			right: 4px; 
+			right: 12px;
 			height: $nav-height-lg;
 			font-size: 28px;   
 		}
@@ -358,15 +358,24 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		border-bottom: 1px solid #ddd;
 
 		.logo {
-			padding: 0 10px;
+			padding: 0 16px;
 
 			img {
-				height: 24px;
-			
+				height: 32px;
+				
 				& + img{
 					margin-left: 8px;
 				}
 			}
+
+			@include mdq-max(lg) {
+				padding: 0 12px;
+
+				img{
+					height: 24px;
+				}
+			}
+			
 		}
 
 		.lang-area{
@@ -389,6 +398,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		}
 
 		.nav-mobile__btn{
+			right: 8px;
 			font-size: 24px;
 			color: #222 !important;
 		
@@ -409,15 +419,15 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 	}
 
 	.depth-1 {
-		width: 110px;
+		width: 140px;
 
 		> .link {
 			text-align: left;
 			color: #000;
 			background: #f8f8f8;
 			display: block;
-			padding: 10px;
-    		font-size: 12px;
+			padding: 14px 16px;
+    		font-size: 16px;
 			position: relative;
 			
 			&:after{
@@ -449,10 +459,10 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 	.depth-2 {
 		> .link {
 			display: block;
-			padding: 10px;
+			padding: 12px 10px;
 			border-bottom: 1px solid #e4e4e4;
 			color: #222;
-			font-size: 12px;
+			font-size: 16px;
     		font-weight: 600;
 			line-height: 1.167;
 			
@@ -462,10 +472,10 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		}
 
 		&:first-child > .link {
-			padding-top: 12px;
+			padding-top: 16px;
 		}
 		&:last-child {
-			margin-bottom: 12px;
+			margin-bottom: 16px;
 		}
 	}
 
@@ -474,7 +484,7 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 			display: block;
 			padding: 10px;
 			color: #666;
-			font-size: 12px;
+			font-size: 16px;
 			line-height: 1.167;
 		}
 	}
@@ -506,17 +516,55 @@ $nav-mobile-direction: right; //네비버튼 위치 , 네비 나오는 방향
 		display: none;
 		position: absolute;
 		top: 0;
-        left: 110px;
-        width: calc(100% - 110px);
+        left: 140px;
+        width: calc(100% - 140px);
         height: 100%;
 		padding: 0 12px;
         overflow-y: auto;
 	}
 	
-	// .nav-list--depth3{
-	// 	margin-top: 6px;
-	// 	margin-bottom: 12px;
-	// }
+	.nav-list--depth3{
+		margin: 4px 0 0;
+	}
+	
+	
+	@include mdq-max(lg) {
+		.depth-1 {
+			width: 110px;
+
+			> .link{
+				padding: 10px;
+				font-size: 12px;
+			}
+		}
+
+		.depth-2 {
+			> .link {
+				padding: 10px;
+				font-size: 12px;
+			}
+
+			&:first-child > .link {
+				padding-top: 12px;
+			}
+
+			&:last-child {
+				margin-bottom: 12px;
+			}
+		}
+
+		.depth-3{
+			> .link{
+				padding: 8px 10px;
+				font-size: 12px;
+			}
+		}
+		
+		.nav-list--depth2{
+        	left: 110px;
+			width: calc(100% - 110px);
+		}
+	}
 }
 
 @include mdq-max(xxl) {

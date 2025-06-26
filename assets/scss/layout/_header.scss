@@ -451,7 +451,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
   }
 
   @include mdq-max(lg) {
-    right: 54px;
+    right: 62px;
     height: $nav-height-lg;
 
     .lang-area{
