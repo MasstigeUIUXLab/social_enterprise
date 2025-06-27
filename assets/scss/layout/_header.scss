@@ -342,6 +342,10 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
         flex-direction: column;
           margin-right: 0;
           margin-left: 0;
+          
+          & > .depth-1:not(:first-child){
+            border-left: 0;
+          }
         }
         .depth-1{
           flex-basis: 100%;
@@ -350,7 +354,7 @@ $header-fix: true; //true: 헤더가 상단 고정일 경우입니다.
 
           & > .link{
             padding: 0 0 12px;
-            font-size: 20px;
+            font-size: 18px;
           }
 
           & + .depth-1{

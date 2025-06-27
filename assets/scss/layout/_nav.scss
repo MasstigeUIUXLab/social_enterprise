@@ -132,11 +132,6 @@
 			height: 1px;
 			background: #fff;
 		}
-
-		
-		@include mdq-max(xxl) {
-			display: none !important;
-		}
 	}
 }
 
