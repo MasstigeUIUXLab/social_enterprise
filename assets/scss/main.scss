@@ -842,8 +842,8 @@
                         }
                     }
 
-                    &:focus-visible{
-                        &:after{
+                    &:focus, &:focus-visible{
+                        &:after {
                             content:'';
                             position: absolute;
                             top: 1px;
@@ -852,14 +852,20 @@
                             height: calc(100% + -2px);
                             border-radius: rem(20);
                             outline-offset: -2px !important;
+                            outline: 2px solid #000 !important;
+                        }
+                    }
+
+                    &:focus-visible{
+                        &:after{
                             outline: 2px dashed #ff0000 !important;
                         }
-
+                        
                         .cover{
                             opacity: 1;
                         }
                     }
-
+                    
                     @include mdq-max(lg) {
                         .cover{
                             .tit{

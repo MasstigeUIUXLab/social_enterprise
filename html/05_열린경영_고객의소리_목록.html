@@ -731,16 +731,25 @@
 				
 				<div class="sect" data-aos="fade-up" data-aos-delay="100">
 					<div class="bx-srch">
-						<select name="select1" class="form-control w-auto medium">
+						<!-- [D] 06-26 수정(웹접근성 관련) -->
+					<span class="sr-only">검색옵션</span>
+					<!-- // [D] 06-26 수정(웹접근성 관련) -->
+					<select name="select1" class="form-control w-auto medium">
 							<option value="" selected disabled>유형선택</option>
 							<option value="">옵션</option>
 						</select>
-						<select name="select1" class="form-control w-auto medium">
+						<!-- [D] 06-26 수정(웹접근성 관련) -->
+					<span class="sr-only">검색옵션</span>
+					<!-- // [D] 06-26 수정(웹접근성 관련) -->
+					<select name="select1" class="form-control w-auto medium">
 							<option value="" selected disabled>제목</option>
 							<option value="">옵션</option>
 						</select>
 						<div class="form-srch">
-							<input type="text" placeholder="검색어를 입력해주세요."  class="form-control form-icon">
+							<!-- [D] 06-26 수정(웹접근성 관련) -->
+                        <span class="sr-only">검색어 입력</span>
+						<input type="text" placeholder="검색어를 입력해주세요."  class="form-control form-icon">
+						<!-- // [D] 06-26 수정(웹접근성 관련) -->
 							<button type="button" class="form-btn"><i class="icon-form-srch"></i><span class="sr-only">검색</span></button>
 						</div>
 					</div>
@@ -940,7 +949,10 @@
 								</label>
 							</div>
 							<div class="input-area">
-								<input type="text" name="" placeholder="입력해주세요." class="form-control">
+								<!-- [D] 06-26 수정(웹접근성 관련) -->
+								<span class="sr-only">내용입력</span>
+								<input type="text" name="" title="내용입력" placeholder="입력해주세요." class="form-control">
+								<!-- // [D] 06-26 수정(웹접근성 관련) -->
 								<button type="button" class="btn btn-orange btn-lg w-auto">전송</button>
 							</div>
 						</div>

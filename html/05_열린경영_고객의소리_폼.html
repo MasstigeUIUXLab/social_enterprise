@@ -783,27 +783,31 @@
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit asterisk">제목</p>
+										<label for="input1" class="form-tit asterisk">제목</label>
 									</div>
 									<div class="form-input-group">
-										<input type="text" name="" class="form-control style01"/>
+										<input type="text" name="" id="input1" class="form-control style01"/>
 									</div>
 								</div>
 							</li>
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit asterisk">이름</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="input2" class="form-tit asterisk">이름</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
-										<input type="text" name="" class="form-control style01"/>
+										<input type="text" name="" id="input2" class="form-control style01"/>
 									</div>
 								</div>
 							</li>
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit asterisk">공개여부</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="chk2-1" class="form-tit asterisk">공개여부</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
 										<label label="chk2-1" class="input-label input-label--radio">
@@ -820,7 +824,9 @@
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit">구분</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="chk3-1" class="form-tit">구분</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
 										<label label="chk3-1" class="input-label input-label--radio">
@@ -845,10 +851,12 @@
 							<li class="col-12 col-lg-9">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit asterisk">이메일주소</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="input4" class="form-tit asterisk">이메일주소</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
-										<input type="text" name="" value="admin" class="form-control style01"/>
+										<input type="text" name="" id="input4" value="admin" class="form-control style01"/>
 										<span class="w-auto">@</span>
 										<input type="text" name="" value="naver.com" class="form-control style01"/>
 										<select name="" class="form-control w-100 w-md-24">
@@ -861,10 +869,12 @@
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit">답변부서</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="input5" class="form-tit">답변부서</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
-										<select name="" class="form-control style01">
+										<select name="" id="input5" class="form-control style01">
 											<option value="" selected disabled>답변부서 선택</option>
 											<option value="">선택</option>
 										</select>
@@ -874,21 +884,25 @@
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit">내용</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="textarea1" class="form-tit">내용</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
-										<textarea name="" id="" placeholder="내용입력" rows="10" class="form-control"></textarea>
+										<textarea name="" id="textarea1" placeholder="내용입력" rows="10" class="form-control"></textarea>
 									</div>
 								</div>
 							</li>
 							<li class="col-12">
 								<div class="form-group flex-row">
 									<div class="form-tit-wrp">
-										<p class="form-tit">첨부파일</p>
+										<!-- [D] 06-26 수정(웹접근성 관련)-->
+										<label for="input6" class="form-tit">첨부파일</label>
+										<!-- // [D] 06-26 수정(웹접근성 관련) -->
 									</div>
 									<div class="form-input-group">
 										<label class="file-label w-auto">
-											<input type="file" name="file1">
+											<input type="file" name="file1" id="input6">
 											<span class="btn btn-black file-label__btn">파일 선택</span>
 										</label>
 										<!-- [D] 06-10 수정 -->
@@ -959,7 +973,10 @@
 								</label>
 							</div>
 							<div class="input-area">
-								<input type="text" name="" placeholder="입력해주세요." class="form-control">
+								<!-- [D] 06-26 수정(웹접근성 관련) -->
+								<span class="sr-only">내용입력</span>
+								<input type="text" name="" title="내용입력" placeholder="입력해주세요." class="form-control">
+								<!-- // [D] 06-26 수정(웹접근성 관련) -->
 								<button type="button" class="btn btn-orange btn-lg w-auto">전송</button>
 							</div>
 						</div>

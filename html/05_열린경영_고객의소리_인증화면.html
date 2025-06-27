@@ -728,18 +728,20 @@
 				<div class="sect" data-aos="fade-up" data-aos-delay="100">
 					<div class="auth-wrp">
 						<ul class="auth-bx">
+							<!-- [D] 06-26 수정(웹접근성 관련) -->
 							<li class="item">
-								<a href="#" class="link">
+								<a href="#" class="link" title="휴대폰 인증 바로가기">
 									<i class="icon-auth-m1"></i>
 									<p>휴대폰 인증</p>
 								</a>
 							</li>
 							<li class="item">
-								<a href="#" class="link">
+								<a href="#" class="link" title="아이핀 인증 바로가기">
 									<i class="icon-auth-m2"></i>
 									<p>아이핀 인증</p>
 								</a>
 							</li>
+							<!-- // [D] 06-26 수정(웹접근성 관련) -->
 						</ul>
 						<div class="auth-info bx bx-gray">
 							<p class="txt">보다 많은 사용자등의 원활한 서비스 이용과 온라인 상에서 익명 사용자로 인한 피해를 방지하기 위하여 <span class="font-weight-semibold">실명 확인 절차가 필요하오니 휴대폰 인증, 아이핀 인증</span>을 해 주시기 바랍니다.</p>
@@ -802,7 +804,10 @@
 								</label>
 							</div>
 							<div class="input-area">
-								<input type="text" name="" placeholder="입력해주세요." class="form-control">
+								<!-- [D] 06-26 수정(웹접근성 관련) -->
+								<span class="sr-only">내용입력</span>
+								<input type="text" name="" title="내용입력" placeholder="입력해주세요." class="form-control">
+								<!-- // [D] 06-26 수정(웹접근성 관련) -->
 								<button type="button" class="btn btn-orange btn-lg w-auto">전송</button>
 							</div>
 						</div>
