@@ -64,7 +64,7 @@ $(document).ready(function() {
 		effect: 'slide',
 		autoplay: {
 		  delay: 6000,
-		  disableOnInteraction: false,	
+		  disableOnInteraction: true,	
 		},
 		navigation: {
 			nextEl: ".swiper-visual .swiper-button-next",
@@ -104,6 +104,8 @@ $(document).ready(function() {
 							visualSwiper.autoplay.start();
 						} 
 					});
+				} else {
+					this.autoplay.start();
 				}
 			},
 			slideChange: function () {
@@ -117,7 +119,6 @@ $(document).ready(function() {
 					delay = 6000;
 				}
 				this.params.autoplay.delay = delay; 
-				this.autoplay.start();
 			}
 		}
 	});
@@ -151,7 +152,7 @@ $(document).ready(function() {
 	var	boardSwiper = new Swiper(".swiper-board", {
 		// autoplay: {
 		// 	delay: 5000,
-		// 	disableOnInteraction: false,
+		// 	disableOnInteraction: true,
 		// },
 		// slideToClickedSlide : true,
 		slidesPerView: 1,
@@ -183,7 +184,7 @@ $(document).ready(function() {
 			spaceBetween: 16,
 			autoplay: {
 			delay: 4000,
-			disableOnInteraction: false,	
+			disableOnInteraction: true,	
 			},
 			breakpoints: {
 				769: {
@@ -226,7 +227,7 @@ $(document).ready(function() {
 			spaceBetween: 16,
 			autoplay: {
 			delay: 4000,
-			disableOnInteraction: false,	
+			disableOnInteraction: true,	
 			},
 			breakpoints: {
 				769: {
@@ -268,7 +269,7 @@ $(document).ready(function() {
 		spaceBetween : 12, 
 		// autoplay: {
 		//   delay: 6000,
-		//   disableOnInteraction: false,	
+		//   disableOnInteraction: true,	
 		// },
 		breakpoints: {
 			1400: {
