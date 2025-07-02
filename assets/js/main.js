@@ -131,9 +131,7 @@ $(document).ready(function() {
 
 	function supportLinkActive() {
 		if(window.matchMedia('(max-width: 768px)').matches){
-			console.log('ddd');
 			$('.support-list .item').each(function(){
-				console.log($(this));
 				$(this).addClass('active');
 			})
 		} else {
@@ -272,7 +270,7 @@ $(document).ready(function() {
 		//   disableOnInteraction: true,	
 		// },
 		breakpoints: {
-			1400: {
+			1280: {
 			  slidesPerView: 4, 
 				spaceBetween : 24, 
 			},

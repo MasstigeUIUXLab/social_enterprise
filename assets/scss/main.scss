@@ -1165,11 +1165,6 @@
                 margin-left: -20px;
                 padding-right: 20px;
                 padding-left: 20px;
-            
-                a{
-                    padding: 10px 16px;
-                    font-size: 13px;
-                }
             }
         }
         
@@ -1274,6 +1269,20 @@
 
 @include mdq-max(xl) {
     .main-section{
+        &.ms2{
+            .swiper-board {
+                height: 342px;
+
+                .swiper-slide{
+                    opacity: 0;
+                }
+                
+                .swiper-slide-active, 
+                .swiper-slide-next{
+                    opacity: 1;
+                }
+            }
+        }
         &.ms3{
             .section-inner>* {
                 padding: 70px 0;
@@ -1359,6 +1368,14 @@
         }
 
         &.ms2{
+            .swiper-board .swiper-slide-active .tit{
+                font-size: 30px;
+            }
+            
+            .swiper-board .txt-area .tit a:hover{
+                text-decoration: none;
+            }
+
             .banner-wrp{
                 .swiper:not(.swiper-banner1, .swiper-banner2){
                     width: 100%;
@@ -1384,9 +1401,35 @@
 @include mdq-max(md) {
     .main-section{
         &.ms2{
+            .section-inner {
+                padding-top: 50px;
+            }
+
             .board-control .category-list a {
-                padding: 8px 13px;
+                padding: 7px 12px;
                 font-size: 12px;
+            }
+
+            .swiper-board{
+                height: 278px;
+
+                .link{
+                    gap: 24px;
+                }
+
+                .txt-area .tit{
+                    font-size: 20px;
+                }
+
+                .swiper-slide-active {
+                    .tit{
+                        font-size: rem(28);
+                    }
+
+                    .link{
+                        padding: 34px 32px;
+                    }
+                }
             }
 
             .banner-wrp{
@@ -1650,13 +1693,14 @@
             .section-inner{
                 padding-top: 40px;
             }
+
             .board-control{
                 margin-bottom: 16px;
             }
 
             .swiper-board {
                 width: 64vw;
-                height: 216px;
+                height: 220px;
 
                 .swiper-navigation{
                     left: calc(64vw + 16px);
@@ -1684,7 +1728,7 @@
                     .link{
                         gap: 16px;
                         height: 100%;
-                        padding: 20px;
+                        padding: 24px;
                     }
                     
                     .txt-area {
@@ -1704,7 +1748,7 @@
                     }
 
                     .tit{
-                        font-size: 18px;
+                        font-size: 16px;
                     }
                 }
 
