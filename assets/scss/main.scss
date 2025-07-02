@@ -1281,6 +1281,10 @@
                 .swiper-slide-next{
                     opacity: 1;
                 }
+            
+                .txt-area .tit a:hover{
+                    text-decoration: none;
+                }
             }
         }
         &.ms3{
@@ -1370,10 +1374,6 @@
         &.ms2{
             .swiper-board .swiper-slide-active .tit{
                 font-size: 30px;
-            }
-            
-            .swiper-board .txt-area .tit a:hover{
-                text-decoration: none;
             }
 
             .banner-wrp{
