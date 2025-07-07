@@ -101,13 +101,27 @@
 		}
 	}
 
+	
+	@include mdq-max(lg) {
+		&__bottom {
+			.mark{
+				position: relative;
+				right: unset;
+				bottom: unset;
+				width: 45px;
+				margin-top: 10px;
+				margin-left: auto;
+			}
+		}
+	}
+
 
 	@include mdq-max(md) {
 		&__wrap{
 			padding: 50px 0;
 
 			.container{
-				padding-bottom: 72px;
+				padding-bottom: 120px;
 			}
 		}
 
@@ -148,11 +162,11 @@
 			}
 
 			.mark{
-				position: relative;
-				right: unset;
-				bottom: unset;
+				position: absolute;
+        		right: 0;
+				bottom: -45px;
 				width: 45px;
-				margin-top: 24px;
+				margin-top: 0;
 				margin-left: auto;
 			}
 		}
