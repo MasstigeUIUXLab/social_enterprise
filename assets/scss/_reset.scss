@@ -91,12 +91,12 @@ a {
 // }
 
 
-*:focus{
-    outline-offset: -2px !important;
-    outline: 2px solid #000 !important;
-    box-shadow: none;
-    transition: none !important
-}
+// *:focus{
+//     outline-offset: -2px !important;
+//     outline: 2px solid #000 !important;
+//     box-shadow: none;
+//     transition: none !important
+// }
 
 *:focus-visible{
     outline-offset: -2px !important;
