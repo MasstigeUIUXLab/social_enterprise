@@ -88,7 +88,7 @@
 	<h2 class="sr-only">건너뛰기 링크</h2>
 	<div id="skip">
 		<a href="#gnb">주메뉴 바로가기</a>
-		<a href="#indexContainer">본문 바로가기</a>
+		<a href="#ct">본문 바로가기</a>
 		<a href="#footer">하단메뉴 및 주소,전화번호 안내 바로가기</a>
 	</div>
 	<!-- // -->
@@ -389,9 +389,11 @@
 				</nav>
 				<!-- E : navigation -->
 				
+				<!-- [D] 250910 웹접근성 수정 / 내용: 사이트맵 열기, 모바일 햄버거 메뉴 열기 기능 텍스트 추가 -->
+				<!-- [D] 06-26 수정(웹접근성 관련)-->
 				<div class="util">
 					<div class="lang-area">
-						<a href="#" class="btn-lang" title="영문 사이트로 이동">ENG</a>
+						<a href="#" class="btn-lang" title="영문 사이트 새창 열기" target="_blank">ENG</a>
 					</div>
 					<a href="javascript:void(0);" alt="검색" class="btn-srch">
 						<span class="sr-only">검색</span>
@@ -400,11 +402,13 @@
 						<span class="sr-only">사이트맵 열기</span>
 					</button>
 				</div>
+				<!-- // [D] 06-26 수정(웹접근성 관련)-->
+
 				<!-- S : 사이트맵-->
 				<div class="sitemap">
 					<div class="container">
 						<div class="inner">
-							<a href="../main/main.html" class="logo">
+							<a href="../main/main.html" title="메인으로" class="logo">
 								<img src="../assets/images/common/logo.svg" alt="한국사회적기업진흥원" />
 							</a>
 							<div id="menu"></div>
@@ -413,9 +417,13 @@
 				</div>
 				<!-- E : 사이트맵-->
 
-				<button class="nav-mobile__btn" type="button">
+				<!-- [D] 06-26 수정(웹접근성 관련)-->
+				<button class="nav-mobile__btn" type="button" title="메뉴 열기">
 					<i class="xi-bars"></i>
+					<span class="sr-only">메뉴 열기</span>
 				</button>
+				<!-- // [D] 06-26 수정(웹접근성 관련)-->
+				<!-- // [D] 250910 웹접근성 수정 / 내용: 사이트맵 열기, 모바일 햄버거 메뉴 열기 기능 텍스트 추가 -->
 			</div>
 		</div>
 	</header>
@@ -700,7 +708,11 @@
 	<div class="lnb">
 		<div class="container">
 			<div class="inner">
-				<i class="icon-home"></i>
+				<!-- [D] 250910 웹접근성 수정 / 내용: 홈 버튼 a태그로 변경 및 title="메인으로 이동" 속성 삽입 -->
+				<a href="/homepage/main.do" class="home-link" title="메인으로 이동">
+					<i class="icon-home"></i>
+				</a>
+				<!-- // [D] 250910 웹접근성 수정 -->
 				<div class="dropdown">
 					<button type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" id="lnbDepth1">소식・자료</button>
 					<ul class="dropdown-menu" aria-labelledby="lnbDepth1">
@@ -717,6 +729,30 @@
 						<li><a class="dropdown-item" href="#">link 3</a></li>
 					</ul>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sub-container">
+		<div class="container">
+			<div class="sub-top-btn">
+				<div class="sns-area">
+					<!-- [D] 250910 웹접근성 수정 / 내용: SNS버튼 aria-expanded 속성값을 true가 아닌 false로 변경 -->
+					<button type="button" class="btn-sns" data-toggle="dropdown" aria-expanded="false">SNS</button>
+					<!-- // [D] 250910 웹접근성 수정 -->
+					<ul class="dropdown-menu">
+						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns01"></i><span class="sr-only">네이버 새창열기</span></a></li>
+						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns02"></i><span class="sr-only">유튜브 새창열기</span></a></li>
+						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns03"></i><span class="sr-only">카카오톡 새창열기</span></a></li>
+						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns04"></i><span class="sr-only">인스타그램 새창열기</span></a></li>
+						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns05"></i><span class="sr-only">뉴스레터 새창열기</span></a></li>
+					</ul>
+				</div>
+				<button type="button" class="btn-print">
+					<span class="sr-only">인쇄</span>
+				</button>
+			</div>
+			<div class="sub-header">
+				<h2 class="tit">타이틀</h2>
 			</div>
 		</div>
 	</div>

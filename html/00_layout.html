@@ -84,14 +84,14 @@
 -->
 <body class="main-body">
 <div id="wrap">
-	<!-- [D] 0417 추가 -->
+	<!-- [D] 250910 웹접근성 수정 / 내용: 스킵 메뉴 추가(메인-서브 본문 바로가기 href 값이 다름)-->
 	<h2 class="sr-only">건너뛰기 링크</h2>
 	<div id="skip">
 		<a href="#gnb">주메뉴 바로가기</a>
 		<a href="#indexContainer">본문 바로가기</a>
 		<a href="#footer">하단메뉴 및 주소,전화번호 안내 바로가기</a>
 	</div>
-	<!-- // -->
+	<!-- // [D] 250910 웹접근성 수정 / 내용: 스킵 메뉴 추가(메인-서브 본문 바로가기 href 값이 다름)-->
 
 	<!-- header -->
     <header id="header" class="header">
@@ -389,10 +389,11 @@
 				</nav>
 				<!-- E : navigation -->
 				
+				<!-- [D] 250910 웹접근성 수정 / 내용: 사이트맵 열기, 모바일 햄버거 메뉴 열기 기능 텍스트 추가 -->
 				<!-- [D] 06-26 수정(웹접근성 관련)-->
 				<div class="util">
 					<div class="lang-area">
-						<a href="#" class="btn-lang" title="영문 사이트로 이동">ENG</a>
+						<a href="#" class="btn-lang" title="영문 사이트 새창 열기" target="_blank">ENG</a>
 					</div>
 					<a href="javascript:void(0);" alt="검색" class="btn-srch">
 						<span class="sr-only">검색</span>
@@ -422,6 +423,7 @@
 					<span class="sr-only">메뉴 열기</span>
 				</button>
 				<!-- // [D] 06-26 수정(웹접근성 관련)-->
+				<!-- // [D] 250910 웹접근성 수정 / 내용: 사이트맵 열기, 모바일 햄버거 메뉴 열기 기능 텍스트 추가 -->
 			</div>
 		</div>
 	</header>
@@ -1303,9 +1305,23 @@
 							<div class="dropdown form-control">
 								<button type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" id="dropdownMenuLink1">사업관련 사이트</button>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-									<li><a class="dropdown-item" href="#" title="link1 사이트로 이동">link 1</a></li>
-									<li><a class="dropdown-item" href="#" title="link2 사이트로 이동">link 2</a></li>
-									<li><a class="dropdown-item" href="#" title="link3 사이트로 이동">link 3</a></li>
+									<!-- [D] 250910 웹접근성 수정 / 내용: 관련사이트 a태그 title="새창" 추가-->
+									<li><a class="dropdown-item" href="http://www.sepp.or.kr/" target="_blank" title="새창">사회적경제 판로지원 통합플랫폼</a></li>
+									<li><a class="dropdown-item" href="http://www.seis.or.kr/" target="_blank" title="새창">통합정보시스템</a></li>
+									<li><a class="dropdown-item" href="http://www.coop.go.kr/COOP/" target="_blank" title="새창">협동조합</a></li>
+									<li><a class="dropdown-item" href="http://www.moel.go.kr" target="_blank" title="새창">고용노동부</a></li>
+									<li><a class="dropdown-item" href="http://www.kcomwel.or.kr" target="_blank" title="새창">근로복지공단</a></li>
+									<li><a class="dropdown-item" href="http://www.hrdkorea.or.kr" target="_blank" title="새창">한국산업인력공단</a></li>
+									<li><a class="dropdown-item" href="http://www.kosha.or.kr" target="_blank" title="새창">한국산업안전보건공단</a></li>
+									<li><a class="dropdown-item" href="https://www.kead.or.kr" target="_blank" title="새창">한국장애인고용공단</a></li>
+									<li><a class="dropdown-item" href="http://www.keis.or.kr" target="_blank" title="새창">한국고용정보원</a></li>
+									<li><a class="dropdown-item" href="http://www.kopo.ac.kr" target="_blank" title="새창">한국폴리텍대학</a></li>
+									<li><a class="dropdown-item" href="https://www.koreatech.ac.kr/kor/" target="_blank" title="새창">한국기술교육대학교</a></li>
+									<li><a class="dropdown-item" href="http://elti.koreatech.ac.kr" target="_blank" title="새창">한국고용노동교육원</a></li>
+									<li><a class="dropdown-item" href="http://koreajobworld.or.kr/" target="_blank" title="새창">한국잡월드</a></li>
+									<li><a class="dropdown-item" href="http://www.cwma.or.kr" target="_blank" title="새창">건설근로자공제회</a></li>
+									<li><a class="dropdown-item" href="http://www.nosa.or.kr" target="_blank" title="새창">노사발전재단</a></li>
+									<!-- // [D] 250910 웹접근성 수정 / 내용: 관련사이트 a태그 title="새창" 추가-->
 								</ul>
 							</div>
 						</div>

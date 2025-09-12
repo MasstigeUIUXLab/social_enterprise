@@ -43,7 +43,7 @@ select {
 	border-radius: rem(6);
 
     &::placeholder {
-        color: #B0B0B0 !important;
+        color: #767676 !important;
     }
 
 	&:disabled, &[readonly]{
@@ -88,11 +88,11 @@ select {
 
     &:disabled, &[readonly]{
         background-color: #efefef !important;
-        color: #B0B0B0 !important;
+        color: #767676 !important;
     }
 
     &::placeholder {
-        color: #B0B0B0 !important;
+        color: #767676 !important;
 		font-weight: 400;
     }
 	

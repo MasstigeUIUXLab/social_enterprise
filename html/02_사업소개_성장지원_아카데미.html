@@ -378,9 +378,11 @@
 					<a href="javascript:void(0);" alt="검색" class="btn-srch">
 						<span class="sr-only">검색</span>
 					</a>
+					<!-- [D] 250910 웹접근성 관련 참고 -->
 					<button type="button" class="btn-sitemap">
 						<span class="sr-only">사이트맵 열기</span>
 					</button>
+					<!-- // [D] 250910 웹접근성 관련 참고 -->
 				</div>
 				<!-- S : 사이트맵-->
 				<div class="sitemap">
@@ -674,6 +676,7 @@
 		<div class="container">
 			<div class="inner">
 				<i class="icon-home"></i>
+				<!-- // [D] 250910 웹접근성 수정 -->
 				<div class="dropdown">
 					<button type="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" id="lnbDepth1">사업소개</button>
 					<ul class="dropdown-menu" aria-labelledby="lnbDepth1">
@@ -705,7 +708,9 @@
 		<div class="container">
 			<div class="sub-top-btn">
 				<div class="sns-area">
-					<button type="button" class="btn-sns" data-toggle="dropdown" aria-expanded="true">SNS</button>
+					<!-- [D] 250910 웹접근성 수정 / 내용: SNS버튼 aria-expanded 속성값을 true가 아닌 false로 변경 -->
+					<button type="button" class="btn-sns" data-toggle="dropdown" aria-expanded="false">SNS</button>
+					<!-- // [D] 250910 웹접근성 수정 -->
 					<ul class="dropdown-menu">
 						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns01"></i><span class="sr-only">네이버 새창열기</span></a></li>
 						<li><a href="#" target="_blank" title="새창이동"><i class="icon-sns02"></i><span class="sr-only">유튜브 새창열기</span></a></li>
